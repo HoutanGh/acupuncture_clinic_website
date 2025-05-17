@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Acupuncture HM Site</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="font-sans text-gray-800">
+        <!-- Navigation -->
+         <nav class="fixed top-0 inset-x-0 bg-white shadow z-50">
+            <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
+                <span class="text-xl font-bold">HealthMaster Acupuncture Clinic</span>
+                <ul class="flex space-x-6">
+                  <li><a href="#home" class="hover:text-teal-600">Home</a></li>
+                  <li><a href="#about" class="hover:text-teal-600">About Me</a></li>
+                  <li><a href="#info" class="hover:text-teal-600">Acupuncture Info</a></li>
+                  <li><a href="#prices" class="hover:text-teal-600">Prices</a></li>
+                  <li><a href="#blog" class="hover:text-teal-600">Blog</a></li>
+                </ul>
+              </div>
+         </nav>
+
+         <main class="pt-20 space-y-20">
+            <!-- Home Section-->
+             <section id="home" class="max-w-6xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-semibold mb-4">Welcome to Health Master Acupuncture</h2>
+                        <p class="text-lg leading-relaxed">
+                        Experience personalised, gentle acupuncture that restores balance and relieves pain.
+                        Book your first consultation today and begin your journey to better health.
+                        </p>
+                </div>
+                <form class="md:w-1/2 bg-gray-100 p-6 rounded-xl shadow" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input class="p-3 rounded border" type="text" name="first_name" placeholder="First name" required>
+                    <input class="p-3 rounded border" type="text" name="last_name" placeholder="Last name" required>
+                    <input class="p-3 rounded border md:col-span-2" type="email" name="email" placeholder="Email" required>
+                    <input class="p-3 rounded border md:col-span-2" type="tel" name="phone" placeholder="Phone number">
+                    </div>
+                    <textarea class="p-3 rounded border w-full mt-4" name="message" rows="4" placeholder="Additional information"></textarea>
+                    <button type="submit" class="mt-4 w-full py-3 rounded-xl bg-teal-600 text-white font-semibold hover:bg-teal-700 transition">
+                    Send
+                    </button>
+                </form>
+             </section>
+         </main>
+    </body>
+</html>

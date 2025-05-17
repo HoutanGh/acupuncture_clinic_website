@@ -1,0 +1,12 @@
+/* Custom styles for Harmony Acupuncture one‑page site */
+html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Add any additional custom styles below */
+  
+  /* Example: Highlight active nav link on hover */
+  nav a:hover {
+    text-decoration: underline;
+  }
+  

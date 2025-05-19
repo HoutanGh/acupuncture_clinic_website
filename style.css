@@ -9,4 +9,35 @@ html {
   nav a:hover {
     text-decoration: underline;
   }
+/* Serene background and section spacing */
+body {
+  background: linear-gradient(180deg, #f7fafc 0%, #e6fffa 100%);
+}
+
+section {
+  scroll-margin-top: 100px; /* Offset for fixed navbar */
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(0, 64, 64, 0.04);
+  margin-bottom: 2.5rem;
+  transition: background 0.3s;
+}
+
+section:nth-child(even) {
+  background: #f0fdfa;
+}
+
+section:nth-child(odd) {
+  background: #6ecedb;
+}
+
+/* Optional: subtle hover effect for sections */
+section:hover {
+  background: #e6fffa;
+}
+
+/* Extra spacing between sections if needed */
+main > section {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
   

@@ -7,7 +7,8 @@
 ### Ideas
 - All one page, have headers at the top but they just skip to a certain point in the one page.
 - form on the right side at the front
-- email and number at the top, above the headers 
+- email and number at the top, above the headers
+- look at MailCatcher 
 
 ### Features
 - form

@@ -1,135 +1,158 @@
 <!DOCTYPE html>
 <html lang='en'>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Acupuncture HM Site</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body class="font-sans text-gray-800">
-        <!-- Navigation -->
-         <nav class="fixed top-0 inset-x-0 bg-white shadow z-50">
-            <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
-                <span class="text-xl font-bold">HealthMaster Acupuncture Clinic</span>
-                <ul class="flex space-x-6">
-                  <li><a href="#home" class="hover:text-teal-600">Home</a></li>
-                  <li><a href="#about" class="hover:text-teal-600">About Me</a></li>
-                  <li><a href="#info" class="hover:text-teal-600">Acupuncture Info</a></li>
-                  <li><a href="#prices" class="hover:text-teal-600">Prices</a></li>
-                  <li><a href="#blog" class="hover:text-teal-600">Blog</a></li>
-                </ul>
-              </div>
-         </nav>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acupuncture HM Site</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Top Contact Bar -->
+    <div class="fixed top-0 inset-x-0 bg-gray-100 text-gray-700 text-sm z-50">
+        <div class="max-w-6xl mx-auto flex justify-end items-center px-4 py-2">
+            <span class="mr-6">
+                <svg class="inline h-4 w-4 mr-1 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 12a4 4 0 01-8 0 4 4 0 018 0z"/><path d="M12 2a10 10 0 00-7.07 17.07c.39.39 1.02.39 1.41 0l1.41-1.41a1 1 0 011.41 0l2.12 2.12a1 1 0 001.41 0l2.12-2.12a1 1 0 011.41 0l1.41 1.41c.39.39 1.02.39 1.41 0A10 10 0 0012 2z"/></svg>
+                01234 567890
+            </span>
+            <span>
+                <svg class="inline h-4 w-4 mr-1 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 12a4 4 0 01-8 0 4 4 0 018 0z"/><path d="M21 12.79A9 9 0 1112.79 3h.01"/></svg>
+                info@healthmaster.com
+            </span>
+        </div>
+    </div>
+    <!-- Navigation -->
+    <header>
+    <nav class="fixed top-9 inset-x-0 bg-white shadow z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-2">
+        <div class="flex items-center space-x-4">
+            <img src="healthmaster-logo.png" alt="HealthMaster Acupuncture Clinic Logo" class="h-32 w-auto"/>
+            <div class="flex flex-col">
+                <span class="text-2xl font-bold leading-tight text-gray-800">HealthMaster</span>
+                <span class="text-lg text-gray-600 -mt-1">Acupuncture Clinic</span>
+            </div>
+        </div>
+        <ul class="flex space-x-6">
+            <li><a href="#home" class=" text-gray-600" >Home</a></li>
+            <li><a href="#about" class=" text-gray-600">About Me</a></li>
+            <li><a href="#info" class=" text-gray-600">Acupuncture Info</a></li>
+            <li><a href="#prices" class=" text-gray-600">Prices</a></li>
+            <li><a href="#blog" class=" text-gray-600">Blog</a></li>
+        </ul>
+        </div>
+    </nav>
+    </header>
 
-         <main class="pt-20 space-y-20">
-            <!-- Home Section-->
-             <section id="home" class="max-w-6xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8">
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-semibold mb-4">Welcome to HealthMaster Acupuncture</h2>
-                        <p class="text-lg leading-relaxed">
-                        Experience personalised, gentle acupuncture that restores balance and relieves pain.
-                        Book your first consultation today and begin your journey to better health.
-                        </p>
-                </div>
-                <form class="md:w-1/2 bg-gray-100 p-6 rounded-xl shadow" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input class="p-3 rounded border" type="text" name="first_name" placeholder="First name" required>
-                    <input class="p-3 rounded border" type="text" name="last_name" placeholder="Last name" required>
-                    <input class="p-3 rounded border md:col-span-2" type="email" name="email" placeholder="Email" required>
-                    <input class="p-3 rounded border md:col-span-2" type="tel" name="phone" placeholder="Phone number">
-                    </div>
-                    <textarea class="p-3 rounded border w-full mt-4" name="message" rows="4" placeholder="Additional information"></textarea>
-                    <button type="submit" class="mt-4 w-full py-3 rounded-xl bg-teal-600 text-white font-semibold hover:bg-teal-700 transition">
-                    Send
-                    </button>
-                </form>
-             </section>
-            <!-- About Me -->
-            <section id="about" class="bg-gray-50">
-            <div class="max-w-6xl mx-auto p-8 flex flex-col md:flex-row-reverse items-center gap-8">
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl font-semibold mb-4">About Me</h2>
-                        <p class="text-lg leading-relaxed">
-                            Description abouut career
-                        </p>
-                </div>
-                <div class="md:w-1/2">
-                    <p class="text-lg leading-relaxed">
-                        Here you can expand on your qualifications, philosophy, and the unique approach you bring to each session.
-                    </p>
-                </div>
+    <main class="pt-32 space-y-20">
+    <!-- Home Section-->
+    <section id="home" class="bg-white">
+        <div class="max-w-6xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-1/2">
+            <h2 class="text-3xl font-semibold mb-4">Welcome to HealthMaster Acupuncture</h2>
+            <p class="text-lg leading-relaxed">
+            Experience personalised, gentle acupuncture that restores balance and relieves pain.
+            Book your first consultation today and begin your journey to better health.
+            </p>
+        </div>
+        <form class="md:w-1/2 bg-gray-100 p-6 rounded-xl shadow" action="https://formspree.io/f/REPLACE_WITH_YOUR_ID" method="POST">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input class="p-3 rounded border" type="text" name="first_name" placeholder="First name" required>
+            <input class="p-3 rounded border" type="text" name="last_name" placeholder="Last name" required>
+            <input class="p-3 rounded border md:col-span-2" type="email" name="email" placeholder="Email" required>
+            <input class="p-3 rounded border md:col-span-2" type="tel" name="phone" placeholder="Phone number">
             </div>
-            </section>
-            <!-- Acupuncture Information -->
-            <section id="info">
-            <div class="max-w-6xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8">
-                <div class="md:w-1/2">
-                <h2 class="text-3xl font-semibold mb-4">How Acupuncture Works</h2>
+            <textarea class="p-3 rounded border w-full mt-4" name="message" rows="4" placeholder="Additional information"></textarea>
+            <button type="submit" class="mt-4 w-full py-3 rounded-xl bg-teal-600 text-white font-semibold hover:bg-teal-700 transition">
+            Send
+            </button>
+        </form>
+        </div>
+    </section>
+    <!-- About Me -->
+    <section id="about" class="bg-gray-50">
+    <div class="max-w-6xl mx-auto p-8 flex flex-col md:flex-row-reverse items-center gap-8">
+        <div class="md:w-1/2">
+            <h2 class="text-3xl font-semibold mb-4">About Me</h2>
                 <p class="text-lg leading-relaxed">
-                    Acupuncture stimulates specific points on the body to balance energy flow, alleviate pain, and support overall health. It is recognised by the World Health Organisation for treating a wide range of conditions.
+                    Description abouut career
                 </p>
-                </div>
-                <div class="md:w-1/2">
-                <p class="text-lg leading-relaxed">
-                    Include FAQs, treatment expectations, and after-care tips to prepare new clients for their first session.
-                </p>
-                </div>
-            </div>
-            </section>
+        </div>
+        <div class="md:w-1/2">
+            <p class="text-lg leading-relaxed">
+                Here you can expand on your qualifications, philosophy, and the unique approach you bring to each session.
+            </p>
+        </div>
+    </div>
+    </section>
+    <!-- Acupuncture Information -->
+    <section id="info">
+    <div class="max-w-6xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-1/2">
+        <h2 class="text-3xl font-semibold mb-4">How Acupuncture Works</h2>
+        <p class="text-lg leading-relaxed">
+            Acupuncture stimulates specific points on the body to balance energy flow, alleviate pain, and support overall health. It is recognised by the World Health Organisation for treating a wide range of conditions.
+        </p>
+        </div>
+        <div class="md:w-1/2">
+        <p class="text-lg leading-relaxed">
+            Include FAQs, treatment expectations, and after-care tips to prepare new clients for their first session.
+        </p>
+        </div>
+    </div>
+    </section>
 
-            <!-- Prices -->
-            <section id="prices" class="bg-gray-50">
-            <div class="max-w-6xl mx-auto p-8 flex flex-col md:flex-row-reverse items-center gap-8">
-                <div class="md:w-1/2">
-                <h2 class="text-3xl font-semibold mb-4">Prices</h2>
-                <ul class="space-y-2 text-lg">
-                    <li>Initial Consultation & Treatment — £65</li>
-                    <li>Follow-up Treatment — £45</li>
-                    <li>Package of 6 Treatments — £240</li>
-                    <li>Student/Senior Discount — 10% off</li>
-                </ul>
-                </div>
-                <div class="md:w-1/2">
-                <p class="text-lg leading-relaxed">
-                    Add notes on payment options, insurance receipts, and cancellation policy here.
-                </p>
-                </div>
-            </div>
-            </section>
+    <!-- Prices -->
+    <section id="prices" class="bg-gray-50">
+    <div class="max-w-6xl mx-auto p-8 flex flex-col md:flex-row-reverse items-center gap-8">
+        <div class="md:w-1/2">
+        <h2 class="text-3xl font-semibold mb-4">Prices</h2>
+        <ul class="space-y-2 text-lg">
+            <li>Initial Consultation & Treatment — £65</li>
+            <li>Follow-up Treatment — £45</li>
+            <li>Package of 6 Treatments — £240</li>
+            <li>Student/Senior Discount — 10% off</li>
+        </ul>
+        </div>
+        <div class="md:w-1/2">
+        <p class="text-lg leading-relaxed">
+            Add notes on payment options, insurance receipts, and cancellation policy here.
+        </p>
+        </div>
+    </div>
+    </section>
 
-            <!-- Blog -->
-            <section id="blog">
-            <div class="max-w-6xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8">
-                <div class="md:w-1/2">
-                <h2 class="text-3xl font-semibold mb-4">Latest Blog Posts</h2>
-                <p class="text-lg leading-relaxed">
-                    Showcase recent articles on wellness, acupuncture research, and clinic updates. Link titles to full posts hosted elsewhere or expand this section later.
-                </p>
-                </div>
-                <div class="md:w-1/2">
-                <p class="text-lg leading-relaxed">
-                    • Understanding Qi: An Introduction<br>
-                    • Stress Relief Through Acupuncture<br>
-                    • Seasonal Tips for Optimal Health
-                </p>
-                </div>
+    <!-- Blog -->
+    <section id="blog">
+    <div class="max-w-6xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8">
+        <div class="md:w-1/2">
+        <h2 class="text-3xl font-semibold mb-4">Latest Blog Posts</h2>
+        <p class="text-lg leading-relaxed">
+            Showcase recent articles on wellness, acupuncture research, and clinic updates. Link titles to full posts hosted elsewhere or expand this section later.
+        </p>
+        </div>
+        <div class="md:w-1/2">
+        <p class="text-lg leading-relaxed">
+            • Understanding Qi: An Introduction<br>
+            • Stress Relief Through Acupuncture<br>
+            • Seasonal Tips for Optimal Health
+        </p>
+        </div>
+    </div>
+    </section>
+    </main>
+    <footer class="bg-white border-t mt-12">
+        <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between items-center text-gray-600">
+            <div class="mb-4 md:mb-0">
+                &copy; 2024 HealthMaster Acupuncture Clinic. All rights reserved.
             </div>
-            </section>
-         </main>
-            <footer class="bg-white border-t mt-12">
-                <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row justify-between items-center text-gray-600">
-                    <div class="mb-4 md:mb-0">
-                        &copy; 2024 HealthMaster Acupuncture Clinic. All rights reserved.
-                    </div>
-                    <div class="flex space-x-4">
-                        <a href="#home" class="hover:text-teal-600">Home</a>
-                        <a href="#about" class="hover:text-teal-600">About</a>
-                        <a href="#info" class="hover:text-teal-600">Info</a>
-                        <a href="#prices" class="hover:text-teal-600">Prices</a>
-                        <a href="#blog" class="hover:text-teal-600">Blog</a>
-                    </div>
-                </div>
-            </footer>
-    </body>
+            <div class="flex space-x-4">
+                <a href="#home" class="hover:text-teal-600">Home</a>
+                <a href="#about" class="hover:text-teal-600">About</a>
+                <a href="#info" class="hover:text-teal-600">Info</a>
+                <a href="#prices" class="hover:text-teal-600">Prices</a>
+                <a href="#blog" class="hover:text-teal-600">Blog</a>
+            </div>
+        </div>
+    </footer>
+</body>
 </html>

@@ -91,21 +91,7 @@ header ul li a:focus::after {
   width: 100%;
 }
 
-/* Button accent */
-button,
-.button-accent {
-  background: #c97a53;
-  color: #fff;
-  border: none;
-  border-radius: 0.75rem;
-  font-weight: 600;
-  transition: background 0.2s;
-}
 
-button:hover,
-.button-accent:hover {
-  background: #a85e3b;
-}
 
 /* Form backgrounds */
 form {
@@ -124,3 +110,65 @@ footer {
   color: #7c6f57;
   border-top: 1px solid #e9e4d5;
 }
+
+/* About Me Slider Styles */
+.slider-container {
+    position: relative;
+    min-height: 320px;
+    padding: 0 3rem; /* Add horizontal padding to create space for arrows */
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 3rem; /* Offset content to match padding */
+    right: 3rem; /* Offset content to match padding */
+    width: calc(100% - 6rem); /* Adjust width to account for padding */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slider-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-nav-btn.active span:first-child {
+    background-color: #c97a53; /* gray-400 instead of rust */
+}
+
+.slider-nav-btn.active span:last-child {
+    color: #000000; /* gray-500 instead of rust */
+    font-weight: 500; /* reduced from 600 */
+}
+
+.slider-arrow {
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    z-index: 10;
+}
+
+.slider-arrow:hover {
+    opacity: 1;
+}
+
+/* Position arrows outside the content area */
+.slider-prev {
+    left: 0;
+}
+
+.slider-next {
+    right: 0;
+}
+
+/* Sage color utilities */
+.bg-sage-50 { background-color: #f7f9f5; }
+.bg-sage-200 { background-color: #d4e4c1; }
+.text-sage-600 { color: #7c9063; }

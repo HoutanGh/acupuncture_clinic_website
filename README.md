@@ -21,3 +21,5 @@
 - [ ] security measures
     - not bot spamming but people being able to retrieve data being sent in the forms
 - [ ] QR code for website 
+- [ ] How Acupuncture works - icons that rotate around and explain different stuff
+- [ ] Prices highlight

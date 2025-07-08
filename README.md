@@ -23,3 +23,11 @@
 - [ ] QR code for website 
 - [ ] How Acupuncture works - icons that rotate around and explain different stuff
 - [ ] Prices highlight
+- [ ] maybe have the header go translucent when they start to scroll down
+- [ ] night mode
+
+
+### How Acupuncture works
+- Recognised by World Health Organisation
+- FAQs scroll
+- After-care tips

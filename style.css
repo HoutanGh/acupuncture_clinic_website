@@ -5,36 +5,84 @@ html {
 
 /* Background and section spacing */
 body {
-  background: linear-gradient(180deg, #f9f6f2 0%, #e9e4d5 100%);
+  background: linear-gradient(180deg, #f5f5f5 0%, #eeeeee 100%); /* Light neutral background */
 }
 
 main {
-  padding-top: 500px;
+  padding-top: 200px;
 }
 
-/* Section backgrounds */
+/* Add responsive adjustments */
+@media (max-width: 768px) {
+  main {
+    padding-top: 200px;
+  }
+}
+
+/* Section backgrounds with distinct colors */
 section {
   scroll-margin-top: 180px;
-  box-shadow: 0 4px 24px 0 rgba(183, 201, 168, 0.04); /* subtle sage shadow */
-  margin-bottom: 2.5rem;
-  transition: background 0.3s;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
+  margin-bottom: 3rem;
+  transition: all 0.3s;
+  border: 2px solid transparent;
 }
 
-section:nth-child(even) {
-  background: #f9f6f2; /* warm white */
+/* Home Section - Warm White */
+#home {
+  background: #ffffff;
+  border-color: #e8e8e8;
 }
 
-section:nth-child(odd) {
-  background: #e9e4d5; /* soft sand */
+#home:hover {
+  border-color: #c97a53;
 }
 
-section:hover {
-  background: #f3f0e8; /* slightly lighter sand on hover */
+/* About Section - Light Sage */
+#about {
+  background: #f7f9f5;
+  border-color: #d4e4c1;
+}
+
+#about:hover {
+  border-color: #b7c9a8;
+}
+
+/* Info Section - Light Blue-Gray */
+#info {
+  background: #f8f9fa;
+  border-color: #d1d5db;
+}
+
+#info:hover {
+  border-color: #9ca3af;
+}
+
+/* Prices Section - Light Peach */
+#prices {
+  background: #fef7f0;
+  border-color: #f3d5b5;
+}
+
+#prices:hover {
+  border-color: #e6b88a;
+}
+
+/* Blog Section - Light Lavender */
+#blog {
+  background: #f9f7ff;
+  border-color: #e0d4ff;
+}
+
+#blog:hover {
+  border-color: #c4b5fd;
 }
 
 main > section {
   margin-top: 3rem;
   margin-bottom: 3rem;
+  padding: 2rem;
+  border-radius: 12px;
 }
 
 /* Navigation Bar */
@@ -42,8 +90,9 @@ header {
   position: absolute;
   top: 0;
   width: 100%;
-  background: #f9f6f2; /* warm white */
+  background: #ffffff;
   text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 header ul {
@@ -59,7 +108,7 @@ header ul li {
 }
 
 header ul li a {
-  color: #7c6f57; /* muted brown/grey for links */
+  color: #4a5568;
   text-decoration: none;
   font-size: 1.2em;
   position: relative;
@@ -81,7 +130,7 @@ header ul li a::after {
   bottom: 0;
   width: 0;
   height: 2px;
-  background-color: #c97a53; /* rust underline */
+  background-color: #c97a53;
   transition: all 0.3s ease-out;
   transform: translateX(-50%);
 }
@@ -91,41 +140,78 @@ header ul li a:focus::after {
   width: 100%;
 }
 
+/* Button accent */
+button,
+.button-accent {
+  background: #c97a53;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
 
+button:hover,
+.button-accent:hover {
+  background: #a85e3b;
+}
 
 /* Form backgrounds */
 form {
-  background: #f9f6f2;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+form:hover {
+  border-color: #c97a53;
 }
 
 /* Top bar */
 .top-bar {
-  background: #e9e4d5;
-  color: #7c6f57;
+  background: #2d3748;
+  color: #e2e8f0;
 }
 
 /* Footer */
 footer {
-  background: #f9f6f2;
-  color: #7c6f57;
-  border-top: 1px solid #e9e4d5;
+  background: #2d3748;
+  color: #e2e8f0;
+  border-top: 1px solid #4a5568;
+}
+
+/* Container backgrounds for better distinction */
+.max-w-6xl {
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 0 auto;
 }
 
 /* About Me Slider Styles */
 .slider-container {
     position: relative;
     min-height: 320px;
-    padding: 0 3rem; /* Add horizontal padding to create space for arrows */
+    padding: 0 3rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    border: 2px solid #d4e4c1;
 }
 
 .slide {
     position: absolute;
     top: 0;
-    left: 3rem; /* Offset content to match padding */
-    right: 3rem; /* Offset content to match padding */
-    width: calc(100% - 6rem); /* Adjust width to account for padding */
+    left: 3rem;
+    right: 3rem;
+    width: calc(100% - 6rem);
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
 }
 
 .slide.active {
@@ -138,34 +224,193 @@ footer {
     align-items: center;
     cursor: pointer;
     transition: all 0.3s;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.slider-nav-btn:hover {
+    background: rgba(255, 255, 255, 1);
 }
 
 .slider-nav-btn.active span:first-child {
-    background-color: #c97a53; /* gray-400 instead of rust */
+    background-color: #c97a53;
 }
 
 .slider-nav-btn.active span:last-child {
-    color: #000000; /* gray-500 instead of rust */
-    font-weight: 500; /* reduced from 600 */
+    color: #c97a53;
+    font-weight: 500;
 }
 
 .slider-arrow {
     opacity: 0.7;
     transition: opacity 0.3s;
     z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid #e2e8f0;
+    border-radius: 50%;
 }
 
 .slider-arrow:hover {
     opacity: 1;
+    border-color: #c97a53;
 }
 
-/* Position arrows outside the content area */
 .slider-prev {
     left: 0;
 }
 
 .slider-next {
     right: 0;
+}
+
+/* Make home section the positioning context */
+#home {
+    position: relative;
+}
+
+/* Home Slider Styles */
+.home-slider-container {
+    position: relative;
+    min-height: 400px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    border: 2px solid #e8e8e8;
+}
+
+.home-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    padding: 2rem;
+}
+
+.home-slide.active {
+    opacity: 1;
+}
+
+.home-slider-nav-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0.5rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid #e2e8f0;
+}
+
+.home-slider-nav-btn:hover {
+    background: rgba(255, 255, 255, 1);
+    border-color: #c97a53;
+}
+
+.home-slider-nav-btn.active span:first-child {
+    background-color: #c97a53;
+}
+
+.home-slider-nav-btn.active span:last-child {
+    color: #c97a53;
+    font-weight: 500;
+}
+
+/* Arrow bars with distinct colors */
+.home-slider-arrow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2rem;
+    background: rgba(201, 122, 83, 0.15); /* Rust color with transparency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+}
+
+.home-slider-arrow:hover {
+    background: rgba(201, 122, 83, 0.3); /* More visible on hover */
+}
+
+.home-slider-prev {
+    left: 0;
+}
+
+.home-slider-next {
+    right: 0;
+}
+
+/* Arrow icons */
+.home-slider-arrow svg {
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.home-slider-arrow:hover svg {
+    opacity: 1;
+}
+
+/* Card-like containers for content */
+.content-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+}
+
+.content-card:hover {
+    border-color: #c97a53;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 220px;
+    margin-bottom: 2rem;
+  }
+  
+  .slider-container {
+    padding: 0 1rem;
+  }
+  
+  .slide {
+    left: 1rem;
+    right: 1rem;
+    width: calc(100% - 2rem);
+  }
+  
+  .slider-arrow {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .max-w-6xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .home-slider-arrow {
+    display: none;
+  }
 }
 
 /* Sage color utilities */

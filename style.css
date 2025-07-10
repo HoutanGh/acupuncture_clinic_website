@@ -1,110 +1,129 @@
+/* ===================== Root & Global ===================== */
 /* Muted Naturals Palette for HealthMaster Acupuncture */
 html {
   scroll-behavior: smooth;
 }
 
-/* Background and section spacing */
 body {
-  background: linear-gradient(180deg, #f5f5f5 0%, #eeeeee 100%); /* Light neutral background */
+  background: linear-gradient(180deg, #f5f5f5 0%, #eeeeee 100%);
+  margin: 0;
+  padding: 0;
 }
 
+body * {
+  box-sizing: border-box;
+}
+
+/* Layout */
 main {
-  padding-top: 200px;
+  padding-top: 180px; /* clear contact + nav */
+  margin: 0;
 }
 
-/* Add responsive adjustments */
 @media (max-width: 768px) {
   main {
-    padding-top: 200px;
+    padding-top: 240px;
   }
 }
 
-/* Section backgrounds with distinct colors */
 section {
   scroll-margin-top: 180px;
-  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.08);
-  margin-bottom: 3rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  margin-bottom: 4rem;
   transition: all 0.3s;
   border: 2px solid transparent;
-}
-
-/* Home Section - Warm White */
-#home {
-  background: #ffffff;
-  border-color: #e8e8e8;
-}
-
-#home:hover {
-  border-color: #c97a53;
-}
-
-/* About Section - Light Sage */
-#about {
-  background: #f7f9f5;
-  border-color: #d4e4c1;
-}
-
-#about:hover {
-  border-color: #b7c9a8;
-}
-
-/* Info Section - Light Blue-Gray */
-#info {
-  background: #f8f9fa;
-  border-color: #d1d5db;
-}
-
-#info:hover {
-  border-color: #9ca3af;
-}
-
-/* Prices Section - Light Peach */
-#prices {
-  background: #fef7f0;
-  border-color: #f3d5b5;
-}
-
-#prices:hover {
-  border-color: #e6b88a;
-}
-
-/* Blog Section - Light Lavender */
-#blog {
-  background: #f9f7ff;
-  border-color: #e0d4ff;
-}
-
-#blog:hover {
-  border-color: #c4b5fd;
-}
-
-main > section {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  padding: 2rem;
   border-radius: 12px;
+  padding: 3rem;
+  position: relative;
 }
 
-/* Navigation Bar */
-header {
-  position: absolute;
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 220px;
+    margin-bottom: 2rem;
+    padding: 2rem;
+  }
+}
+
+main > * + * {
+  margin-top: 4rem;
+}
+
+@media (max-width: 768px) {
+  main > * + * {
+    margin-top: 2rem;
+  }
+}
+
+/* Utilities */
+.max-w-6xl {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+@media (max-width: 640px) {
+  .max-w-6xl {
+    padding: 0 1rem;
+  }
+}
+
+.bg-sage-50  { background-color: #f7f9f5; }
+.bg-sage-200 { background-color: #d4e4c1; }
+.text-sage-600 { color: #7c9063; }
+
+button[type="submit"],
+.button-accent {
+  background: #c97a53;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+button[type="submit"]:hover,
+.button-accent:hover {
+  background: #a85e3b;
+}
+
+/* ===================== 1. Top Contact Bar ===================== */
+.top-contact-bar {
+  position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+  height: 40px;
+  background: #f3f4f6;
+  z-index: 60;
+}
+
+/* ===================== 2. Navigation Bar (Header) ===================== */
+header {
+  position: fixed;
+  top: 40px;
+  left: 0;
+  right: 0;
   background: #ffffff;
-  text-align: center;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+}
+
+header nav {
+  position: relative;
+  background: transparent;
+  box-shadow: none;
 }
 
 header ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
 }
 
 header ul li {
-    margin: 0 15px;
+  margin: 0 15px;
 }
 
 header ul li a {
@@ -117,7 +136,6 @@ header ul li a {
   transition: color 0.2s;
 }
 
-/* Rust/Terracotta accent for hover/active links */
 header ul li a:hover,
 header ul li a:focus {
   color: #c97a53;
@@ -140,23 +158,97 @@ header ul li a:focus::after {
   width: 100%;
 }
 
-/* Button accent */
-button,
-.button-accent {
-  background: #c97a53;
-  color: #fff;
+/* ===================== 3. Home Section ===================== */
+#home {
+  background: #ffffff;
+  border-color: #e8e8e8;
+  position: relative;
+}
+#home:hover { border-color: #c97a53; }
+
+/* Home Slider */
+.home-slider-container {
+  position: relative;
+  min-height: 400px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  border: 2px solid #e8e8e8;
+  margin: 2rem 0;
+}
+
+.home-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  padding: 2rem;
+}
+.home-slide.active { opacity: 1; }
+
+.home-slider-nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e2e8f0;
+}
+.home-slider-nav-btn:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: #c97a53;
+}
+.home-slider-nav-btn.active span:first-child { background-color: #c97a53; }
+.home-slider-nav-btn.active span:last-child  { color: #c97a53; font-weight: 500; }
+
+/* Home slider arrows */
+.home-slider-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3rem;
+  background: rgba(201, 122, 83, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 15;
   border: none;
-  border-radius: 0.75rem;
-  font-weight: 600;
-  transition: background 0.2s;
+  border-radius: 0;
+}
+.home-slider-arrow:hover { background: rgba(201, 122, 83, 0.4); }
+
+.home-slider-arrow svg {
+  opacity: 0.9;
+  transition: opacity 0.3s;
+  color: #ffffff;
+}
+.home-slider-arrow:hover svg { opacity: 1; }
+
+.home-slider-prev { left: -5rem; }
+.home-slider-next { right: -5rem; }
+
+@media (max-width: 968px) {
+  .home-slider-prev { left: -3rem; }
+  .home-slider-next { right: -3rem; }
+}
+@media (max-width: 768px) {
+  .home-slider-arrow { width: 2rem; }
+  .home-slider-prev { left: -2rem; }
+  .home-slider-next { right: -2rem; }
+}
+@media (max-width: 640px) {
+  .home-slider-arrow { display: none; }
 }
 
-button:hover,
-.button-accent:hover {
-  background: #a85e3b;
-}
-
-/* Form backgrounds */
+/* Home form (contact) */
 form {
   background: #ffffff;
   border: 2px solid #e2e8f0;
@@ -164,256 +256,107 @@ form {
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+form:hover { border-color: #c97a53; }
 
-form:hover {
+/* ===================== 4. About Me Section ===================== */
+#about { background: #f7f9f5; border-color: #d4e4c1; }
+#about:hover { border-color: #b7c9a8; }
+
+/* About slider */
+.slider-container {
+  position: relative;
+  min-height: 320px;
+  padding: 0 4rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  border: 2px solid #d4e4c1;
+  margin: 2rem 0;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 4rem;
+  right: 4rem;
+  width: calc(100% - 8rem);
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+.slide.active { opacity: 1; }
+
+.slider-nav-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0.5rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid #e2e8f0;
+}
+.slider-nav-btn:hover {
+  background: rgba(255, 255, 255, 1);
   border-color: #c97a53;
 }
+.slider-nav-btn.active span:first-child { background-color: #c97a53; }
+.slider-nav-btn.active span:last-child  { color: #c97a53; font-weight: 500; }
 
-/* Top bar */
-.top-bar {
-  background: #2d3748;
-  color: #e2e8f0;
+/* Shared slider arrows */
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #e2e8f0;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.slider-arrow:hover { opacity: 1; border-color: #c97a53; }
+
+.slider-prev { left: -4rem; }
+.slider-next { right: -4rem; }
+
+@media (max-width: 968px) {
+  .slider-container { padding: 0 2rem; }
+  .slide { left: 2rem; right: 2rem; width: calc(100% - 4rem); }
+  .slider-prev { left: -3rem; }
+  .slider-next { right: -3rem; }
+}
+@media (max-width: 768px) {
+  .slider-container { padding: 0 1rem; }
+  .slide { left: 1rem; right: 1rem; width: calc(100% - 2rem); }
+  .slider-arrow { display: none; }
 }
 
-/* Footer */
+/* ===================== 5. How Acupuncture Works Section ===================== */
+#info { background: #f8f9fa; border-color: #d1d5db; }
+#info:hover { border-color: #9ca3af; }
+
+/* ===================== 6. Prices Section ===================== */
+#prices { background: #fef7f0; border-color: #f3d5b5; }
+#prices:hover { border-color: #e6b88a; }
+
+/* ===================== 7. Latest Blog Posts Section ===================== */
+#blog { background: #f9f7ff; border-color: #e0d4ff; }
+#blog:hover { border-color: #c4b5fd; }
+
+/* ===================== 8. Footer ===================== */
 footer {
   background: #2d3748;
   color: #e2e8f0;
   border-top: 1px solid #4a5568;
+  margin-top: 4rem;
 }
-
-/* Container backgrounds for better distinction */
-.max-w-6xl {
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 8px;
-  padding: 1.5rem;
-  margin: 0 auto;
-}
-
-/* About Me Slider Styles */
-.slider-container {
-    position: relative;
-    min-height: 320px;
-    padding: 0 3rem;
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 12px;
-    border: 2px solid #d4e4c1;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    left: 3rem;
-    right: 3rem;
-    width: calc(100% - 6rem);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    padding: 2rem;
-    background: #ffffff;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
-}
-
-.slide.active {
-    opacity: 1;
-}
-
-.slider-nav-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    padding: 0.5rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.8);
-}
-
-.slider-nav-btn:hover {
-    background: rgba(255, 255, 255, 1);
-}
-
-.slider-nav-btn.active span:first-child {
-    background-color: #c97a53;
-}
-
-.slider-nav-btn.active span:last-child {
-    color: #c97a53;
-    font-weight: 500;
-}
-
-.slider-arrow {
-    opacity: 0.7;
-    transition: opacity 0.3s;
-    z-index: 10;
-    background: rgba(255, 255, 255, 0.9);
-    border: 2px solid #e2e8f0;
-    border-radius: 50%;
-}
-
-.slider-arrow:hover {
-    opacity: 1;
-    border-color: #c97a53;
-}
-
-.slider-prev {
-    left: 0;
-}
-
-.slider-next {
-    right: 0;
-}
-
-/* Make home section the positioning context */
-#home {
-    position: relative;
-}
-
-/* Home Slider Styles */
-.home-slider-container {
-    position: relative;
-    min-height: 400px;
-    padding: 0;
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    border: 2px solid #e8e8e8;
-}
-
-.home-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    padding: 2rem;
-}
-
-.home-slide.active {
-    opacity: 1;
-}
-
-.home-slider-nav-btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    padding: 0.5rem;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.8);
-    border: 1px solid #e2e8f0;
-}
-
-.home-slider-nav-btn:hover {
-    background: rgba(255, 255, 255, 1);
-    border-color: #c97a53;
-}
-
-.home-slider-nav-btn.active span:first-child {
-    background-color: #c97a53;
-}
-
-.home-slider-nav-btn.active span:last-child {
-    color: #c97a53;
-    font-weight: 500;
-}
-
-/* Arrow bars with distinct colors */
-.home-slider-arrow {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 2rem;
-    background: rgba(201, 122, 83, 0.15); /* Rust color with transparency */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    z-index: 10;
-    border: none;
-    outline: none;
-    border-radius: 4px;
-}
-
-.home-slider-arrow:hover {
-    background: rgba(201, 122, 83, 0.3); /* More visible on hover */
-}
-
-.home-slider-prev {
-    left: 0;
-}
-
-.home-slider-next {
-    right: 0;
-}
-
-/* Arrow icons */
-.home-slider-arrow svg {
-    opacity: 0.8;
-    transition: opacity 0.3s;
-}
-
-.home-slider-arrow:hover svg {
-    opacity: 1;
-}
-
-/* Card-like containers for content */
-.content-card {
-    background: #ffffff;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s;
-}
-
-.content-card:hover {
-    border-color: #c97a53;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  section {
-    scroll-margin-top: 220px;
-    margin-bottom: 2rem;
-  }
-  
-  .slider-container {
-    padding: 0 1rem;
-  }
-  
-  .slide {
-    left: 1rem;
-    right: 1rem;
-    width: calc(100% - 2rem);
-  }
-  
-  .slider-arrow {
-    display: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .max-w-6xl {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  section {
-    margin-bottom: 1.5rem;
-  }
-  
-  .home-slider-arrow {
-    display: none;
-  }
-}
-
-/* Sage color utilities */
-.bg-sage-50 { background-color: #f7f9f5; }
-.bg-sage-200 { background-color: #d4e4c1; }
-.text-sage-600 { color: #7c9063; }

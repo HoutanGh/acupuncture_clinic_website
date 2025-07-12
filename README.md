@@ -31,3 +31,8 @@
 - Recognised by World Health Organisation
 - FAQs scroll
 - After-care tips
+
+
+
+- GPT prompt
+    - tell it my situation with overlaps between index and style and how to incorporate the config file, ask for step bystep on what to do

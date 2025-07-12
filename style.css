@@ -1,77 +1,75 @@
-/* ===================== Root & Global ===================== */
-/* Muted Naturals Palette for HealthMaster Acupuncture */
-html {
-  scroll-behavior: smooth;
-}
+/* =====================================================================
+   0.  Global tweaks that Tailwind pre-flight doesn’t cover
+===================================================================== */
 
-body {
-  background: linear-gradient(180deg, #f5f5f5 0%, #eeeeee 100%);
-  margin: 0;
-  padding: 0;
-}
-
-body * {
-  box-sizing: border-box;
-}
-
-/* Layout */
+/* ---------- Layout ---------- */
 main {
-  padding-top: 180px; /* clear contact + nav */
+  /* space below fixed contact bar + nav (desktop) */
   margin: 0;
+  padding-top: 180px;
 }
 
 @media (max-width: 768px) {
-  main {
-    padding-top: 240px;
-  }
+  /* extra space on small screens (bar wraps) */
+  main { padding-top: 240px; }
 }
 
+/* ---------- Generic card-like sections ---------- */
 section {
+  /* smooth scrolling anchor offset */
   scroll-margin-top: 180px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+
+  position: relative;
+  padding: 3rem;
   margin-bottom: 4rem;
-  transition: all 0.3s;
+
   border: 2px solid transparent;
   border-radius: 12px;
-  padding: 3rem;
-  position: relative;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
 }
 
 @media (max-width: 768px) {
   section {
     scroll-margin-top: 220px;
-    margin-bottom: 2rem;
     padding: 2rem;
+    margin-bottom: 2rem;
   }
 }
 
-main > * + * {
-  margin-top: 4rem;
-}
+/* vertical rhythm between cards */
+main > * + * { margin-top: 4rem; }
+@media (max-width: 768px) { main > * + * { margin-top: 2rem; } }
 
-@media (max-width: 768px) {
-  main > * + * {
-    margin-top: 2rem;
-  }
-}
+/* =====================================================================
+   1.  Helper utilities (only items still used)
+===================================================================== */
 
-/* Utilities */
-.max-w-6xl {
-  max-width: 72rem;
-  margin: 0 auto;
-  padding: 0 1.5rem;
+/* Fancy underline for nav links */
+.nav-link {
+  position: relative;
+  padding-bottom: 0.125rem;   /* 2px */
 }
-
-@media (max-width: 640px) {
-  .max-w-6xl {
-    padding: 0 1rem;
-  }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #c97a53;
+  transform: translateX(-50%);
+  transition: width 0.3s ease-out;
 }
+.nav-link:hover::after,
+.nav-link:focus::after { width: 100%; }
 
+/* Custom sage palette */
 .bg-sage-50  { background-color: #f7f9f5; }
 .bg-sage-200 { background-color: #d4e4c1; }
 .text-sage-600 { color: #7c9063; }
 
+/* Accent buttons */
 button[type="submit"],
 .button-accent {
   background: #c97a53;
@@ -82,156 +80,70 @@ button[type="submit"],
   transition: background 0.2s;
 }
 button[type="submit"]:hover,
-.button-accent:hover {
-  background: #a85e3b;
-}
+.button-accent:hover { background: #a85e3b; }
 
-/* ===================== 1. Top Contact Bar ===================== */
-.top-contact-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: #f3f4f6;
-  z-index: 60;
-}
+/* =====================================================================
+   2.  Home slider
+===================================================================== */
 
-/* ===================== 2. Navigation Bar (Header) ===================== */
-header {
-  position: fixed;
-  top: 40px;
-  left: 0;
-  right: 0;
-  background: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 50;
-}
-
-header nav {
-  position: relative;
-  background: transparent;
-  box-shadow: none;
-}
-
-header ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-
-header ul li {
-  margin: 0 15px;
-}
-
-header ul li a {
-  color: #4a5568;
-  text-decoration: none;
-  font-size: 1.2em;
-  position: relative;
-  padding: 5px 0;
-  display: inline-block;
-  transition: color 0.2s;
-}
-
-header ul li a:hover,
-header ul li a:focus {
-  color: #c97a53;
-}
-
-header ul li a::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 0;
-  height: 2px;
-  background-color: #c97a53;
-  transition: all 0.3s ease-out;
-  transform: translateX(-50%);
-}
-
-header ul li a:hover::after,
-header ul li a:focus::after {
-  width: 100%;
-}
-
-/* ===================== 3. Home Section ===================== */
-#home {
-  background: #ffffff;
-  border-color: #e8e8e8;
-  position: relative;
-}
-#home:hover { border-color: #c97a53; }
-
-/* Home Slider */
-.home-slider-container {
-  position: relative;
-  min-height: 400px;
-  padding: 0;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12px;
-  border: 2px solid #e8e8e8;
-  margin: 2rem 0;
-}
-
+/* Individual slides */
 .home-slide {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   width: 100%;
+  padding: 2rem;
   opacity: 0;
   transition: opacity 0.5s ease-in-out;
-  padding: 2rem;
 }
 .home-slide.active { opacity: 1; }
 
+/* Dot navigation buttons */
 .home-slider-nav-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
-  transition: all 0.3s;
   padding: 0.5rem;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.8);
   border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 .home-slider-nav-btn:hover {
-  background: rgba(255, 255, 255, 1);
+  background: #fff;
   border-color: #c97a53;
 }
-.home-slider-nav-btn.active span:first-child { background-color: #c97a53; }
+.home-slider-nav-btn.active span:first-child { background: #c97a53; }
 .home-slider-nav-btn.active span:last-child  { color: #c97a53; font-weight: 500; }
 
-/* Home slider arrows */
+/* ── Arrows (full-height clickable bars) ─────────────────────────── */
 .home-slider-arrow {
   position: absolute;
   top: 0;
-  bottom: 0;
+  bottom: 0;                   /* stretch full height */
   width: 3rem;
+  border: none;
+  border-radius: 0;
   background: rgba(201, 122, 83, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
   z-index: 15;
-  border: none;
-  border-radius: 0;
 }
 .home-slider-arrow:hover { background: rgba(201, 122, 83, 0.4); }
 
 .home-slider-arrow svg {
+  color: #ffffff;
   opacity: 0.9;
   transition: opacity 0.3s;
-  color: #ffffff;
 }
 .home-slider-arrow:hover svg { opacity: 1; }
 
+/* default offsets */
 .home-slider-prev { left: -5rem; }
 .home-slider-next { right: -5rem; }
 
@@ -241,122 +153,87 @@ header ul li a:focus::after {
 }
 @media (max-width: 768px) {
   .home-slider-arrow { width: 2rem; }
-  .home-slider-prev { left: -2rem; }
-  .home-slider-next { right: -2rem; }
+  .home-slider-prev  { left: -2rem; }
+  .home-slider-next  { right: -2rem; }
 }
-@media (max-width: 640px) {
-  .home-slider-arrow { display: none; }
-}
+@media (max-width: 640px) { .home-slider-arrow { display: none; } }
 
-/* Home form (contact) */
-form {
-  background: #ffffff;
-  border: 2px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-form:hover { border-color: #c97a53; }
+/* =====================================================================
+   3.  About-Me slider
+===================================================================== */
 
-/* ===================== 4. About Me Section ===================== */
-#about { background: #f7f9f5; border-color: #d4e4c1; }
-#about:hover { border-color: #b7c9a8; }
-
-/* About slider */
-.slider-container {
-  position: relative;
-  min-height: 320px;
-  padding: 0 4rem;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 12px;
-  border: 2px solid #d4e4c1;
-  margin: 2rem 0;
-}
-
+/* Slides (inherits base from .home-slide but w/ lateral padding) */
 .slide {
   position: absolute;
   top: 0;
   left: 4rem;
   right: 4rem;
   width: calc(100% - 8rem);
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
   padding: 2rem;
   background: #ffffff;
-  border-radius: 8px;
   border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 .slide.active { opacity: 1; }
 
+/* Dot nav buttons (share styles with Home via mix-class) */
 .slider-nav-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
-  transition: all 0.3s;
   padding: 0.5rem;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.8);
   border: 1px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 .slider-nav-btn:hover {
-  background: rgba(255, 255, 255, 1);
+  background: #fff;
   border-color: #c97a53;
 }
-.slider-nav-btn.active span:first-child { background-color: #c97a53; }
+.slider-nav-btn.active span:first-child { background: #c97a53; }
 .slider-nav-btn.active span:last-child  { color: #c97a53; font-weight: 500; }
 
-/* Shared slider arrows */
+/* ── Arrows (small circular buttons centred vertically) ──────────── */
 .slider-arrow {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  opacity: 0.7;
-  transition: opacity 0.3s;
-  z-index: 10;
+  width: 3rem;
+  height: 3rem;
   background: rgba(255, 255, 255, 0.9);
   border: 2px solid #e2e8f0;
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s, border-color 0.3s;
+  z-index: 10;
 }
 .slider-arrow:hover { opacity: 1; border-color: #c97a53; }
+
+.slider-arrow svg { color: #666; }
 
 .slider-prev { left: -4rem; }
 .slider-next { right: -4rem; }
 
+/* Responsive tweaks */
 @media (max-width: 968px) {
-  .slider-container { padding: 0 2rem; }
   .slide { left: 2rem; right: 2rem; width: calc(100% - 4rem); }
   .slider-prev { left: -3rem; }
   .slider-next { right: -3rem; }
 }
 @media (max-width: 768px) {
-  .slider-container { padding: 0 1rem; }
   .slide { left: 1rem; right: 1rem; width: calc(100% - 2rem); }
   .slider-arrow { display: none; }
 }
 
-/* ===================== 5. How Acupuncture Works Section ===================== */
-#info { background: #f8f9fa; border-color: #d1d5db; }
-#info:hover { border-color: #9ca3af; }
-
-/* ===================== 6. Prices Section ===================== */
-#prices { background: #fef7f0; border-color: #f3d5b5; }
-#prices:hover { border-color: #e6b88a; }
-
-/* ===================== 7. Latest Blog Posts Section ===================== */
-#blog { background: #f9f7ff; border-color: #e0d4ff; }
-#blog:hover { border-color: #c4b5fd; }
-
-/* ===================== 8. Footer ===================== */
-footer {
-  background: #2d3748;
-  color: #e2e8f0;
-  border-top: 1px solid #4a5568;
-  margin-top: 4rem;
-}
+/* =====================================================================
+   4.  Sections 5–8 (Info, Prices, Blog, Footer)
+       - use only Tailwind classes - no extra CSS here
+===================================================================== */

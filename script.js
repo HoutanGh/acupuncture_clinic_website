@@ -84,36 +84,102 @@ document.addEventListener("DOMContentLoaded", function () {
         nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
     }
 
-    // Home Slider functionality
+    // Enhanced Home Slider functionality
     let currentHomeSlide = 0;
+    let isHomeSliding = false;
     const homeSlides = document.querySelectorAll('.home-slide');
-    const homeNavBtns = document.querySelectorAll('.home-slider-nav-btn');
     const homePrevBtn = document.querySelector('.home-slider-prev');
     const homeNextBtn = document.querySelector('.home-slider-next');
+    const locationDetails = document.getElementById('location-details');
 
-    function showHomeSlide(n) {
-        if (homeSlides.length === 0) return;
+    function updateHomeArrowVisibility() {
+        if (!homePrevBtn || !homeNextBtn) return;
         
-        homeSlides[currentHomeSlide].classList.remove('active');
-        homeNavBtns[currentHomeSlide].classList.remove('active');
-        
-        currentHomeSlide = (n + homeSlides.length) % homeSlides.length;
-        
-        homeSlides[currentHomeSlide].classList.add('active');
-        homeNavBtns[currentHomeSlide].classList.add('active');
+        if (currentHomeSlide === 0) {
+            // Welcome slide - show only right arrow and location details
+            homePrevBtn.style.display = 'none';
+            homeNextBtn.style.display = 'flex';
+            if (locationDetails) {
+                locationDetails.classList.remove('hidden');
+            }
+        } else if (currentHomeSlide === 1) {
+            // Find Me slide - show only left arrow and hide location details
+            homePrevBtn.style.display = 'flex';
+            homeNextBtn.style.display = 'none';
+            if (locationDetails) {
+                locationDetails.classList.add('hidden');
+            }
+        }
     }
 
-    if (homeNavBtns.length > 0) {
-        homeNavBtns.forEach((btn, index) => {
-            btn.addEventListener('click', () => showHomeSlide(index));
-        });
+    function slideToNext() {
+        if (isHomeSliding || currentHomeSlide === 1) return;
+        
+        isHomeSliding = true;
+        
+        // Hide location details immediately when transitioning
+        if (locationDetails) {
+            locationDetails.classList.add('hidden');
+        }
+        
+        // Slide current slide left
+        homeSlides[0].classList.add('slide-left');
+        homeSlides[0].classList.remove('active');
+        
+        // Slide next slide in from right
+        homeSlides[1].classList.remove('slide-right');
+        homeSlides[1].classList.add('active');
+        
+        currentHomeSlide = 1;
+        
+        // After animation completes
+        setTimeout(() => {
+            updateHomeArrowVisibility();
+            isHomeSliding = false;
+        }, 600);
     }
 
+    function slideToPrev() {
+        if (isHomeSliding || currentHomeSlide === 0) return;
+        
+        isHomeSliding = true;
+        
+        // Slide current slide right
+        homeSlides[1].classList.add('slide-right');
+        homeSlides[1].classList.remove('active');
+        
+        // Slide previous slide in from left
+        homeSlides[0].classList.remove('slide-left');
+        homeSlides[0].classList.add('active');
+        
+        currentHomeSlide = 0;
+        
+        // After animation completes
+        setTimeout(() => {
+            updateHomeArrowVisibility();
+            isHomeSliding = false;
+        }, 600);
+    }
+
+    // Event listeners for arrows
     if (homePrevBtn) {
-        homePrevBtn.addEventListener('click', () => showHomeSlide(currentHomeSlide - 1));
+        homePrevBtn.addEventListener('click', slideToPrev);
     }
 
     if (homeNextBtn) {
-        homeNextBtn.addEventListener('click', () => showHomeSlide(currentHomeSlide + 1));
+        homeNextBtn.addEventListener('click', slideToNext);
     }
+
+    // Initialize
+    function initializeHomeSlider() {
+        if (homeSlides.length === 0) return;
+        
+        homeSlides[0].classList.add('active');
+        homeSlides[1].classList.add('slide-right');
+        
+        updateHomeArrowVisibility();
+    }
+
+    // Initialize
+    initializeHomeSlider();
 });

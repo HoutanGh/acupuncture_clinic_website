@@ -1,3 +1,13 @@
+### Home 
+- welcome and introductory message
+- form to contact
+- arrow to find me part
+- arrow on right side when on home section and on left side when on find me section 
+    - sideways animation
+- on the arrow have WELCOME, and LOCATION
+
+
+
 ### Pages
 - About me
 - Acupuncture information (what I have personally learnt)
@@ -34,5 +44,3 @@
 
 
 
-- GPT prompt
-    - tell it my situation with overlaps between index and style and how to incorporate the config file, ask for step bystep on what to do

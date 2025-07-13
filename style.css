@@ -86,77 +86,120 @@ button[type="submit"]:hover,
    2.  Home slider
 ===================================================================== */
 
+/* Add overflow hidden to container */
+.home-slider-container {
+  overflow: hidden;
+}
+
 /* Individual slides */
 .home-slide {
   position: absolute;
   top: 0;
-  right: 0;
   left: 0;
   width: 100%;
   padding: 2rem;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  opacity: 1;
+  transform: translateX(0);
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.home-slide.active { opacity: 1; }
+.home-slide.active {
+  transform: translateX(0);
+  z-index: 2;
+}
 
-/* Dot navigation buttons */
-.home-slider-nav-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.5rem;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #e2e8f0;
-  cursor: pointer;
-  transition: all 0.3s;
+/* Slide positions */
+.home-slide.slide-left {
+  transform: translateX(-100%);
 }
-.home-slider-nav-btn:hover {
-  background: #fff;
-  border-color: #c97a53;
+
+.home-slide.slide-right {
+  transform: translateX(100%);
 }
-.home-slider-nav-btn.active span:first-child { background: #c97a53; }
-.home-slider-nav-btn.active span:last-child  { color: #c97a53; font-weight: 500; }
+
+/* Vertical text styling - positioned closer to arrow */
+.vertical-text {
+  writing-mode: vertical-lr;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  white-space: nowrap;
+  color: #000;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  z-index: 10;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+  right: 3.5rem; /* Moved closer to arrow (was 4rem) */
+  transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth transition */
+  opacity: 1;
+}
+
+/* Hide vertical text when not on welcome slide */
+.vertical-text.hidden {
+  opacity: 0;
+  transform: translateY(-50%) rotate(180deg) translateX(20px); /* Slide out slightly */
+}
 
 /* ── Arrows (full-height clickable bars) ─────────────────────────── */
 .home-slider-arrow {
   position: absolute;
   top: 0;
-  bottom: 0;                   /* stretch full height */
+  bottom: 0;
   width: 3rem;
   border: none;
   border-radius: 0;
   background: rgba(201, 122, 83, 0.2);
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 15;
 }
-.home-slider-arrow:hover { background: rgba(201, 122, 83, 0.4); }
+
+.home-slider-arrow:hover { 
+  background: rgba(201, 122, 83, 0.4); 
+}
 
 .home-slider-arrow svg {
   color: #ffffff;
   opacity: 0.9;
-  transition: opacity 0.3s;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-.home-slider-arrow:hover svg { opacity: 1; }
 
-/* default offsets */
-.home-slider-prev { left: -5rem; }
-.home-slider-next { right: -5rem; }
+.home-slider-arrow:hover svg { 
+  opacity: 1; 
+}
 
+/* Arrow positions */
+.home-slider-prev { 
+  left: 0; 
+}
+
+.home-slider-next { 
+  right: 0; 
+}
+
+/* Responsive adjustments */
 @media (max-width: 968px) {
-  .home-slider-prev { left: -3rem; }
-  .home-slider-next { right: -3rem; }
+  .home-slider-arrow { width: 2.5rem; }
+  .vertical-text { 
+    font-size: 0.75rem; 
+    right: 3rem; /* Closer to smaller arrow */
+  }
 }
+
 @media (max-width: 768px) {
   .home-slider-arrow { width: 2rem; }
-  .home-slider-prev  { left: -2rem; }
-  .home-slider-next  { right: -2rem; }
+  .vertical-text { 
+    display: none; /* Hide on mobile */
+  }
 }
-@media (max-width: 640px) { .home-slider-arrow { display: none; } }
+
+@media (max-width: 640px) { 
+  .home-slider-arrow { display: none !important; } 
+}
 
 /* =====================================================================
    3.  About-Me slider

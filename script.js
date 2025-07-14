@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const homePrevBtn = document.querySelector('.home-slider-prev');
     const homeNextBtn = document.querySelector('.home-slider-next');
     const locationDetails = document.getElementById('location-details');
+    const welcomeText = document.getElementById('welcome-text');
 
     function updateHomeArrowVisibility() {
         if (!homePrevBtn || !homeNextBtn) return;
@@ -102,12 +103,20 @@ document.addEventListener("DOMContentLoaded", function () {
             if (locationDetails) {
                 locationDetails.classList.remove('hidden');
             }
+            if (welcomeText) {
+                welcomeText.classList.remove('visible');
+                welcomeText.classList.add('hidden');
+            }
         } else if (currentHomeSlide === 1) {
-            // Find Me slide - show only left arrow and hide location details
+            // Find Me slide - show only left arrow and welcome text
             homePrevBtn.style.display = 'flex';
             homeNextBtn.style.display = 'none';
             if (locationDetails) {
                 locationDetails.classList.add('hidden');
+            }
+            if (welcomeText) {
+                welcomeText.classList.remove('hidden');
+                welcomeText.classList.add('visible');
             }
         }
     }
@@ -117,9 +126,13 @@ document.addEventListener("DOMContentLoaded", function () {
         
         isHomeSliding = true;
         
-        // Hide location details immediately when transitioning
+        // Hide location details and show welcome text immediately when transitioning
         if (locationDetails) {
             locationDetails.classList.add('hidden');
+        }
+        if (welcomeText) {
+            welcomeText.classList.remove('hidden');
+            welcomeText.classList.add('visible');
         }
         
         // Slide current slide left
@@ -143,6 +156,15 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isHomeSliding || currentHomeSlide === 0) return;
         
         isHomeSliding = true;
+        
+        // Hide welcome text and show location details immediately when transitioning
+        if (welcomeText) {
+            welcomeText.classList.remove('visible');
+            welcomeText.classList.add('hidden');
+        }
+        if (locationDetails) {
+            locationDetails.classList.remove('hidden');
+        }
         
         // Slide current slide right
         homeSlides[1].classList.add('slide-right');

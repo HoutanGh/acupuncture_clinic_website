@@ -5,7 +5,8 @@
 - arrow on right side when on home section and on left side when on find me section 
     - sideways animation
 - on the arrow have WELCOME, and LOCATION
-
+- form
+    - idea to use FASTAPI to work out my own form
 
 
 ### Pages

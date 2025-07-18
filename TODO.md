@@ -1,0 +1,17 @@
+### weekend 19/07/25
+- [ ] About Me page
+    - [ ] the different tabs
+    - [ ] make sure the box fits all the information needed
+    - [ ] arrows in the center
+    - [ ] section not too big
+-  [ ] meeting with dad
+    - talk about suggestions for each section
+        - How Acupuncture works
+            - slideshow of images that each explain something
+        - Prices
+            - what the different treatments are
+            - should this provided with the form page
+            - maybe have categories in the form (initial consultantion, follow-up, package, etc.)
+        - Blog?
+- [ ] change the location text to be vertical 
+- [ ] nice background in between the sections

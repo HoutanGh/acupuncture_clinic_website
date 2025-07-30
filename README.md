@@ -1,47 +1,55 @@
-### Home 
-- welcome and introductory message
-- form to contact
-- arrow to find me part
-- arrow on right side when on home section and on left side when on find me section 
-    - sideways animation
-- on the arrow have WELCOME, and LOCATION
-- form
-    - idea to use FASTAPI to work out my own form
+# Acupuncture Clinic Website
 
+A modern, responsive website for an acupuncture clinic, built with HTML, CSS, JavaScript, and FastAPI for the backend.
 
-### Pages
-- About me
-- Acupuncture information (what I have personally learnt)
-- Prices
-- Blog (what you read and do in your spare time)
+## 📋 Overview
 
-### Ideas
-- [x] All one page, have headers at the top but they just skip to a certain point in the one page.
-- [x] form on the right side at the front
-- [x] email and number at the top, above the headers
-- [x] look at MailCatcher 
-- [ ] placeholder for where to find clinic
-    - just have 
-- [ ] arrow to change the booking page to find calendar spot
-- [ ] profile, circle picture, certificates below
+This website provides information about acupuncture services, practitioner details, pricing, and includes a contact form for patient enquiries. The site features a clean, professional design suitable for healthcare practices.
 
-### Features
-- [x] form
-- [ ] phone compatability
-- [ ] reacts well to window-sizing
-- [ ] security measures
-    - not bot spamming but people being able to retrieve data being sent in the forms
-- [ ] QR code for website 
-- [ ] How Acupuncture works - icons that rotate around and explain different stuff
-- [ ] Prices highlight
-- [ ] maybe have the header go translucent when they start to scroll down
-- [ ] night mode
+## 🚀 Features
 
+### Current Features
+- **Single-page application** with smooth navigation between sections
+- **Contact form** with FastAPI backend integration
+- **Responsive design** that works on desktop and mobile devices
+- **Professional sections**:
+  - About the practitioner
+  - Acupuncture information and benefits
+  - Service pricing
+  - Clinic location details
+- **Contact information** prominently displayed
 
-### How Acupuncture works
-- Recognised by World Health Organisation
-- FAQs scroll
-- After-care tips
+### Planned Features
+- Night mode toggle
+- Enhanced mobile compatibility
+- Form security measures and spam protection
+- QR code for easy website access
+- Interactive "How Acupuncture Works" section with rotating icons
+- Appointment booking calendar integration
+- Professional certificates display
+
+## 🛠️ Technology Stack
+
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Backend**: Python with FastAPI
+- **Environment**: Python virtual environment (`clinic_env/`)
+- **Assets**: Images stored in `images/` directory
+
+## 📁 Project Structure
+
+```
+acupuncture_clinic_website/
+├── index.html              # Main website page
+├── style.css               # Stylesheet
+├── script.js               # JavaScript functionality
+├── main.py                 # FastAPI backend server
+├── images/                 # Website images and assets
+├── clinic_env/             # Python virtual environment
+├── archive/                # Previous website versions
+├── README.md               # This file
+├── TODO.md                 # Development tasks and progress
+└── notes.md                # Development notes
+```
 
 
 

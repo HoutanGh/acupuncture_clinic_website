@@ -3,43 +3,19 @@
 ===================================================================== */
 
 /* ---------- Layout ---------- */
-main {
-  /* space below fixed contact bar + nav (desktop) */
-  margin: 0;
-  padding-top: 180px;
-}
 
-@media (max-width: 768px) {
-  /* extra space on small screens (bar wraps) */
-  main { padding-top: 240px; }
-}
+
+
 
 /* ---------- Generic card-like sections ---------- */
 section {
   /* smooth scrolling anchor offset */
   scroll-margin-top: 180px;
-
   position: relative;
-  padding: 3rem;
   margin-bottom: 4rem;
-
   border: 2px solid transparent;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   transition: all 0.3s;
 }
-
-@media (max-width: 768px) {
-  section {
-    scroll-margin-top: 220px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-  }
-}
-
-/* vertical rhythm between cards */
-main > * + * { margin-top: 4rem; }
-@media (max-width: 768px) { main > * + * { margin-top: 2rem; } }
 
 /* =====================================================================
    1.  Helper utilities (only items still used)
@@ -240,77 +216,7 @@ button[type="submit"]:hover,
    3.  About-Me slider
 ===================================================================== */
 
-/* Slides (inherits base from .home-slide but w/ lateral padding) */
-.slide {
-  position: absolute;
-  top: 0;
-  left: 4rem;
-  right: 4rem;
-  width: calc(100% - 8rem);
-  padding: 1.5rem;
-  padding-top: 2rem;
-  padding-bottom: 66rem;
-  background: #ffffff;
-  border-radius: 8px;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-.slide.active { opacity: 1; }
 
-/* Dot nav buttons (share styles with Home via mix-class) */
-.slider-nav-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.5rem;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
-  border: 1px solid #e2e8f0;
-  cursor: pointer;
-  transition: all 0.3s;  
-}
-.slider-nav-btn:hover {
-  background: #fff;
-  border-color: #c97a53;
-}
-.slider-nav-btn.active span:first-child { background: #c97a53; }
-.slider-nav-btn.active span:last-child  { color: #c97a53; font-weight: 500; }
-
-/* ── Arrows (small circular buttons centred vertically) ──────────── */
-.slider-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 3rem;
-  height: 3rem;
-  background: rgba(255, 255, 255, 0.9);
-  border: 2px solid #e2e8f0;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  opacity: 0.7;
-  transition: opacity 0.3s, border-color 0.3s;
-  z-index: 10;
-}
-.slider-arrow:hover { opacity: 1; border-color: #c97a53; }
-
-.slider-arrow svg { color: #666; }
-
-.slider-prev { left: -4rem; }
-.slider-next { right: -4rem; }
-
-/* Responsive tweaks */
-@media (max-width: 968px) {
-  .slide { left: 2rem; right: 2rem; width: calc(100% - 4rem); }
-  .slider-prev { left: -3rem; }
-  .slider-next { right: -3rem; }
-}
-@media (max-width: 768px) {
-  .slide { left: 1rem; right: 1rem; width: calc(100% - 2rem); }
-  .slider-arrow { display: none; }
-}
 
 /* =====================================================================
    4.  Sections 5–8 (Info, Prices, Blog, Footer)

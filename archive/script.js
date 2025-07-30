@@ -53,6 +53,36 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    // About Me Slider functionality
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const navBtns = document.querySelectorAll('.slider-nav-btn');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+
+    function showSlide(n) {
+        slides[currentSlide].classList.remove('active');
+        navBtns[currentSlide].classList.remove('active');
+        
+        currentSlide = (n + slides.length) % slides.length;
+        
+        slides[currentSlide].classList.add('active');
+        navBtns[currentSlide].classList.add('active');
+    }
+
+    if (navBtns.length > 0) {
+        navBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => showSlide(index));
+        });
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
+    }
 
     // Enhanced Home Slider functionality
     let currentHomeSlide = 0;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth scroll-pt-32 md:scroll-pt-40 lg:scroll-pt-48">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -49,84 +49,132 @@
 
             <!-- Links -->
             <ul class="flex flex-wrap justify-center list-none space-x-2 md:space-x-4 lg:space-x-6">
-            <li><a href="#home"   class="nav-link text-sm md:text-base text-gray-600 hover:text-[#c97a53] transition-colors">Home</a></li>
-            <li><a href="#about"  class="nav-link text-sm md:text-base text-gray-600 hover:text-[#c97a53] transition-colors">About Acupuncture</a></li>
-            <li><a href="#info"   class="nav-link text-sm md:text-base text-gray-600 hover:text-[#c97a53] transition-colors">About Me</a></li>
-            <li><a href="#prices" class="nav-link text-sm md:text-base text-gray-600 hover:text-[#c97a53] transition-colors">Prices</a></li>
-            <li><a href="#blog"   class="nav-link text-sm md:text-base text-gray-600 hover:text-[#c97a53] transition-colors">Location</a></li>
+            <li><a href="#home"        class="nav-link text-sm md:text-base text-gray-600 hover:text-[#c97a53] transition-colors">Home</a></li>
+            <li><a href="#about"       class="nav-link text-sm md:text-base text-gray-600 hover:text-[#c97a53] transition-colors">About Me</a></li>
+            <li><a href="#acupuncture" class="nav-link text-sm md:text-base text-gray-600 hover:text-[#c97a53] transition-colors">About Acupuncture</a></li>
+            <li><a href="#conditions"  class="nav-link text-sm md:text-base text-gray-600 hover:text-[#c97a53] transition-colors">Treated Conditions</a></li>
+            <li><a href="#prices"      class="nav-link text-sm md:text-base text-gray-600 hover:text-[#c97a53] transition-colors">Prices</a></li>
+            <li><a href="#location"    class="nav-link text-sm md:text-base text-gray-600 hover:text-[#c97a53] transition-colors">Location</a></li>
             </ul>
         </div>
         </nav>
     </header>
 
     <main class="pt-40 md:pt-48 lg:pt-52 space-y-12">
-    <!-- Home section -->
-    <section id="home" class="relative bg-white border-2 border-gray-200 hover:border-[#c97a53] rounded-xl shadow">
-      <div class="max-w-6xl mx-auto">
-        <div class="relative">
-          <!-- Contact form section -->
-          <div class="min-h-[500px] bg-white/90 rounded-xl my-8">
-            <div class="flex flex-col md:flex-row items-center gap-8 ml-4 md:ml-8 lg:ml-16 mr-20">
-              <div class="md:w-1/2">
-                <h2 class="text-3xl font-semibold mb-4">Welcome to HealthMaster Acupuncture</h2>
-                <p class="text-lg leading-relaxed">
-                  Experience personalised, gentle acupuncture that restores balance and relieves pain.
-                  Book your first consultation today and begin your journey to better health.
-                </p>
-              </div>
+    <!-- ═══ Welcome Section ═══ -->
+    <section
+    id="home"
+    class="relative bg-gradient-to-br from-sage-50 via-white to-sage-100 border-2 border-sage-200/70 hover:border-[#c97a53] rounded-2xl shadow-lg overflow-hidden"
+    >
 
-              <!-- Contact form -->
-              <form action="https://formspree.io/f/xgvyeokn" method="POST" class="md:w-1/2 bg-gray-100 p-6 rounded-xl shadow space-y-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <input class="p-3 rounded border w-full" type="text" name="first_name" placeholder="First name" required />
-                  <input class="p-3 rounded border w-full" type="text" name="last_name" placeholder="Last name" required />
-                  <input class="p-3 rounded border md:col-span-2 w-full" type="email" name="email" placeholder="Email" required />
-                  <input class="p-3 rounded border md:col-span-2 w-full" type="tel" name="phone" placeholder="Phone number" />
-                </div>
-                <textarea class="p-3 rounded border w-full" name="message" rows="4" placeholder="Additional information"></textarea>
-                <button type="submit" class="mt-4 w-full py-3 rounded-xl button-accent">Send</button>
-              </form>
+    <div class="relative max-w-6xl mx-auto px-6 py-16 lg:flex lg:items-center lg:gap-16">
+        <!-- Hero content -->
+        <div class="lg:w-1/2 space-y-8">
+
+        <!-- Main heading -->
+        <div class="space-y-6">
+            <h1 class="text-4xl lg:text-6xl font-bold text-sage-800 leading-tight">
+            Welcome to
+            <span class="block text-[#c97a53]">HealthMaster</span>
+            <span class="block text-3xl lg:text-4xl font-medium text-sage-600">Acupuncture</span>
+            </h1>
+            <p class="text-xl text-sage-700 leading-relaxed max-w-lg">
+            Experience personalised, gentle acupuncture that restores balance and relieves pain. 
+            Begin your journey to better health with evidence-based treatment.
+            </p>
+        </div>
+        </div>
+
+        <!-- Contact form -->
+        <div class="mt-8 lg:mt-0 lg:w-1/2">
+        <div id="contact" class="bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-sage-100">
+            <!-- Form header -->
+            <div class="text-center mb-6">
+            <h3 class="text-2xl font-bold text-sage-800 mb-2">Book Your Consultation</h3>
+            <p class="text-sage-600">Start your journey to pain-free living today</p>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- About Acupuncture Section -->
-    <section id="acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 hover:border-[#c97a53] rounded-2xl shadow-lg overflow-hidden">
-    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row">
-        <!-- Intro / Icon -->
-        <div class="w-full lg:w-1/3 bg-white/95 backdrop-blur-sm lg:rounded-l-2xl p-10 flex flex-col items-center text-center space-y-6">
-        <svg class="w-16 h-16 text-[#c97a53]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a1 1 0 011 1v4h4a1 1 0 010 2h-4v4a1 1 0 01-2 0v-4H7a1 1 0 010-2h4V3a1 1 0 011-1z"/></svg>
-        <h2 class="text-2xl font-bold text-sage-600">About Acupuncture</h2>
-        <p class="text-gray-700 text-[15px]">Discover how medical acupuncture blends ancient wisdom with modern science to relieve pain and restore balance.</p>
-        </div>
-        <!-- Details Grid -->
-        <div class="w-full lg:w-2/3 p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <!-- Card: What is Acupuncture -->
-        <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
-            <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2"><svg class="w-5 h-5 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20"><path d="M4 2a1 1 0 011 1v2h2a1 1 0 010 2H5v2a1 1 0 01-2 0V7H1a1 1 0 010-2h2V3a1 1 0 011-1z"/></svg>What Is Medical Acupuncture?</h3>
-            <p class="text-gray-700 text-[14px] leading-relaxed">Insertion of fine needles into specific points, often with manual stimulation or low-frequency currents. Standard course: 5–8 weekly sessions.</p>
-        </div>
-        <!-- Card: Benefits & Science -->
-        <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
-            <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2"><svg class="w-5 h-5 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a4 4 0 00-4 4v2H4a2 2 0 000 4h2v2a4 4 0 008 0v-2h2a2 2 0 000-4h-2V6a4 4 0 00-4-4z"/></svg>Benefits & Science</h3>
-            <p class="text-gray-700 text-[14px] leading-relaxed">Needle stimulation releases endorphins and serotonin, modulating pain. Research shows relief for back, knee, neck pain, migraines, tension headaches, and nausea.</p>
-        </div>
-        <!-- Card: Why Choose Us -->
-        <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
-            <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2"><svg class="w-5 h-5 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20"><path d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5z"/></svg>Why Choose a Medical Acupuncturist?</h3>
-            <p class="text-gray-700 text-[14px] leading-relaxed">We combine medical training with acupuncture expertise, coordinating your care, understanding your history, and ensuring safe, integrated treatment.</p>
-        </div>
-        <!-- Card: Tradition & Modernity -->
-        <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
-            <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2"><svg class="w-5 h-5 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10a8 8 0 1116 0 8 8 0 01-16 0z"/></svg>Tradition Meets Modern Science</h3>
-            <p class="text-gray-700 text-[14px] leading-relaxed">With over 4,000 years of history, acupuncture is now backed by modern research and used in UK pain clinics for evidence-based care.</p>
+            <form id="contact-form" class="space-y-4">
+            <!-- Name fields -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="space-y-1">
+                <label class="text-sm font-medium text-sage-700">First Name</label>
+                <input
+                    type="text"
+                    name="first_name"
+                    required
+                    class="w-full p-3 border border-sage-200 rounded-xl focus:border-[#c97a53] focus:ring-2 focus:ring-[#c97a53]/20 transition-colors"
+                    placeholder=""
+                />
+                </div>
+                <div class="space-y-1">
+                <label class="text-sm font-medium text-sage-700">Last Name</label>
+                <input
+                    type="text"
+                    name="last_name"
+                    required
+                    class="w-full p-3 border border-sage-200 rounded-xl focus:border-[#c97a53] focus:ring-2 focus:ring-[#c97a53]/20 transition-colors"
+                    placeholder=""
+                />
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="space-y-1">
+                <label class="text-sm font-medium text-sage-700">Email Address</label>
+                <input
+                type="email"
+                name="email"
+                required
+                class="w-full p-3 border border-sage-200 rounded-xl focus:border-[#c97a53] focus:ring-2 focus:ring-[#c97a53]/20 transition-colors"
+                placeholder=""
+                />
+            </div>
+
+            <!-- Phone -->
+            <div class="space-y-1">
+                <label class="text-sm font-medium text-sage-700">Phone Number</label>
+                <input
+                type="tel"
+                name="phone"
+                class="w-full p-3 border border-sage-200 rounded-xl focus:border-[#c97a53] focus:ring-2 focus:ring-[#c97a53]/20 transition-colors"
+                placeholder=""
+                />
+            </div>
+
+            <!-- Message -->
+            <div class="space-y-1">
+                <label class="text-sm font-medium text-sage-700">Tell us about your condition</label>
+                <textarea
+                name="message"
+                rows="3"
+                class="w-full p-3 border border-sage-200 rounded-xl focus:border-[#c97a53] focus:ring-2 focus:ring-[#c97a53]/20 transition-colors resize-none"
+                placeholder="Describe your symptoms, pain areas, or what you'd like help with..."
+                ></textarea>
+            </div>
+
+            <!-- Submit button -->
+            <button
+                type="submit"
+                class="w-full py-3 bg-gradient-to-r from-[#c97a53] to-[#b66a48] text-white font-semibold rounded-xl hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+            >
+                <span class="flex items-center justify-center gap-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                </svg>
+                Send Message
+                </span>
+            </button>
+
+            <!-- Form feedback -->
+            <p id="form-feedback" class="text-sm text-[#c97a53] hidden text-center">
+                Submission failed. Please try again.
+            </p>
+            </form>
         </div>
         </div>
     </div>
     </section>
-
 
 
     <!-- About Me Section -->
@@ -226,6 +274,41 @@
             </ul>
             </div>
         </section>
+        </div>
+    </div>
+    </section>
+
+    <!-- About Acupuncture Section -->
+    <section id="acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 hover:border-[#c97a53] rounded-2xl shadow-lg overflow-hidden">
+    <div class="max-w-6xl mx-auto flex flex-col lg:flex-row">
+        <!-- Intro / Icon -->
+        <div class="w-full lg:w-1/3 bg-white/95 backdrop-blur-sm lg:rounded-l-2xl p-10 flex flex-col items-center text-center space-y-6">
+        <svg class="w-16 h-16 text-[#c97a53]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a1 1 0 011 1v4h4a1 1 0 010 2h-4v4a1 1 0 01-2 0v-4H7a1 1 0 010-2h4V3a1 1 0 011-1z"/></svg>
+        <h2 class="text-2xl font-bold text-sage-600">About Acupuncture</h2>
+        <p class="text-gray-700 text-[15px]">Discover how medical acupuncture blends ancient wisdom with modern science to relieve pain and restore balance.</p>
+        </div>
+        <!-- Details Grid -->
+        <div class="w-full lg:w-2/3 p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Card: What is Acupuncture -->
+        <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
+            <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2"><svg class="w-5 h-5 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20"><path d="M4 2a1 1 0 011 1v2h2a1 1 0 010 2H5v2a1 1 0 01-2 0V7H1a1 1 0 010-2h2V3a1 1 0 011-1z"/></svg>What Is Medical Acupuncture?</h3>
+            <p class="text-gray-700 text-[14px] leading-relaxed">Insertion of fine needles into specific points, often with manual stimulation or low-frequency currents. Standard course: 5–8 weekly sessions.</p>
+        </div>
+        <!-- Card: Benefits & Science -->
+        <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
+            <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2"><svg class="w-5 h-5 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a4 4 0 00-4 4v2H4a2 2 0 000 4h2v2a4 4 0 008 0v-2h2a2 2 0 000-4h-2V6a4 4 0 00-4-4z"/></svg>Benefits & Science</h3>
+            <p class="text-gray-700 text-[14px] leading-relaxed">Needle stimulation releases endorphins and serotonin, modulating pain. Research shows relief for back, knee, neck pain, migraines, tension headaches, and nausea.</p>
+        </div>
+        <!-- Card: Why Choose Us -->
+        <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
+            <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2"><svg class="w-5 h-5 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20"><path d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5z"/></svg>Why Choose a Medical Acupuncturist?</h3>
+            <p class="text-gray-700 text-[14px] leading-relaxed">We combine medical training with acupuncture expertise, coordinating your care, understanding your history, and ensuring safe, integrated treatment.</p>
+        </div>
+        <!-- Card: Tradition & Modernity -->
+        <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
+            <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2"><svg class="w-5 h-5 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10a8 8 0 1116 0 8 8 0 01-16 0z"/></svg>Tradition Meets Modern Science</h3>
+            <p class="text-gray-700 text-[14px] leading-relaxed">With over 4,000 years of history, acupuncture is now backed by modern research and used in UK pain clinics for evidence-based care.</p>
+        </div>
         </div>
     </div>
     </section>
@@ -349,7 +432,7 @@
             <li>Bank transfer</li>
             <li>Cheque</li>
             </ul>
-            <a href="#contact"
+            <a href="#home"
             class="mt-auto inline-block px-5 py-2 bg-[#c97a53] text-white font-medium rounded-full
                     transition-colors hover:bg-[#b66a48]">
             Book Now
@@ -450,11 +533,12 @@
         &copy; 2024 HealthMaster Acupuncture Clinic. All rights reserved.
         </p>
         <nav class="flex space-x-4">
-        <a href="#home"   class="hover:text-[#c97a53]">Home</a>
-        <a href="#about"  class="hover:text-[#c97a53]">About</a>
-        <a href="#info"   class="hover:text-[#c97a53]">Info</a>
-        <a href="#prices" class="hover:text-[#c97a53]">Prices</a>
-        <a href="#blog"   class="hover:text-[#c97a53]">Blog</a>
+        <a href="#home"        class="hover:text-[#c97a53]">Home</a>
+        <a href="#about"       class="hover:text-[#c97a53]">About Me</a>
+        <a href="#acupuncture" class="hover:text-[#c97a53]">About Acupuncture</a>
+        <a href="#conditions"  class="hover:text-[#c97a53]">Treated Conditions</a>
+        <a href="#prices"      class="hover:text-[#c97a53]">Prices</a>
+        <a href="#location"    class="hover:text-[#c97a53]">Location</a>
         </nav>
     </div>
     </footer>

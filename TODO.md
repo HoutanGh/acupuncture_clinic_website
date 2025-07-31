@@ -1,11 +1,14 @@
 ### week 28/07/25
-- [ ] Get the order right
-- [ ] Fix the navigation bar
-- [ ] Price section "Book Now" goes to form functionality
-- [ ] Form
-- [ ] Welcome Page
+- [x] Get the order right
+- [x] Fix the navigation bar
+- [x] Price section "Book Now" goes to form functionality
+- [x] Welcome Page
 - [ ] Location Page
+    - add images
+    - google maps integration
+    - nice formatting
 - [ ] Plan better Treated Conditions
+- [ ] Form
 - [x] Fix up directory
     - moved MVP files to root as main website
     - archived old files in archive/ folder

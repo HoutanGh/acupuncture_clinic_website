@@ -3,12 +3,18 @@
 - [x] Fix the navigation bar
 - [x] Price section "Book Now" goes to form functionality
 - [x] Welcome Page
-- [ ] Location Page
-    - add images
-    - google maps integration
+- [x] Location Page
+    - [x] add images
+    - [x] google maps integration
     - nice formatting
 - [ ] Plan better Treated Conditions
+    - remove the shaded bits of the diagram
+    - think about hover boxes 
+    - "wide spread, as well as specific"
 - [ ] Form
+- [ ] colour palette
+- [ ] background
+- [ ] Nightmode
 - [x] Fix up directory
     - moved MVP files to root as main website
     - archived old files in archive/ folder

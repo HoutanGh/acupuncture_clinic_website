@@ -313,60 +313,152 @@
     </div>
     </section>
 
-    <!-- Treated Conditions Section -->
-    <section id="conditions" class="relative bg-white py-16 relative bg-sage-50 border-2 border-sage-200/70 hover:border-[#c97a53] rounded-2xl shadow-lg overflow-hidden">
-    <div class="max-w-5xl mx-auto px-4">
+    <!-- ═══ Treated Conditions Section (re-organised) ═══ -->
+<section id="conditions"
+  class="relative bg-sage-50 border-2 border-sage-200/70 hover:border-[#c97a53]
+         rounded-2xl shadow-lg overflow-hidden py-16">
+  <div class="max-w-6xl mx-auto px-6 space-y-14">
 
-        <!-- Section header -->
-        <h2 class="text-3xl font-bold text-center text-sage-700 mb-12
-                inline-block relative
-                ">
-        Treated Conditions
-        </h2>
+    <!-- Title -->
+    <header class="text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+        Conditions&nbsp;We&nbsp;Treat
+      </h2>
+      <p class="mt-2 text-lg text-gray-600">
+        Click on the points to learn more.
+      </p>
+    </header>
 
-        <div class="grid gap-10 md:grid-cols-2 items-start">
+    <!-- ▸ Intro & Holistic Approach (two-col on lg) -->
+    <div class="grid gap-8 lg:grid-cols-2 items-start">
+      <!-- Intro paragraph -->
+      <div class="space-y-4 text-gray-700 leading-relaxed">
+        <p>
+          Acupuncture supports the body’s natural ability to heal by
+          addressing physical symptoms <em>and</em> emotional well-being.
+          Every session is personalised to your lifestyle and goals, leaving
+          you relaxed and revitalised.
+        </p>
+      </div>
 
-        <!-- Intro copy -->
-        <div class="space-y-4 text-gray-700 text-base leading-relaxed">
-            <p>
-            Acupuncture is a holistic therapy that supports the body’s natural ability to heal by addressing not only physical symptoms but also emotional and mental well-being. I take a personalised approach - each session is tailored to your unique condition, lifestyle, and overall health goals, helping to restore harmony and enhance your sense of well-being.
-            </p>
-            <p class="font-medium">
-            On the right are some of the most frequently seen conditions in the clinic.
-            </p>
-            <!--
-            Optional illustration placeholder:
-            <div class="mt-6">
-                <img src="/images/body-map.svg" alt="Acupuncture treatment areas" class="rounded-xl shadow-md"/>
-            </div>
-            -->
-        </div>
+      <!-- Holistic card -->
+      <div
+        class="bg-white p-6 rounded-2xl shadow-md space-y-4 border-l-4 border-[#c97a53]/80"
+      >
+        <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2">
+          <svg class="w-5 h-5 text-[#c97a53]" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10 2a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0V6H8a1 1 0 110-2h1V3a1 1 0 011-1z"/>
+          </svg>
+          A Holistic&nbsp;&amp;&nbsp;Personalised Approach
+        </h3>
+        <ul class="space-y-2 text-gray-700 text-sm">
+          <li class="flex gap-3">
+            <span class="mt-1.5 w-2 h-2 bg-[#c97a53]/70 rounded-full"></span>
+            Addresses body, mind&nbsp;&amp;&nbsp;spirit for complete care.
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1.5 w-2 h-2 bg-[#c97a53]/70 rounded-full"></span>
+            Treatment plans tailored to your unique needs.
+          </li>
+          <li class="flex gap-3">
+            <span class="mt-1.5 w-2 h-2 bg-[#c97a53]/70 rounded-full"></span>
+            Focus on restoring balance and lasting relief.
+          </li>
+        </ul>
+      </div>
+    </div><!-- /intro + holistic -->
 
-        <!-- Condition cards -->
-        <div class="grid gap-6 sm:grid-cols-2">
-            <div class="bg-white rounded-2xl border-t-4 border-sage-600 p-6 shadow transition-transform hover:scale-105">
-            <h4 class="text-lg font-semibold text-sage-800">Fibromyalgia &amp; Chronic Primary Pain</h4>
-            </div>
-            <div class="bg-white rounded-2xl border-t-4 border-[#c97a53] p-6 shadow transition-shadow hover:shadow-lg">
-            <h4 class="text-lg font-semibold text-sage-800">Tension-Type Headaches</h4>
-            </div>
-            <div class="bg-white rounded-2xl border-t-4 border-sage-600 p-6 shadow transition-opacity hover:opacity-95">
-            <h4 class="text-lg font-semibold text-sage-800">Migraine Headaches</h4>
-            </div>
-            <div class="bg-white rounded-2xl border-t-4 border-[#c97a53] p-6 shadow transition-transform hover:scale-105">
-            <h4 class="text-lg font-semibold text-sage-800">Chronic Low Back Pain</h4>
-            </div>
-            <div class="bg-white rounded-2xl border-t-4 border-sage-600 p-6 shadow transition-shadow hover:shadow-lg">
-            <h4 class="text-lg font-semibold text-sage-800">Chronic Neck Pain</h4>
-            </div>
-            <div class="bg-white rounded-2xl border-t-4 border-[#c97a53] p-6 shadow transition-opacity hover:opacity-95">
-            <h4 class="text-lg font-semibold text-sage-800">Chronic Knee Pain</h4>
-            </div>
-        </div>
+    <!-- ▸ Interactive body-map + linked cards -->
+    <div class="grid gap-10 lg:grid-cols-2 items-start">
+      <!-- Body map -->
+      <figure class="relative w-full max-w-sm mx-auto lg:sticky lg:top-28">
+        <img src="images/conditions.png"
+             alt="Body map highlighting common pain areas"
+             class="w-full h-auto rounded-2xl shadow-md" />
 
-        </div>
-    </div>
-    </section>
+        <!-- Map points (positions already fine-tuned) -->
+        <button class="condition-point absolute w-6 h-6 bg-[#c97a53]/70 border-2 border-white rounded-full
+                       transform -translate-x-1/2 -translate-y-1/2 shadow-lg
+                       hover:bg-[#c97a53] hover:scale-125 transition"
+                data-condition="headaches" style="top:14.5%; left:26%;"></button>
+
+        <button class="condition-point absolute w-6 h-6 bg-[#c97a53]/70 border-2 border-white rounded-full
+                       transform -translate-x-1/2 -translate-y-1/2 shadow-lg
+                       hover:bg-[#c97a53] hover:scale-125 transition"
+                data-condition="neck-pain" style="top:25%; left:73.5%;"></button>
+
+        <button class="condition-point absolute w-6 h-6 bg-[#c97a53]/70 border-2 border-white rounded-full
+                       transform -translate-x-1/2 -translate-y-1/2 shadow-lg
+                       hover:bg-[#c97a53] hover:scale-125 transition"
+                data-condition="back-pain" style="top:45.5%; left:73.5%;"></button>
+
+        <button class="condition-point absolute w-6 h-6 bg-[#c97a53]/70 border-2 border-white rounded-full
+                       transform -translate-x-1/2 -translate-y-1/2 shadow-lg
+                       hover:bg-[#c97a53] hover:scale-125 transition"
+                data-condition="knee-pain" style="top:63.5%; left:32%;"></button>
+      </figure>
+
+      <!-- Interactive cards -->
+      <div class="space-y-6">
+        <article id="condition-headaches"
+          class="condition-info p-6 bg-white rounded-lg shadow
+                 border-l-4 border-transparent hover:border-sage-300 transition">
+          <h3 class="text-lg font-semibold text-sage-600">Migraines &amp; Headaches</h3>
+          <p class="mt-2 text-gray-700 text-sm">
+            Reduces the frequency and intensity of chronic headaches by
+            calming nerve pathways and promoting relaxation.
+          </p>
+        </article>
+
+        <article id="condition-neck-pain"
+          class="condition-info p-6 bg-white rounded-lg shadow
+                 border-l-4 border-transparent hover:border-sage-300 transition">
+          <h3 class="text-lg font-semibold text-sage-600">Neck &amp; Shoulder Pain</h3>
+          <p class="mt-2 text-gray-700 text-sm">
+            Relieves tension and pain often caused by stress or poor posture.
+          </p>
+        </article>
+
+        <article id="condition-back-pain"
+          class="condition-info p-6 bg-white rounded-lg shadow
+                 border-l-4 border-transparent hover:border-sage-300 transition">
+          <h3 class="text-lg font-semibold text-sage-600">Back Pain &amp; Sciatica</h3>
+          <p class="mt-2 text-gray-700 text-sm">
+            Clinically proven to alleviate chronic lower-back pain and sciatica.
+          </p>
+        </article>
+
+        <article id="condition-knee-pain"
+          class="condition-info p-6 bg-white rounded-lg shadow
+                 border-l-4 border-transparent hover:border-sage-300 transition">
+          <h3 class="text-lg font-semibold text-sage-600">Knee Pain &amp; Arthritis</h3>
+          <p class="mt-2 text-gray-700 text-sm">
+            Helps manage osteoarthritis and other knee issues by reducing
+            inflammation and improving joint function.
+          </p>
+        </article>
+      </div>
+    </div><!-- /map + cards -->
+
+    <!-- ▸ Fibromyalgia card (full width) -->
+    <article id="condition-fibromyalgia"
+      class="p-6 bg-white rounded-2xl shadow
+             border-l-4 border-[#c97a53]/80 hover:shadow-lg transition">
+      <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2">
+        <svg class="w-5 h-5 text-[#c97a53]" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M16 8v8m-4-5v5m-4-2v2M2 16h16a2 2 0 002-2V6a2 2 0 00-2-2H2a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+        Fibromyalgia &amp; Chronic Widespread Pain
+      </h3>
+      <p class="mt-2 text-gray-700 text-sm">
+        Acupuncture can ease widespread pain, fatigue and sleep issues by
+        modulating pain signals and inducing deep relaxation.
+      </p>
+    </article>
+
+  </div>
+</section>
+
 
 
 
@@ -449,18 +541,64 @@
     <div class="max-w-6xl mx-auto p-8">
         <h2 class="text-3xl font-semibold mb-8 text-center">Location Information</h2>
         <div class="flex flex-col lg:flex-row items-center gap-12">
-        <!-- Clinic image -->
+        <!-- Clinic images gallery -->
         <div class="lg:w-1/3">
-            <div class="bg-gray-200 rounded-xl shadow h-64 flex items-center justify-center">
-            <div class="text-center text-gray-500">
-                <!-- placeholder icon -->
-                <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-                <p class="text-sm">Clinic Photo</p>
-                <p class="text-xs">Placeholder Image</p>
-            </div>
+            <div class="relative rounded-xl shadow h-64 overflow-hidden bg-gray-100">
+                <!-- Image container -->
+                <div id="gallery-container" class="relative w-full h-full">
+                    <!-- Images -->
+                    <div class="gallery-slide absolute inset-0 opacity-100 transition-opacity duration-500 ease-in-out">
+                        <img src="images/outside.JPG" alt="HealthMaster Clinic Exterior" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-sm">
+                            Clinic Exterior
+                        </div>
+                    </div>
+                    <div class="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out">
+                        <img src="images/Hall.JPG" alt="HealthMaster Clinic Hall" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-sm">
+                            Reception Hall
+                        </div>
+                    </div>
+                    <div class="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out">
+                        <img src="images/Room 1 sml.jpg" alt="HealthMaster Treatment Room" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-sm">
+                            Treatment Room
+                        </div>
+                    </div>
+                    <div class="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out">
+                        <img src="images/Chairs 2 sml.jpg" alt="HealthMaster Waiting Area" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-sm">
+                            Waiting Area
+                        </div>
+                    </div>
+                    <div class="gallery-slide absolute inset-0 opacity-0 transition-opacity duration-500 ease-in-out">
+                        <img src="images/car park.JPG" alt="HealthMaster Clinic Parking" class="w-full h-full object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-sm">
+                            Parking Area
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation arrows -->
+                <button id="gallery-prev" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 hover:scale-110 text-white p-2 rounded-full transition-all duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button id="gallery-next" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-75 hover:scale-110 text-white p-2 rounded-full transition-all duration-200">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Dots indicator -->
+                <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                    <button class="gallery-dot w-2 h-2 rounded-full bg-white transition-all duration-300 cursor-pointer hover:bg-opacity-80" data-slide="0"></button>
+                    <button class="gallery-dot w-2 h-2 rounded-full bg-white bg-opacity-50 transition-all duration-300 cursor-pointer hover:bg-opacity-80" data-slide="1"></button>
+                    <button class="gallery-dot w-2 h-2 rounded-full bg-white bg-opacity-50 transition-all duration-300 cursor-pointer hover:bg-opacity-80" data-slide="2"></button>
+                    <button class="gallery-dot w-2 h-2 rounded-full bg-white bg-opacity-50 transition-all duration-300 cursor-pointer hover:bg-opacity-80" data-slide="3"></button>
+                    <button class="gallery-dot w-2 h-2 rounded-full bg-white bg-opacity-50 transition-all duration-300 cursor-pointer hover:bg-opacity-80" data-slide="4"></button>
+                </div>
             </div>
         </div>
 
@@ -503,19 +641,19 @@
             </div>
         </div>
 
-        <!-- Google Maps placeholder -->
+        <!-- Google Maps -->
         <div class="lg:w-1/3">
-            <div class="bg-gray-200 rounded-xl shadow h-64 flex items-center justify-center">
-            <div class="text-center text-gray-500">
-                <svg class="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                <p class="text-sm">Google Maps</p>
-                <p class="text-xs">Placeholder</p>
-            </div>
+            <div class="rounded-xl shadow h-64 overflow-hidden">
+                <iframe 
+                    src="https://www.google.com/maps?q=356+Ecclesall+Road+South,Sheffield+S11+9PU,UK&output=embed"
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="HealthMaster Acupuncture Clinic Location">
+                </iframe>
             </div>
         </div>
         </div>

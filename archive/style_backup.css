@@ -2,7 +2,16 @@
    0.  Global tweaks that Tailwind pre-flight doesn't cover
 ===================================================================== */
 
-/* Generic card-like sections */
+/* Generic card-like sections */==============================================================
+   0.  Global tweaks that Tailwind pre-flight doesn’t cover
+===================================================================== */
+
+/* ---------- Layout ---------- */
+
+
+
+
+/* ---------- Generic card-like sections ---------- */
 section {
   /* smooth scrolling anchor offset */
   scroll-margin-top: 180px;
@@ -43,3 +52,5 @@ section {
 .text-sage-600 { color: #7c9063; }
 .text-sage-700 { color: #6b7f57; }
 .text-sage-800 { color: #5a6e4a; }
+
+

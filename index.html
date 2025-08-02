@@ -94,7 +94,8 @@
             <p class="text-sage-600">Start your journey to pain-free living today</p>
             </div>
 
-            <form id="contact-form" class="space-y-4">
+            <!-- <form id="contact-form" action="http://localhost:8001/submit-form" method="POST" class="space-y-4"> -->
+            <form id="contact-form" action="#" method="POST" class="space-y-4">
             <!-- Name fields -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div class="space-y-1">
@@ -286,13 +287,42 @@
         <svg class="w-16 h-16 text-[#c97a53]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2a1 1 0 011 1v4h4a1 1 0 010 2h-4v4a1 1 0 01-2 0v-4H7a1 1 0 010-2h4V3a1 1 0 011-1z"/></svg>
         <h2 class="text-2xl font-bold text-sage-600">About Acupuncture</h2>
         <p class="text-gray-700 text-[15px]">Discover how medical acupuncture blends ancient wisdom with modern science to relieve pain and restore balance.</p>
+        
+        <!-- Combined intro & holistic approach -->
+        <div class="bg-sage-50/50 p-6 rounded-xl border-l-4 border-[#c97a53]/60 space-y-4 text-left">
+          <p class="text-gray-700 text-sm leading-relaxed">
+            Acupuncture supports the body's natural ability to heal by addressing physical symptoms <em>and</em> emotional well-being. Every session is personalised to your lifestyle and goals.
+          </p>
+          <div class="space-y-2">
+            <h4 class="text-sm font-semibold text-sage-600 flex items-center gap-2">
+              <svg class="w-4 h-4 text-[#c97a53]" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 2a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0V6H8a1 1 0 110-2h1V3a1 1 0 011-1z"/>
+              </svg>
+              Our Holistic Approach
+            </h4>
+            <ul class="space-y-1 text-gray-600 text-xs">
+              <li class="flex gap-2">
+                <span class="mt-1 w-1.5 h-1.5 bg-[#c97a53]/70 rounded-full"></span>
+                Body, mind & spirit care
+              </li>
+              <li class="flex gap-2">
+                <span class="mt-1 w-1.5 h-1.5 bg-[#c97a53]/70 rounded-full"></span>
+                Tailored treatment plans
+              </li>
+              <li class="flex gap-2">
+                <span class="mt-1 w-1.5 h-1.5 bg-[#c97a53]/70 rounded-full"></span>
+                Lasting relief & balance
+              </li>
+            </ul>
+          </div>
+        </div>
         </div>
         <!-- Details Grid -->
         <div class="w-full lg:w-2/3 p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Card: What is Acupuncture -->
         <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
             <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2"><svg class="w-5 h-5 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20"><path d="M4 2a1 1 0 011 1v2h2a1 1 0 010 2H5v2a1 1 0 01-2 0V7H1a1 1 0 010-2h2V3a1 1 0 011-1z"/></svg>What Is Medical Acupuncture?</h3>
-            <p class="text-gray-700 text-[14px] leading-relaxed">Insertion of fine needles into specific points, often with manual stimulation or low-frequency currents. Standard course: 5–8 weekly sessions.</p>
+            <p class="text-gray-700 text-[14px] leading-relaxed">Insertion of fine needles into specific points, often with manual stimulation or low-frequency currents. Standard course: 5–8 sessions.</p>
         </div>
         <!-- Card: Benefits & Science -->
         <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
@@ -324,137 +354,154 @@
       <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
         Conditions&nbsp;We&nbsp;Treat
       </h2>
-      <p class="mt-2 text-lg text-gray-600">
-        Click on the points to learn more.
-      </p>
     </header>
 
-    <!-- ▸ Intro & Holistic Approach (two-col on lg) -->
-    <div class="grid gap-8 lg:grid-cols-2 items-start">
-      <!-- Intro paragraph -->
-      <div class="space-y-4 text-gray-700 leading-relaxed">
-        <p>
-          Acupuncture supports the body’s natural ability to heal by
-          addressing physical symptoms <em>and</em> emotional well-being.
-          Every session is personalised to your lifestyle and goals, leaving
-          you relaxed and revitalised.
-        </p>
-      </div>
-
-      <!-- Holistic card -->
-      <div
-        class="bg-white p-6 rounded-2xl shadow-md space-y-4 border-l-4 border-[#c97a53]/80"
-      >
-        <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2">
-          <svg class="w-5 h-5 text-[#c97a53]" viewBox="0 0 20 20" fill="currentColor">
-            <path d="M10 2a1 1 0 011 1v1h1a1 1 0 110 2h-1v1a1 1 0 11-2 0V6H8a1 1 0 110-2h1V3a1 1 0 011-1z"/>
-          </svg>
-          A Holistic&nbsp;&amp;&nbsp;Personalised Approach
-        </h3>
-        <ul class="space-y-2 text-gray-700 text-sm">
-          <li class="flex gap-3">
-            <span class="mt-1.5 w-2 h-2 bg-[#c97a53]/70 rounded-full"></span>
-            Addresses body, mind&nbsp;&amp;&nbsp;spirit for complete care.
-          </li>
-          <li class="flex gap-3">
-            <span class="mt-1.5 w-2 h-2 bg-[#c97a53]/70 rounded-full"></span>
-            Treatment plans tailored to your unique needs.
-          </li>
-          <li class="flex gap-3">
-            <span class="mt-1.5 w-2 h-2 bg-[#c97a53]/70 rounded-full"></span>
-            Focus on restoring balance and lasting relief.
-          </li>
-        </ul>
-      </div>
-    </div><!-- /intro + holistic -->
+    <!-- ▸ Fibromyalgia card (full width, introductory with arrow flow) -->
+    <div class="relative">
+      <article id="condition-fibromyalgia"
+        class="p-8 bg-white rounded-2xl shadow-md
+               border border-[#c97a53]/20 transition-all duration-300">
+        <div class="flex items-start gap-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-[#c97a53]/10 rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-[#c97a53]" viewBox="0 0 20 20" fill="currentColor">
+              <path d="M16 8v8m-4-5v5m-4-2v2M2 16h16a2 2 0 002-2V6a2 2 0 00-2-2H2a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="flex-grow">
+            <h3 class="text-xl font-semibold text-sage-700 mb-3">
+              Fibromyalgia &amp; Chronic Widespread Pain
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              Acupuncture can ease widespread pain, fatigue and sleep issues by
+              modulating pain signals and inducing deep relaxation, <span class="font-medium text-sage-600">but also specifically helps with</span> the targeted conditions shown below:
+            </p>
+          </div>
+        </div>
+      </article>
+    </div>
 
     <!-- ▸ Interactive body-map + linked cards -->
-    <div class="grid gap-10 lg:grid-cols-2 items-start">
-      <!-- Body map -->
+    <div class="grid gap-12 lg:grid-cols-2 items-start">
+      <!-- Body map with enhanced styling -->
       <figure class="relative w-full max-w-sm mx-auto lg:sticky lg:top-28">
-        <img src="images/conditions.png"
-             alt="Body map highlighting common pain areas"
-             class="w-full h-auto rounded-2xl shadow-md" />
+        <div class="relative p-4 bg-gradient-to-br from-white to-sage-50/50 rounded-3xl shadow-lg border border-sage-200/50">
+          <img src="images/conditions.png"
+               alt="Body map highlighting common pain areas"
+               class="w-full h-auto rounded-2xl shadow-sm" />
 
-        <!-- Map points (positions already fine-tuned) -->
-        <button class="condition-point absolute w-6 h-6 bg-[#c97a53]/70 border-2 border-white rounded-full
-                       transform -translate-x-1/2 -translate-y-1/2 shadow-lg
-                       hover:bg-[#c97a53] hover:scale-125 transition"
-                data-condition="headaches" style="top:14.5%; left:26%;"></button>
+          <!-- Map points with enhanced styling -->
+          <button class="condition-point absolute w-7 h-7 bg-gradient-to-br from-[#c97a53] to-[#b66a48] border-3 border-white rounded-full
+                         transform -translate-x-1/2 -translate-y-1/2 shadow-lg
+                         hover:scale-150 hover:shadow-xl transition-all duration-300 ease-out
+                         before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-[#c97a53]/20 before:scale-0 hover:before:scale-[2] before:transition-transform before:duration-500"
+                  data-condition="headaches" style="top:14.5%; left:26%;"></button>
 
-        <button class="condition-point absolute w-6 h-6 bg-[#c97a53]/70 border-2 border-white rounded-full
-                       transform -translate-x-1/2 -translate-y-1/2 shadow-lg
-                       hover:bg-[#c97a53] hover:scale-125 transition"
-                data-condition="neck-pain" style="top:25%; left:73.5%;"></button>
+          <button class="condition-point absolute w-7 h-7 bg-gradient-to-br from-[#c97a53] to-[#b66a48] border-3 border-white rounded-full
+                         transform -translate-x-1/2 -translate-y-1/2 shadow-lg
+                         hover:scale-150 hover:shadow-xl transition-all duration-300 ease-out
+                         before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-[#c97a53]/20 before:scale-0 hover:before:scale-[2] before:transition-transform before:duration-500"
+                  data-condition="neck-pain" style="top:25%; left:73.5%;"></button>
 
-        <button class="condition-point absolute w-6 h-6 bg-[#c97a53]/70 border-2 border-white rounded-full
-                       transform -translate-x-1/2 -translate-y-1/2 shadow-lg
-                       hover:bg-[#c97a53] hover:scale-125 transition"
-                data-condition="back-pain" style="top:45.5%; left:73.5%;"></button>
+          <button class="condition-point absolute w-7 h-7 bg-gradient-to-br from-[#c97a53] to-[#b66a48] border-3 border-white rounded-full
+                         transform -translate-x-1/2 -translate-y-1/2 shadow-lg
+                         hover:scale-150 hover:shadow-xl transition-all duration-300 ease-out
+                         before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-[#c97a53]/20 before:scale-0 hover:before:scale-[2] before:transition-transform before:duration-500"
+                  data-condition="back-pain" style="top:45.5%; left:73.5%;"></button>
 
-        <button class="condition-point absolute w-6 h-6 bg-[#c97a53]/70 border-2 border-white rounded-full
-                       transform -translate-x-1/2 -translate-y-1/2 shadow-lg
-                       hover:bg-[#c97a53] hover:scale-125 transition"
-                data-condition="knee-pain" style="top:63.5%; left:32%;"></button>
+          <button class="condition-point absolute w-7 h-7 bg-gradient-to-br from-[#c97a53] to-[#b66a48] border-3 border-white rounded-full
+                         transform -translate-x-1/2 -translate-y-1/2 shadow-lg
+                         hover:scale-150 hover:shadow-xl transition-all duration-300 ease-out
+                         before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-[#c97a53]/20 before:scale-0 hover:before:scale-[2] before:transition-transform before:duration-500"
+                  data-condition="knee-pain" style="top:63.5%; left:32%;"></button>
+        </div>
+        
+        <!-- Instruction text -->
+        <p class="text-center text-sm text-gray-500 mt-3 italic">
+          Hover over the points to highlight conditions
+        </p>
       </figure>
 
-      <!-- Interactive cards -->
-      <div class="space-y-6">
+      <!-- Interactive cards with enhanced flow -->
+      <div class="space-y-4">
         <article id="condition-headaches"
-          class="condition-info p-6 bg-white rounded-lg shadow
-                 border-l-4 border-transparent hover:border-sage-300 transition">
-          <h3 class="text-lg font-semibold text-sage-600">Migraines &amp; Headaches</h3>
-          <p class="mt-2 text-gray-700 text-sm">
-            Reduces the frequency and intensity of chronic headaches by
-            calming nerve pathways and promoting relaxation.
-          </p>
+          class="condition-info group p-6 bg-white rounded-xl shadow-sm
+                 border-l-4 border-transparent hover:border-[#c97a53]/60 hover:shadow-lg hover:bg-sage-50/30 
+                 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-start gap-3">
+            <div class="flex-shrink-0 w-8 h-8 bg-[#c97a53]/10 group-hover:bg-[#c97a53]/20 rounded-full flex items-center justify-center transition-colors">
+              <svg class="w-4 h-4 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 100-2 1 1 0 000 2zM14 9a1 1 0 100-2 1 1 0 000 2z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-sage-600 group-hover:text-sage-700">Migraines &amp; Headaches</h3>
+              <p class="mt-2 text-gray-700 text-sm leading-relaxed">
+                Reduces the frequency and intensity of chronic headaches by
+                calming nerve pathways and promoting relaxation.
+              </p>
+            </div>
+          </div>
         </article>
 
         <article id="condition-neck-pain"
-          class="condition-info p-6 bg-white rounded-lg shadow
-                 border-l-4 border-transparent hover:border-sage-300 transition">
-          <h3 class="text-lg font-semibold text-sage-600">Neck &amp; Shoulder Pain</h3>
-          <p class="mt-2 text-gray-700 text-sm">
-            Relieves tension and pain often caused by stress or poor posture.
-          </p>
+          class="condition-info group p-6 bg-white rounded-xl shadow-sm
+                 border-l-4 border-transparent hover:border-[#c97a53]/60 hover:shadow-lg hover:bg-sage-50/30 
+                 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-start gap-3">
+            <div class="flex-shrink-0 w-8 h-8 bg-[#c97a53]/10 group-hover:bg-[#c97a53]/20 rounded-full flex items-center justify-center transition-colors">
+              <svg class="w-4 h-4 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 2a8 8 0 108 8 8 8 0 00-8-8zM7 9H5a1 1 0 000 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2H9V7a1 1 0 10-2 0v2z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-sage-600 group-hover:text-sage-700">Neck &amp; Shoulder Pain</h3>
+              <p class="mt-2 text-gray-700 text-sm leading-relaxed">
+                Relieves tension and pain often caused by stress or poor posture.
+              </p>
+            </div>
+          </div>
         </article>
 
         <article id="condition-back-pain"
-          class="condition-info p-6 bg-white rounded-lg shadow
-                 border-l-4 border-transparent hover:border-sage-300 transition">
-          <h3 class="text-lg font-semibold text-sage-600">Back Pain &amp; Sciatica</h3>
-          <p class="mt-2 text-gray-700 text-sm">
-            Clinically proven to alleviate chronic lower-back pain and sciatica.
-          </p>
+          class="condition-info group p-6 bg-white rounded-xl shadow-sm
+                 border-l-4 border-transparent hover:border-[#c97a53]/60 hover:shadow-lg hover:bg-sage-50/30 
+                 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-start gap-3">
+            <div class="flex-shrink-0 w-8 h-8 bg-[#c97a53]/10 group-hover:bg-[#c97a53]/20 rounded-full flex items-center justify-center transition-colors">
+              <svg class="w-4 h-4 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm0 2h12v8H4V6z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-sage-600 group-hover:text-sage-700">Back Pain &amp; Sciatica</h3>
+              <p class="mt-2 text-gray-700 text-sm leading-relaxed">
+                Clinically proven to alleviate chronic lower-back pain and sciatica.
+              </p>
+            </div>
+          </div>
         </article>
 
         <article id="condition-knee-pain"
-          class="condition-info p-6 bg-white rounded-lg shadow
-                 border-l-4 border-transparent hover:border-sage-300 transition">
-          <h3 class="text-lg font-semibold text-sage-600">Knee Pain &amp; Arthritis</h3>
-          <p class="mt-2 text-gray-700 text-sm">
-            Helps manage osteoarthritis and other knee issues by reducing
-            inflammation and improving joint function.
-          </p>
+          class="condition-info group p-6 bg-white rounded-xl shadow-sm
+                 border-l-4 border-transparent hover:border-[#c97a53]/60 hover:shadow-lg hover:bg-sage-50/30 
+                 transition-all duration-300 transform hover:-translate-y-1">
+          <div class="flex items-start gap-3">
+            <div class="flex-shrink-0 w-8 h-8 bg-[#c97a53]/10 group-hover:bg-[#c97a53]/20 rounded-full flex items-center justify-center transition-colors">
+              <svg class="w-4 h-4 text-[#c97a53]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z M10 2a8 8 0 108 8 8 8 0 00-8-8z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-sage-600 group-hover:text-sage-700">Knee Pain</h3>
+              <p class="mt-2 text-gray-700 text-sm leading-relaxed">
+                Helps manage knee issues by reducing
+                inflammation and improving joint function.
+              </p>
+            </div>
+          </div>
         </article>
       </div>
     </div><!-- /map + cards -->
-
-    <!-- ▸ Fibromyalgia card (full width) -->
-    <article id="condition-fibromyalgia"
-      class="p-6 bg-white rounded-2xl shadow
-             border-l-4 border-[#c97a53]/80 hover:shadow-lg transition">
-      <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2">
-        <svg class="w-5 h-5 text-[#c97a53]" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M16 8v8m-4-5v5m-4-2v2M2 16h16a2 2 0 002-2V6a2 2 0 00-2-2H2a2 2 0 00-2 2v8a2 2 0 002 2z" />
-        </svg>
-        Fibromyalgia &amp; Chronic Widespread Pain
-      </h3>
-      <p class="mt-2 text-gray-700 text-sm">
-        Acupuncture can ease widespread pain, fatigue and sleep issues by
-        modulating pain signals and inducing deep relaxation.
-      </p>
-    </article>
 
   </div>
 </section>

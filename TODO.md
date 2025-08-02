@@ -7,11 +7,12 @@
     - [x] add images
     - [x] google maps integration
     - nice formatting
-- [ ] Plan better Treated Conditions
+- [ ] Better Treated Conditions
     - remove the shaded bits of the diagram
     - think about hover boxes 
     - "wide spread, as well as specific"
 - [ ] Form
+- [ ] Go through information document again
 - [ ] colour palette
 - [ ] background
 - [ ] Nightmode

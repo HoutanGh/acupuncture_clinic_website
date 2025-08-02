@@ -1,6 +1,12 @@
 # Zone.Identifier files (Windows metadata)
 *.Zone.Identifier
 
+# Environment variables (contains passwords!)
+.env
+
+# Virtual environment (Python packages)
+clinic_env/
+
 # OS generated files
 .DS_Store
 .DS_Store?

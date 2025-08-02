@@ -11,7 +11,8 @@
     - remove the shaded bits of the diagram
     - think about hover boxes 
     - "wide spread, as well as specific"
-- [ ] Form
+- [x] Form
+- [ ] clean style.css
 - [ ] Go through information document again
 - [ ] colour palette
 - [ ] background

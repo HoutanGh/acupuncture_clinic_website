@@ -12,6 +12,7 @@
     - think about hover boxes 
     - "wide spread, as well as specific"
 - [x] Form
+- [ ] Form needs to have category
 - [ ] clean style.css
 - [ ] Go through information document again
 - [ ] colour palette

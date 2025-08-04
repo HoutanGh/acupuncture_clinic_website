@@ -1,4 +1,14 @@
 ### week 28/07/25
+- mobile view
+    - navigation bar bigger
+    - welcome centered
+    - form smaller and more padding on sides
+- look of website   
+    - get images
+    - remove background from images for night mode? - or images change?
+
+
+### week 28/07/25
 - [x] Get the order right
 - [x] Fix the navigation bar
 - [x] Price section "Book Now" goes to form functionality

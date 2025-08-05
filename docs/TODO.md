@@ -1,4 +1,10 @@
-### week 28/07/25
+### week 04/08/25
+- first fill the correct information from section to secion
+    - [ ] about me
+    - [ ] about acupuncture
+    - [ ] treated conditions
+    - [ ] prices
+    - [ ] location
 - mobile view
     - navigation bar bigger
     - welcome centered
@@ -6,6 +12,7 @@
 - look of website   
     - get images
     - remove background from images for night mode? - or images change?
+- colour palette - go with what I have and find the matching colours
 
 
 ### week 28/07/25

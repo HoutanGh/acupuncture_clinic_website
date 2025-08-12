@@ -1,4 +1,4 @@
-### week 04/08/25
+### week 11/08/25
 - first fill the correct information from section to secion
     - [ ] about me
     - [ ] about acupuncture
@@ -13,6 +13,8 @@
     - get images
     - remove background from images for night mode? - or images change?
 - colour palette - go with what I have and find the matching colours
+- can create something for website stats
+- icons for the navigation bar
 
 
 ### week 28/07/25

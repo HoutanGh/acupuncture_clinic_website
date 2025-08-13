@@ -6,10 +6,14 @@
 - Welcome Section
     - Welcome Text
     - Mobile and small view to have form have a little padding
+    - translucent background
 
 
 
 ### week 11/08/25
+- [ ] talk about website problems
+    - wall of text
+    - images
 - first fill the correct information from section to secion
     - [x] about me
     - [ ] about acupuncture
@@ -26,6 +30,7 @@
 - colour palette - go with what I have and find the matching colours
 - can create something for website stats
 - icons for the navigation bar
+- [ ] Form needs to have category
 
 
 ### week 28/07/25

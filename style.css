@@ -12,9 +12,6 @@ section {
   transition: all 0.3s;
 }
 
-/* =====================================================================
-   1.  Helper utilities
-===================================================================== */
 
 /* Fancy underline for nav links */
 .nav-link {
@@ -43,3 +40,124 @@ section {
 .text-sage-600 { color: #7c9063; }
 .text-sage-700 { color: #6b7f57; }
 .text-sage-800 { color: #5a6e4a; }
+
+/* =====================================================================
+   1.  Enhanced Form Styling - Minimal & Cool
+===================================================================== */
+
+/* Glass morphism effect for the form container */
+.glass-morphism {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Form input styling with underline effect */
+.form-input {
+  outline: none;
+  position: relative;
+}
+
+.form-input::placeholder {
+  transition: all 0.3s ease;
+}
+
+.form-input:focus::placeholder {
+  opacity: 0.6;
+  transform: translateY(-2px);
+}
+
+/* Animated underline effect for focused inputs */
+.form-input:focus {
+  border-bottom-color: #14b8a6 !important;
+  
+}
+
+/* Form group animation */
+.form-group {
+  position: relative;
+}
+
+.form-group:hover .form-input {
+  border-bottom-color: #6b7280;
+}
+
+/* Submit button enhancements */
+.submit-btn {
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s ease;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+.submit-btn:hover .submit-icon {
+  transform: translateX(2px);
+}
+
+/* Loading state for submit button */
+.submit-btn.loading {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.submit-btn.loading .submit-text {
+  opacity: 0;
+}
+
+.submit-btn.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid transparent;
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Form validation states */
+.form-input.error {
+  border-bottom-color: #ef4444 !important;
+  color: #ef4444;
+}
+
+.form-input.success {
+  border-bottom-color: #10b981 !important;
+}
+
+/* Smooth transitions for all form elements */
+.form-input,
+.submit-btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+
+.submit-btn:focus-visible {
+  outline: 2px solid #374151;
+  outline-offset: 2px;
+}

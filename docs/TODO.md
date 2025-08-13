@@ -1,6 +1,17 @@
+### August Month
+
+- Navigation Section
+    - Icons
+    - Flow picture
+- Welcome Section
+    - Welcome Text
+    - Mobile and small view to have form have a little padding
+
+
+
 ### week 11/08/25
 - first fill the correct information from section to secion
-    - [ ] about me
+    - [x] about me
     - [ ] about acupuncture
     - [ ] treated conditions
     - [ ] prices

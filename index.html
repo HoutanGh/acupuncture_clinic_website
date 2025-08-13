@@ -87,88 +87,83 @@
 
         <!-- Contact form -->
         <div class="mt-8 lg:mt-0 lg:w-1/2">
-        <div id="contact" class="bg-white/95 backdrop-blur-sm rounded-3xl p-6 shadow-2xl border border-sage-100">
+        <div id="contact" class="bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-white/20 glass-morphism">
             <!-- Form header -->
-            <div class="text-center mb-6">
-            <h3 class="text-2xl font-bold text-sage-800 mb-2">Book Your Consultation</h3>
-            <p class="text-sage-600">Start your journey to pain-free living today</p>
+            <div class="text-center mb-8">
+            <h3 class="text-2xl font-light text-gray-900 mb-2 tracking-wide">Book Your Consultation</h3>
+            <p class="text-gray-500 text-sm font-light">Start your journey to better health</p>
             </div>
 
-            <!-- <form id="contact-form" action="http://localhost:8001/submit-form" method="POST" class="space-y-4"> -->
-            <form id="contact-form" action="#" method="POST" class="space-y-4">
+            <!-- <form id="contact-form" action="http://localhost:8001/submit-form" method="POST" class="space-y-6"> -->
+            <form id="contact-form" action="#" method="POST" class="space-y-6">
             <!-- Name fields -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div class="space-y-1">
-                <label class="text-sm font-medium text-sage-700">First Name</label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="form-group">
                 <input
                     type="text"
                     name="first_name"
                     required
-                    class="w-full p-3 border border-sage-200 rounded-xl focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 transition-colors"
-                    placeholder=""
+                    class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
+                    placeholder="First Name"
                 />
                 </div>
-                <div class="space-y-1">
-                <label class="text-sm font-medium text-sage-700">Last Name</label>
+                <div class="form-group">
                 <input
                     type="text"
                     name="last_name"
                     required
-                    class="w-full p-3 border border-sage-200 rounded-xl focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 transition-colors"
-                    placeholder=""
+                    class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
+                    placeholder="Last Name"
                 />
                 </div>
             </div>
 
             <!-- Email -->
-            <div class="space-y-1">
-                <label class="text-sm font-medium text-sage-700">Email Address</label>
+            <div class="form-group">
                 <input
                 type="email"
                 name="email"
                 required
-                class="w-full p-3 border border-sage-200 rounded-xl focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 transition-colors"
-                placeholder=""
+                class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
+                placeholder="Email Address"
                 />
             </div>
 
             <!-- Phone -->
-            <div class="space-y-1">
-                <label class="text-sm font-medium text-sage-700">Phone Number</label>
+            <div class="form-group">
                 <input
                 type="tel"
                 name="phone"
-                class="w-full p-3 border border-sage-200 rounded-xl focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 transition-colors"
-                placeholder=""
+                class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
+                placeholder="Phone Number (Optional)"
                 />
             </div>
 
             <!-- Message -->
-            <div class="space-y-1">
-                <label class="text-sm font-medium text-sage-700">Tell us about your condition</label>
+            <div class="form-group">
                 <textarea
                 name="message"
-                rows="3"
-                class="w-full p-3 border border-sage-200 rounded-xl focus:border-teal-600 focus:ring-2 focus:ring-teal-600/20 transition-colors resize-none"
-                placeholder="Describe your symptoms, pain areas, or what you'd like help with..."
+                rows="4"
+                class="form-input w-full px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 placeholder-gray-400 transition-all duration-300 resize-none text-base font-light"
+                placeholder="Tell us about your condition or what brings you here..."
                 ></textarea>
             </div>
 
             <!-- Submit button -->
             <button
                 type="submit"
-                class="w-full py-3 bg-gradient-to-r from-teal-600 to-teal-700 text-white font-semibold rounded-xl hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
+                class="submit-btn w-full h-14 mt-8 bg-gray-900 text-white font-light text-base tracking-wide rounded-xl hover:bg-gray-800 focus:bg-gray-800 active:scale-[0.98] transition-all duration-300 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
             >
-                <span class="flex items-center justify-center gap-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span class="flex items-center justify-center gap-3">
+                <span class="submit-text">Send Message</span>
+                <svg class="w-4 h-4 submit-icon transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
                 </svg>
-                Send Message
                 </span>
             </button>
 
             <!-- Form feedback -->
-            <p id="form-feedback" class="text-sm text-teal-600 hidden text-center">
+            <p id="form-feedback" class="text-sm text-gray-600 hidden text-center font-light mt-4">
                 Submission failed. Please try again.
             </p>
             </form>
@@ -277,7 +272,7 @@
             </figure>
         </section>
         </div>
-    </div>
+    </div>  
     </section>
 
     <!-- About Acupuncture Section -->

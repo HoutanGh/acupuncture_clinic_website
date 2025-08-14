@@ -149,5 +149,36 @@ section {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* =====================================================================
+   2.  Welcome Section Background with Jay Castor Image
+===================================================================== */
+
+#home {
+  background-image: linear-gradient(rgba(247, 249, 245, 0.85), rgba(255, 255, 255, 0.75), rgba(236, 243, 226, 0.85)), url('images/jay-castor-7AcMUSYRZpU-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Ensure content is properly layered */
+#home > .relative {
+  position: relative;
+  z-index: 2;
+}
+
+/* Add subtle overlay for better text contrast */
+#home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 1;
+  border-radius: inherit;
+}
+
 
 

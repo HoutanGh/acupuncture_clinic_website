@@ -8,6 +8,9 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <!-- Custom overrides -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -37,9 +40,9 @@
     <!-- ── Navigation bar ──────────────────────────────────────────────── -->
     <header class="fixed top-10 inset-x-0 z-40 bg-white shadow-md">
         <nav class="relative">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-4 py-2">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-4 py-4 md:py-6 lg:py-2">
             <!-- Logo -->
-            <div class="flex items-center space-x-4 mb-2 md:mb-0">
+            <div class="hidden lg:flex items-center space-x-4 mb-2 md:mb-0 md:mr-8">
             <img src="images/healthmaster-logo.png" alt="HealthMaster Acupuncture Clinic Logo" class="h-16 md:h-24 lg:h-32 w-auto" />
             <div class="leading-tight">
                 <span class="block text-lg md:text-xl lg:text-2xl font-bold text-gray-800">HealthMaster</span>
@@ -48,13 +51,13 @@
             </div>
 
             <!-- Links -->
-            <ul class="flex flex-wrap justify-center list-none space-x-2 md:space-x-4 lg:space-x-6">
-            <li><a href="#home"        class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors">Home</a></li>
-            <li><a href="#about"       class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors">About Me</a></li>
-            <li><a href="#acupuncture" class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors">About Acupuncture</a></li>
-            <li><a href="#conditions"  class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors">Treated Conditions</a></li>
-            <li><a href="#prices"      class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors">Prices</a></li>
-            <li><a href="#location"    class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors">Location</a></li>
+            <ul class="flex flex-wrap justify-center lg:justify-end list-none space-x-4 md:space-x-6 lg:space-x-8 w-full lg:w-auto">
+            <li><a href="#home"        class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors flex flex-col items-center space-y-1"><i class="fas fa-home text-teal-600"></i><span>Home</span></a></li>
+            <li><a href="#about"       class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors flex flex-col items-center space-y-1"><i class="fas fa-user-md text-teal-600"></i><span>About Me</span></a></li>
+            <li><a href="#acupuncture" class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors flex flex-col items-center space-y-1"><i class="fas fa-spa text-teal-600"></i><span>About Acupuncture</span></a></li>
+            <li><a href="#conditions"  class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors flex flex-col items-center space-y-1"><i class="fas fa-heart-pulse text-teal-600"></i><span>Treated Conditions</span></a></li>
+            <li><a href="#prices"      class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors flex flex-col items-center space-y-1"><i class="fas fa-tags text-teal-600"></i><span>Prices</span></a></li>
+            <li><a href="#location"    class="nav-link text-sm md:text-base text-gray-600 hover:text-teal-600 transition-colors flex flex-col items-center space-y-1"><i class="fas fa-map-marker-alt text-teal-600"></i><span>Location</span></a></li>
             </ul>
         </div>
         </nav>
@@ -64,7 +67,7 @@
     <!-- ═══ Welcome Section ═══ -->
     <section
     id="home"
-    class="relative bg-gradient-to-br from-sage-50 via-white to-sage-100 border-2 border-sage-200/70 hover:border-teal-600 rounded-2xl shadow-lg overflow-hidden"
+    class="relative border-2 border-sage-200/70 hover:border-teal-600 rounded-2xl shadow-lg overflow-hidden"
     >
 
     <div class="relative max-w-6xl mx-auto px-6 py-16 lg:flex lg:items-center lg:gap-16">

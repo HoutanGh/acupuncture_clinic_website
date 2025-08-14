@@ -8,7 +8,7 @@
     - Mobile and small view to have form have a little padding
     - translucent background
 
-
+- need to sort out security of the form application
 
 ### week 11/08/25
 - [ ] talk about website problems

@@ -36,7 +36,8 @@ async def submit_contact_form(
     last_name: str = Form(...),
     email: str = Form(...),
     phone: str = Form(None),
-    message: str = Form(None)
+    message: str = Form(None),
+    appointment_type: str = Form(...)
 ):
     """Handle contact form submission"""
     try:
@@ -45,11 +46,12 @@ async def submit_contact_form(
         print(f"Name: {first_name} {last_name}")
         print(f"Email: {email}")
         print(f"Phone: {phone}")
+        print(f"Appointment Type: {appointment_type}")
         print(f"Message: {message}")
         print("=====================")
         
         # Send email notification
-        send_email(first_name, last_name, email, phone, message)
+        send_email(first_name, last_name, email, phone, message, appointment_type)
         
         return JSONResponse(
             status_code=200,
@@ -60,7 +62,7 @@ async def submit_contact_form(
         print(f"Error: {e}")
         raise HTTPException(status_code=500, detail="Failed to submit form")
 
-def send_email(first_name, last_name, email, phone, message):
+def send_email(first_name, last_name, email, phone, message, appointment_type):
     """Send email with form data using Gmail SMTP"""
     try:
         # Get email settings from environment variables
@@ -71,11 +73,19 @@ def send_email(first_name, last_name, email, phone, message):
         recipient_email = os.getenv('RECIPIENT_EMAIL')
         clinic_name = os.getenv('CLINIC_NAME', 'HealthMaster Acupuncture Clinic')
         
+        # Format appointment type for display
+        appointment_types = {
+            'initial_consultation': 'Initial Consultation',
+            'follow_up_treatment': 'Follow-up Treatment',
+            'inquiry': 'General Inquiry'
+        }
+        formatted_appointment_type = appointment_types.get(appointment_type, appointment_type)
+        
         # Create email message
         msg = MIMEMultipart()
         msg['From'] = email_user
         msg['To'] = recipient_email
-        msg['Subject'] = f"New Contact Form Submission - {first_name} {last_name}"
+        msg['Subject'] = f"{formatted_appointment_type}: {first_name} {last_name}"
         msg['Reply-To'] = email  # So you can reply directly to the client
         
         # Create email body
@@ -85,6 +95,7 @@ def send_email(first_name, last_name, email, phone, message):
         body = f"""
 New contact form submission from HealthMaster Acupuncture website:
 
+Type: {formatted_appointment_type}
 Name: {first_name} {last_name}
 Email: {email}
 {phone_text}

@@ -10,6 +10,14 @@
 
 - need to sort out security of the form application
 
+### not sure what week
+- [x] adding category to email form
+- [ ] card expansion on about section
+- [ ] about section information
+- [ ] change conditions photo
+- [ ] green hover for conditions section
+
+
 ### week 11/08/25
 - [ ] talk about website problems
     - wall of text

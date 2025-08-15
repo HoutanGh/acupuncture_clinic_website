@@ -72,7 +72,7 @@
 
     <div class="relative max-w-6xl mx-auto px-6 py-16 lg:flex lg:items-center lg:gap-16">
         <!-- Hero content -->
-        <div class="lg:w-1/2 space-y-8">
+        <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
 
         <!-- Main heading -->
         <div class="space-y-6">
@@ -81,7 +81,7 @@
             <span class="block text-teal-600">HealthMaster</span>
             <span class="block text-3xl lg:text-4xl font-medium text-gray-800">Acupuncture</span>
             </h1>
-            <p class="text-xl text-gray-800 leading-relaxed max-w-lg">
+            <p class="text-xl text-gray-800 leading-relaxed max-w-lg mx-auto lg:mx-0">
             Experience personalised, gentle acupuncture that restores balance and relieves pain. 
             Begin your journey to better health with evidence-based treatment.
             </p>
@@ -89,7 +89,7 @@
         </div>
 
         <!-- Contact form -->
-        <div class="mt-8 lg:mt-0 lg:w-1/2">
+        <div class="mt-8 lg:mt-0 lg:w-1/2 px-16 lg:px-0">
         <div id="contact" class="bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-white/20 glass-morphism">
             <!-- Form header -->
             <div class="text-center mb-8">
@@ -99,6 +99,41 @@
 
             <!-- <form id="contact-form" action="http://localhost:8001/submit-form" method="POST" class="space-y-6"> -->
             <form id="contact-form" action="#" method="POST" class="space-y-6">
+            
+            <!-- Appointment Type Selection -->
+            <div class="form-group">
+                <label class="block text-sm font-medium text-gray-700 mb-2">Type of Contact</label>
+                <div class="grid grid-cols-3 gap-3">
+                    <label class="relative cursor-pointer">
+                        <input type="radio" name="appointment_type" value="initial_consultation" required class="sr-only peer">
+                        <div class="appointment-card p-3 border-2 border-gray-200 rounded-lg text-center transition-all duration-300 peer-checked:border-teal-500 peer-checked:bg-teal-50 hover:border-teal-300">
+                            <div class="flex flex-col items-center space-y-1">
+                                <i class="fas fa-user-plus text-lg text-gray-400 peer-checked:text-teal-600"></i>
+                                <span class="text-xs font-medium text-gray-700">Initial Consultation</span>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="relative cursor-pointer">
+                        <input type="radio" name="appointment_type" value="follow_up_treatment" required class="sr-only peer">
+                        <div class="appointment-card p-3 border-2 border-gray-200 rounded-lg text-center transition-all duration-300 peer-checked:border-teal-500 peer-checked:bg-teal-50 hover:border-teal-300">
+                            <div class="flex flex-col items-center space-y-1">
+                                <i class="fas fa-redo-alt text-lg text-gray-400 peer-checked:text-teal-600"></i>
+                                <span class="text-xs font-medium text-gray-700">Follow-up Treatment</span>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="relative cursor-pointer">
+                        <input type="radio" name="appointment_type" value="inquiry" required class="sr-only peer">
+                        <div class="appointment-card p-3 border-2 border-gray-200 rounded-lg text-center transition-all duration-300 peer-checked:border-teal-500 peer-checked:bg-teal-50 hover:border-teal-300">
+                            <div class="flex flex-col items-center space-y-1">
+                                <i class="fas fa-question-circle text-lg text-gray-400 peer-checked:text-teal-600"></i>
+                                <span class="text-xs font-medium text-gray-700">General Inquiry</span>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
             <!-- Name fields -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div class="form-group">

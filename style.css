@@ -150,38 +150,6 @@ section {
 }
 
 /* =====================================================================
-   1.5  Appointment Type Selection Styling
-===================================================================== */
-
-/* Appointment card styling */
-.appointment-card {
-  position: relative;
-  transition: all 0.3s ease;
-}
-
-.appointment-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* When radio is checked, update the icon color */
-input[type="radio"]:checked + .appointment-card i {
-  color: #14b8a6 !important;
-}
-
-/* Enhanced styling for checked state */
-input[type="radio"]:checked + .appointment-card {
-  border-color: #14b8a6 !important;
-  background-color: rgba(20, 184, 166, 0.05) !important;
-}
-
-/* Focus styles for accessibility */
-input[type="radio"]:focus + .appointment-card {
-  outline: 2px solid #14b8a6;
-  outline-offset: 2px;
-}
-
-/* =====================================================================
    2.  Welcome Section Background with Jay Castor Image
 ===================================================================== */
 

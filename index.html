@@ -40,7 +40,7 @@
     <!-- ── Navigation bar ──────────────────────────────────────────────── -->
     <header class="fixed top-10 inset-x-0 z-40 bg-white shadow-md">
         <nav class="relative">
-        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-4 py-4 md:py-6 lg:py-2">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-1 py-4 md:py-6 lg:py-2">
             <!-- Logo -->
             <div class="hidden lg:flex items-center space-x-4 mb-2 md:mb-0 md:mr-8">
             <img src="images/healthmaster-logo.png" alt="HealthMaster Acupuncture Clinic Logo" class="h-16 md:h-24 lg:h-32 w-auto" />
@@ -102,36 +102,16 @@
             
             <!-- Appointment Type Selection -->
             <div class="form-group">
-                <label class="block text-sm font-medium text-gray-700 mb-2">Type of Contact</label>
-                <div class="grid grid-cols-3 gap-3">
-                    <label class="relative cursor-pointer">
-                        <input type="radio" name="appointment_type" value="initial_consultation" required class="sr-only peer">
-                        <div class="appointment-card p-3 border-2 border-gray-200 rounded-lg text-center transition-all duration-300 peer-checked:border-teal-500 peer-checked:bg-teal-50 hover:border-teal-300">
-                            <div class="flex flex-col items-center space-y-1">
-                                <i class="fas fa-user-plus text-lg text-gray-400 peer-checked:text-teal-600"></i>
-                                <span class="text-xs font-medium text-gray-700">Initial Consultation</span>
-                            </div>
-                        </div>
-                    </label>
-                    <label class="relative cursor-pointer">
-                        <input type="radio" name="appointment_type" value="follow_up_treatment" required class="sr-only peer">
-                        <div class="appointment-card p-3 border-2 border-gray-200 rounded-lg text-center transition-all duration-300 peer-checked:border-teal-500 peer-checked:bg-teal-50 hover:border-teal-300">
-                            <div class="flex flex-col items-center space-y-1">
-                                <i class="fas fa-redo-alt text-lg text-gray-400 peer-checked:text-teal-600"></i>
-                                <span class="text-xs font-medium text-gray-700">Follow-up Treatment</span>
-                            </div>
-                        </div>
-                    </label>
-                    <label class="relative cursor-pointer">
-                        <input type="radio" name="appointment_type" value="inquiry" required class="sr-only peer">
-                        <div class="appointment-card p-3 border-2 border-gray-200 rounded-lg text-center transition-all duration-300 peer-checked:border-teal-500 peer-checked:bg-teal-50 hover:border-teal-300">
-                            <div class="flex flex-col items-center space-y-1">
-                                <i class="fas fa-question-circle text-lg text-gray-400 peer-checked:text-teal-600"></i>
-                                <span class="text-xs font-medium text-gray-700">General Inquiry</span>
-                            </div>
-                        </div>
-                    </label>
-                </div>
+                <select
+                    name="appointment_type"
+                    required
+                    class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 transition-all duration-300 text-base font-light"
+                >
+                    <option value="" disabled selected class="text-gray-400">Select type of contact</option>
+                    <option value="initial_consultation">Initial Consultation</option>
+                    <option value="follow_up_treatment">Follow-up Treatment</option>
+                    <option value="inquiry">General Inquiry</option>
+                </select>
             </div>
 
             <!-- Name fields -->
@@ -260,15 +240,15 @@
             </h3>
             <ul class="space-y-2 text-[14px] text-gray-700 leading-relaxed border-l-2 border-sage-200 pl-4">
                 <li>
-                <span class="block font-semibold text-sage-600">2025&nbsp;–&nbsp;Now</span>
+                <span class="block font-semibold text-sage-600">2025&nbsp;–&nbsp;Present</span>
                 Electroacupuncture Practitioner
                 </li>
                 <li>
-                <span class="block font-semibold text-sage-600">2022&nbsp;–&nbsp;Now</span>
+                <span class="block font-semibold text-sage-600">2022&nbsp;–&nbsp;Present</span>
                 BMAS‑Accredited Acupuncturist
                 </li>
                 <li>
-                <span class="block font-semibold text-sage-600">2006&nbsp;–&nbsp;Now</span>
+                <span class="block font-semibold text-sage-600">2006&nbsp;–&nbsp;Present</span>
                 GP Partner, Worksop
                 </li>
             </ul>
@@ -354,9 +334,10 @@
         <!-- Details Grid -->
         <div class="w-full lg:w-2/3 p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
         <!-- Card: What is Acupuncture -->
-        <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">
-            <h3 class="text-lg font-semibold text-sage-600 flex items-center gap-2"><svg class="w-5 h-5 text-teal-600" fill="currentColor" viewBox="0 0 20 20"><path d="M4 2a1 1 0 011 1v2h2a1 1 0 010 2H5v2a1 1 0 01-2 0V7H1a1 1 0 010-2h2V3a1 1 0 011-1z"/></svg>What Is Medical Acupuncture?</h3>
-            <p class="text-gray-700 text-[14px] leading-relaxed">Insertion of fine needles into specific points, often with manual stimulation or low-frequency currents. Standard course: 5–8 sessions.</p>
+        <div class="bg-gradient-to-br from-white to-sage-50/30 p-8 rounded-2xl shadow-lg border border-sage-100 hover:border-teal-500 flex items-center justify-center min-h-[140px] transition-colors duration-300">
+            <div class="text-center">
+                <h3 class="text-xl font-bold text-sage-700 leading-tight">What Is Medical<br>Acupuncture?</h3>
+            </div>
         </div>
         <!-- Card: Benefits & Science -->
         <div class="bg-white p-6 rounded-2xl shadow-md space-y-4">

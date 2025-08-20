@@ -8,7 +8,7 @@
     - [ ] Aligned correctly
     - [ ] Correct hover animation
 - [ ] Fix the blue box highlight on the form
-
+- [ ] Security for form
 
 ### August Month
 

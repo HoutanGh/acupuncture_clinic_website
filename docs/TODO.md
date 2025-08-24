@@ -1,13 +1,13 @@
 ###  week 18/08/25
 - [ ] About Acupuncture Section
-    - [ ] first card
+    - [x] first card
     - [ ] all cards
     - [ ] information
 - [ ] Conditions Page
     - [ ] Correct picture for conditions
     - [ ] Aligned correctly
     - [ ] Correct hover animation
-- [ ] Fix the blue box highlight on the form
+- [x] Fix the blue box highlight on the form
 - [ ] Security for form
 
 ### August Month

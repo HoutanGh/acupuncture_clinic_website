@@ -368,47 +368,30 @@
       <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
         Conditions&nbsp;We&nbsp;Treat
       </h2>
+      <div class="max-w-3xl mx-auto mt-4">
+        <h3 class="text-xl font-semibold text-sage-700 mb-3">
+          Fibromyalgia &amp; Chronic Widespread Pain
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          Acupuncture can ease widespread pain, fatigue and sleep issues by
+          modulating pain signals and inducing deep relaxation, <span class="font-medium text-sage-600">but also specifically helps with</span> the targeted conditions shown below:
+        </p>
+      </div>
     </header>
-
-    <!-- ▸ Fibromyalgia card (full width, introductory with arrow flow) -->
-    <div class="relative">
-      <article id="condition-fibromyalgia"
-        class="p-8 bg-white rounded-2xl shadow-md
-               border border-teal-600/20 transition-all duration-300">
-        <div class="flex items-start gap-4">
-          <div class="flex-shrink-0 w-12 h-12 bg-teal-600/10 rounded-full flex items-center justify-center">
-            <svg class="w-6 h-6 text-teal-600" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M16 8v8m-4-5v5m-4-2v2M2 16h16a2 2 0 002-2V6a2 2 0 00-2-2H2a2 2 0 00-2 2v8a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <div class="flex-grow">
-            <h3 class="text-xl font-semibold text-sage-700 mb-3">
-              Fibromyalgia &amp; Chronic Widespread Pain
-            </h3>
-            <p class="text-gray-700 leading-relaxed">
-              Acupuncture can ease widespread pain, fatigue and sleep issues by
-              modulating pain signals and inducing deep relaxation, <span class="font-medium text-sage-600">but also specifically helps with</span> the targeted conditions shown below:
-            </p>
-          </div>
-        </div>
-      </article>
-    </div>
 
     <!-- ▸ Interactive body-map + linked cards -->
     <div class="grid gap-12 lg:grid-cols-2 items-start">
       <!-- Body map with enhanced styling -->
-      <figure class="relative w-full max-w-sm mx-auto lg:sticky lg:top-28">
-        <div class="relative p-4 bg-gradient-to-br from-white to-sage-50/50 rounded-3xl shadow-lg border border-sage-200/50">
-          <img src="images/conditions1.png"
-               alt="Body map highlighting common pain areas"
-               class="w-full h-auto rounded-2xl shadow-sm" />
-
-          <!-- Map points with enhanced styling -->
+      <figure class="relative w-full max-w-md mx-auto lg:sticky lg:top-28 bg-white p-6 rounded-xl shadow-sm">
+        <div class="relative">
+          <img src="images/conditions.png" alt="Body map showing treatable areas" class="w-full h-auto object-contain rounded-lg">
+          
+          <!-- Interactive points -->
           <button class="condition-point absolute w-7 h-7 bg-gradient-to-br from-teal-600 to-teal-700 border-3 border-white rounded-full
                          transform -translate-x-1/2 -translate-y-1/2 shadow-lg
                          hover:scale-150 hover:shadow-xl transition-all duration-300 ease-out
                          before:content-[''] before:absolute before:inset-0 before:rounded-full before:bg-teal-600/20 before:scale-0 hover:before:scale-[2] before:transition-transform before:duration-500"
-                  data-condition="headaches" style="top:14.5%; left:26%;"></button>
+                  data-condition="headaches" style="top:15%; left:50%;"></button>
 
           <button class="condition-point absolute w-7 h-7 bg-gradient-to-br from-teal-600 to-teal-700 border-3 border-white rounded-full
                          transform -translate-x-1/2 -translate-y-1/2 shadow-lg

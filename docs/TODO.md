@@ -4,8 +4,8 @@
     - [ ] all cards
     - [ ] information
 - [ ] Conditions Page
-    - [ ] Correct picture for conditions
-    - [ ] Aligned correctly
+    - [x] Correct picture for conditions
+    - [x] Aligned correctly
     - [ ] Correct hover animation
 - [x] Fix the blue box highlight on the form
 - [ ] Security for form

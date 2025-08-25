@@ -358,11 +358,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Hover effects for points
         point.addEventListener('mouseenter', () => {
+            // Highlight the corresponding panel
             addHoverHighlight(condition);
+            // Add same orange halo effect to the point as panel hover does
+            if (!point.classList.contains('active')) {
+                point.style.transform = 'translate(-50%, -50%) scale(1.15)';
+                point.style.boxShadow = '0 0 0 6px rgba(201, 122, 83, 0.3), 0 0 0 12px rgba(201, 122, 83, 0.15), 0 4px 12px rgba(0, 0, 0, 0.25)';
+            }
         });
 
         point.addEventListener('mouseleave', () => {
+            // Remove panel highlight
             removeHoverHighlight(condition);
+            // Remove orange halo effect from point
+            if (!point.classList.contains('active')) {
+                point.style.transform = '';
+                point.style.boxShadow = '';
+            }
         });
     });
 

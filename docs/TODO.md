@@ -1,12 +1,18 @@
+### week 25/08/25
+- [ ] SEO for the website
+- [ ] Security for the form
+- [ ] About Acupuncture section
+- [ ] Colour Palette 
+
 ###  week 18/08/25
 - [ ] About Acupuncture Section
     - [x] first card
     - [ ] all cards
     - [ ] information
-- [ ] Conditions Page
+- [x] Conditions Page
     - [x] Correct picture for conditions
     - [x] Aligned correctly
-    - [ ] Correct hover animation
+    - [x] Correct hover animation
 - [x] Fix the blue box highlight on the form
 - [ ] Security for form
 

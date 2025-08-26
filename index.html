@@ -499,6 +499,257 @@
   </div>
 </section>
 
+    <!-- ═══ About Acupuncture Section ═══ -->
+    <section id="about-acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 rounded-2xl shadow-lg overflow-hidden py-14 mt-16">
+      <div class="max-w-6xl mx-auto px-6 space-y-10">
+        <!-- Title -->
+        <header class="text-center">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800">About Acupuncture</h2>
+          <p class="mt-3 text-gray-700">Skim the cards for key points. Tap a card to open the full details below.</p>
+        </header>
+
+        <!-- Cards (act as selectors) -->
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" role="tablist" aria-label="About acupuncture topics">
+          <!-- What is -->
+          <button role="tab" aria-selected="true" data-panel="what-is"
+            class="about-card group p-5 bg-white rounded-xl shadow-sm border-l-4 border-teal-600/0 hover:border-teal-600/60 hover:shadow-lg hover:bg-sage-50/30 transition">
+            <h3 class="text-lg font-semibold text-sage-700 group-hover:text-sage-800">What is Medical Acupuncture?</h3>
+            <ul class="mt-2 text-sm text-gray-700 space-y-1">
+              <li>Very fine needles; short periods</li>
+              <li>Manual or low-freq electrical stimulation</li>
+              <li>Tailored plan: 5–8 sessions (weekly → taper)</li>
+            </ul>
+          </button>
+
+          <!-- Benefits -->
+          <button role="tab" aria-selected="false" data-panel="benefits"
+            class="about-card group p-5 bg-white rounded-xl shadow-sm border-l-4 border-teal-600/0 hover:border-teal-600/60 hover:shadow-lg hover:bg-sage-50/30 transition">
+            <h3 class="text-lg font-semibold text-sage-700 group-hover:text-sage-800">Benefits & Evidence</h3>
+            <ul class="mt-2 text-sm text-gray-700 space-y-1">
+              <li>Pain: back, knee, neck</li>
+              <li>Headaches: migraine, tension-type</li>
+              <li>Nausea (specific contexts)</li>
+            </ul>
+          </button>
+
+          <!-- Why medical -->
+          <button role="tab" aria-selected="false" data-panel="why-medical"
+            class="about-card group p-5 bg-white rounded-xl shadow-sm border-l-4 border-teal-600/0 hover:border-teal-600/60 hover:shadow-lg hover:bg-sage-50/30 transition">
+            <h3 class="text-lg font-semibold text-sage-700 group-hover:text-sage-800">Why a Medical Acupuncturist?</h3>
+            <ul class="mt-2 text-sm text-gray-700 space-y-1">
+              <li>Understands your history & meds</li>
+              <li>Coordinates with your GP</li>
+              <li>Alongside (not instead of) care</li>
+            </ul>
+          </button>
+
+          <!-- Tradition meets science -->
+          <button role="tab" aria-selected="false" data-panel="tradition"
+            class="about-card group p-5 bg-white rounded-xl shadow-sm border-l-4 border-teal-600/0 hover:border-teal-600/60 hover:shadow-lg hover:bg-sage-50/30 transition">
+            <h3 class="text-lg font-semibold text-sage-700 group-hover:text-sage-800">Tradition Meets Modern Science</h3>
+            <ul class="mt-2 text-sm text-gray-700 space-y-1">
+              <li>Ancient roots (China, 4,000+ yrs)</li>
+              <li>20th-century Western uptake</li>
+              <li>Now used in UK pain services</li>
+            </ul>
+          </button>
+        </div>
+
+        <!-- Full-width drawer (content area) -->
+        <div id="about-panel" class="relative bg-white border rounded-xl shadow-sm overflow-hidden">
+          <!-- What is -->
+          <article data-content="what-is" class="about-content block">
+            <div class="p-6 md:p-8 space-y-8">
+              <!-- Heading + intro -->
+              <header>
+                <h3 class="text-2xl font-semibold text-sage-700">What Is Medical Acupuncture?</h3>
+                <p class="mt-3 text-gray-700">
+                  Medical acupuncture uses very fine needles placed for short periods to gently stimulate nerves in the skin and muscle.
+                  Plans are tailored to you and may include light manual stimulation or low-frequency electrical currents.
+                </p>
+              </header>
+
+              <!-- Quick facts (chips) -->
+              <section aria-label="Quick facts">
+                <ul class="flex flex-wrap gap-2">
+                  <li class="px-3 py-1 text-sm rounded-full bg-sage-50 border border-sage-200 text-gray-800">
+                    <span class="font-medium">Course:</span> 5–8 sessions
+                  </li>
+                  <li class="px-3 py-1 text-sm rounded-full bg-sage-50 border border-sage-200 text-gray-800">
+                    <span class="font-medium">Start:</span> weekly → taper
+                  </li>
+                  <li class="px-3 py-1 text-sm rounded-full bg-sage-50 border border-sage-200 text-gray-800">
+                    Very fine needles
+                  </li>
+                  <li class="px-3 py-1 text-sm rounded-full bg-sage-50 border border-sage-200 text-gray-800">
+                    Manual / low-freq electrical
+                  </li>
+                </ul>
+              </section>
+
+              <!-- How a session works (3-step) -->
+              <section aria-label="How a session works" class="grid gap-4 sm:grid-cols-3">
+                <div class="p-4 bg-white rounded-xl border shadow-sm">
+                  <div class="w-8 h-8 rounded-full bg-teal-600/10 text-teal-700 grid place-items-center font-semibold">1</div>
+                  <h4 class="mt-3 font-semibold text-sage-700">Assessment</h4>
+                  <p class="mt-1 text-sm text-gray-700">
+                    We review your symptoms, history, and goals to tailor your plan.
+                  </p>
+                </div>
+                <div class="p-4 bg-white rounded-xl border shadow-sm">
+                  <div class="w-8 h-8 rounded-full bg-teal-600/10 text-teal-700 grid place-items-center font-semibold">2</div>
+                  <h4 class="mt-3 font-semibold text-sage-700">Treatment</h4>
+                  <p class="mt-1 text-sm text-gray-700">
+                    Fine needles are placed briefly; gentle manual or low-frequency stimulation may be used.
+                  </p>
+                </div>
+                <div class="p-4 bg-white rounded-xl border shadow-sm">
+                  <div class="w-8 h-8 rounded-full bg-teal-600/10 text-teal-700 grid place-items-center font-semibold">3</div>
+                  <h4 class="mt-3 font-semibold text-sage-700">Wind-down</h4>
+                  <p class="mt-1 text-sm text-gray-700">
+                    Short rest, advice for aftercare, and plan the next visit.
+                  </p>
+                </div>
+              </section>
+
+              <!-- Course overview (mini timeline) -->
+              <section aria-label="Typical course">
+                <h4 class="font-semibold text-sage-700">Typical Course</h4>
+                <div class="mt-3 flex items-stretch gap-2">
+                  <div class="flex-1 p-4 rounded-xl border bg-white shadow-sm">
+                    <p class="text-xs uppercase tracking-wide text-gray-500">Weeks 1–3</p>
+                    <p class="font-medium text-gray-800">Weekly sessions</p>
+                  </div>
+                  <div class="flex-1 p-4 rounded-xl border bg-white shadow-sm">
+                    <p class="text-xs uppercase tracking-wide text-gray-500">Weeks 4–6</p>
+                    <p class="font-medium text-gray-800">Taper as symptoms improve</p>
+                  </div>
+                  <div class="flex-1 p-4 rounded-xl border bg-white shadow-sm">
+                    <p class="text-xs uppercase tracking-wide text-gray-500">Review</p>
+                    <p class="font-medium text-gray-800">Adjust plan if needed</p>
+                  </div>
+                </div>
+                <p class="mt-2 text-sm text-gray-600">Everyone's different — plans are adapted to your response.</p>
+              </section>
+
+              <!-- What might you feel? (icon list) -->
+              <section aria-label="What you might feel" class="grid gap-3 sm:grid-cols-2">
+                <div class="p-4 bg-white rounded-xl border shadow-sm">
+                  <div class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-teal-700 mt-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M20 7l-9 9-5-5 2-2 3 3 7-7z"/>
+                    </svg>
+                    <div>
+                      <h5 class="font-semibold text-sage-700">During</h5>
+                      <p class="text-sm text-gray-700">A brief, dull ache or tingling is common; many feel relaxed.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-4 bg-white rounded-xl border shadow-sm">
+                  <div class="flex items-start gap-3">
+                    <svg class="w-5 h-5 text-teal-700 mt-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M20 7l-9 9-5-5 2-2 3 3 7-7z"/>
+                    </svg>
+                    <div>
+                      <h5 class="font-semibold text-sage-700">After</h5>
+                      <p class="text-sm text-gray-700">Some feel lighter or sleepy; mild soreness fades quickly.</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- How it helps (visual chain) -->
+              <section aria-label="How it helps">
+                <h4 class="font-semibold text-sage-700">How It Helps (Simplified)</h4>
+                <div class="mt-3 flex flex-col sm:flex-row sm:items-center gap-2">
+                  <div class="flex-1 p-4 rounded-xl border bg-white shadow-sm text-center">
+                    <p class="text-sm font-medium text-gray-800">Nerve stimulation</p>
+                    <p class="text-xs text-gray-600">Skin &amp; muscle</p>
+                  </div>
+                  <div class="hidden sm:block text-gray-400">→</div>
+                  <div class="flex-1 p-4 rounded-xl border bg-white shadow-sm text-center">
+                    <p class="text-sm font-medium text-gray-800">Endorphins &amp; serotonin</p>
+                    <p class="text-xs text-gray-600">Natural pain modulators</p>
+                  </div>
+                  <div class="hidden sm:block text-gray-400">→</div>
+                  <div class="flex-1 p-4 rounded-xl border bg-white shadow-sm text-center">
+                    <p class="text-sm font-medium text-gray-800">Pain signal modulation</p>
+                    <p class="text-xs text-gray-600">Brain &amp; spinal cord</p>
+                  </div>
+                </div>
+              </section>
+
+              <!-- Techniques used (compact cards) -->
+              <section aria-label="Techniques used" class="grid gap-3 sm:grid-cols-2">
+                <div class="p-4 bg-white rounded-xl border shadow-sm">
+                  <h5 class="font-semibold text-sage-700">Needle placement</h5>
+                  <p class="mt-1 text-sm text-gray-700">Very fine needles placed briefly at specific points.</p>
+                </div>
+                <div class="p-4 bg-white rounded-xl border shadow-sm">
+                  <h5 class="font-semibold text-sage-700">Gentle stimulation</h5>
+                  <p class="mt-1 text-sm text-gray-700">Manual twirling or low-frequency electrical currents when appropriate.</p>
+                </div>
+              </section>
+
+              <!-- Friendly note -->
+              <aside class="p-4 rounded-xl border border-amber-200 bg-amber-50/60">
+                <p class="text-sm text-gray-800">
+                  <span class="font-medium">Note:</span> Results vary by person and condition. Acupuncture complements (not replaces) standard medical care.
+                </p>
+              </aside>
+
+              <!-- Cross-link hint -->
+              <p class="text-sm text-gray-600">
+                Curious about what it can help with? See the <span class="font-medium">"Benefits &amp; Evidence"</span> tab above.
+              </p>
+            </div>
+          </article>
+
+          <!-- Benefits -->
+          <article data-content="benefits" class="about-content hidden">
+            <div class="p-6 md:p-8">
+              <h3 class="text-2xl font-semibold text-sage-700">Benefits & Evidence</h3>
+              <p class="mt-3 text-gray-700">
+                Clinical research supports short-term relief for lower-back pain, knee pain, neck pain, and certain headaches (migraines, tension-type). It has also been shown to help reduce nausea in specific situations. Evidence varies by condition, and improvement isn't guaranteed.
+              </p>
+              <ul class="mt-4 list-disc pl-6 text-gray-700 space-y-2">
+                <li>Pain management: back, knee, neck</li>
+                <li>Headaches: migraine, tension-type</li>
+                <li>Nausea: selected contexts (e.g., some postoperative/therapy settings)</li>
+              </ul>
+              <p class="mt-3 text-sm text-gray-600">Note: Outcomes depend on the individual and the condition.</p>
+            </div>
+          </article>
+
+          <!-- Why medical -->
+          <article data-content="why-medical" class="about-content hidden">
+            <div class="p-6 md:p-8">
+              <h3 class="text-2xl font-semibold text-sage-700">Why Choose a Medical Acupuncturist?</h3>
+              <p class="mt-3 text-gray-700">
+                You'll work with a healthcare professional trained in both conventional medicine and acupuncture. They can interpret your history, tests, and medications, and coordinate with your GP if needed.
+              </p>
+              <p class="mt-3 text-gray-700">
+                Acupuncture can relieve symptoms and improve quality of life, but it is not a substitute for treatment of serious underlying conditions. It should be used alongside, not instead of, standard medical care.
+              </p>
+            </div>
+          </article>
+
+          <!-- Tradition -->
+          <article data-content="tradition" class="about-content hidden">
+            <div class="p-6 md:p-8">
+              <h3 class="text-2xl font-semibold text-sage-700">A Blend of Tradition and Modern Science</h3>
+              <p class="mt-3 text-gray-700">
+                Acupuncture has ancient roots in China (possibly 4,000+ years). Interest in the West grew in the 20th century. Research has clarified mechanisms and challenged myths, supporting its use alongside modern treatments.
+              </p>
+              <p class="mt-3 text-gray-700">
+                Today, acupuncture is integrated into many UK pain services and offered by a growing number of doctors and specialists.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
 
 
 
@@ -721,7 +972,6 @@
     </div>
     </footer>
     </main>
-
 
     <script src="script.js"></script>
 </body>

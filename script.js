@@ -405,3 +405,52 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+/* =====================================================================
+   4. ABOUT ACUPUNCTURE TAB FUNCTIONALITY
+   =====================================================================
+   Handles interactive tab cards and content switching
+===================================================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Minimal tabs logic for about acupuncture section
+    const tabButtons = document.querySelectorAll('#about-acupuncture [role="tab"]');
+    const contentBlocks = document.querySelectorAll('#about-panel .about-content');
+
+    // Exit if about acupuncture section doesn't exist
+    if (!tabButtons.length || !contentBlocks.length) return;
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-panel');
+
+            // Update tabs: aria attributes + styling
+            tabButtons.forEach(b => {
+                const active = b === btn;
+                b.setAttribute('aria-selected', active ? 'true' : 'false');
+                
+                // Clear all border color classes first to avoid conflicts
+                b.classList.remove('border-teal-600', 'border-teal-600/60', 'border-teal-600/0');
+                
+                // Apply the correct border class based on active state
+                if (active) {
+                    b.classList.add('border-teal-600');  // Solid teal border for active
+                } else {
+                    b.classList.add('border-teal-600/0'); // Transparent border for inactive
+                }
+            });
+
+            // Swap content visibility
+            contentBlocks.forEach(el => {
+                el.classList.toggle('hidden', el.getAttribute('data-content') !== target);
+                el.classList.toggle('block', el.getAttribute('data-content') === target);
+            });
+
+            // Optional: scroll content into view on mobile devices
+            const panel = document.querySelector('#about-panel');
+            if (panel && window.innerWidth < 1024) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+});

@@ -1,8 +1,10 @@
 ### week 25/08/25
 - [ ] SEO for the website
+    - sheffield in the welcome section
 - [ ] Security for the form
 - [ ] About Acupuncture section
 - [ ] Colour Palette 
+- [ ] Font
 
 ###  week 18/08/25
 - [ ] About Acupuncture Section

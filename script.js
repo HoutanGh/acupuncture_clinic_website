@@ -420,6 +420,42 @@ document.addEventListener("DOMContentLoaded", function () {
     // Exit if about acupuncture section doesn't exist
     if (!tabButtons.length || !contentBlocks.length) return;
 
+    // Initialize all tabs to ensure consistent styling
+    function initializeTabs() {
+        tabButtons.forEach(btn => {
+            const isActive = btn.getAttribute('aria-selected') === 'true';
+            const title = btn.querySelector('h3');
+            
+            // Clear all classes that might be hardcoded in HTML
+            btn.classList.remove(
+                'border-orange-500', 'border-gray-200', 'border-orange-500/50',
+                'bg-white', 'bg-teal-50/30', 'bg-orange-50/30',
+                'hover:border-orange-500/50'
+            );
+            if (title) {
+                title.classList.remove('text-gray-600', 'text-gray-800', 'text-teal-600', 'text-orange-700', 'text-teal-700');
+            }
+            
+            // Apply correct initial state
+            if (isActive) {
+                // Active: opaque orange border, white background, gray text, NO hover effect
+                btn.classList.add('border-orange-500', 'bg-white');
+                if (title) {
+                    title.classList.add('text-gray-600');
+                }
+            } else {
+                // Inactive: gray border, white background, gray text, WITH hover effect
+                btn.classList.add('border-gray-200', 'bg-white', 'hover:border-orange-500/50');
+                if (title) {
+                    title.classList.add('text-gray-600');
+                }
+            }
+        });
+    }
+
+    // Initialize tabs on page load
+    initializeTabs();
+
     tabButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             const target = btn.getAttribute('data-panel');
@@ -427,16 +463,33 @@ document.addEventListener("DOMContentLoaded", function () {
             // Update tabs: aria attributes + styling
             tabButtons.forEach(b => {
                 const active = b === btn;
+                const title = b.querySelector('h3');
+                
                 b.setAttribute('aria-selected', active ? 'true' : 'false');
                 
-                // Clear all border color classes first to avoid conflicts
-                b.classList.remove('border-teal-600', 'border-teal-600/60', 'border-teal-600/0');
+                // Clear all background, border, and text color classes first
+                b.classList.remove(
+                    'border-orange-500', 'border-gray-200', 'border-orange-500/50',
+                    'bg-white', 'bg-teal-50/30', 'bg-orange-50/30',
+                    'hover:border-orange-500/50'
+                );
+                if (title) {
+                    title.classList.remove('text-gray-600', 'text-gray-800', 'text-teal-600', 'text-orange-700', 'text-teal-700');
+                }
                 
-                // Apply the correct border class based on active state
+                // Apply the correct styling based on active state
                 if (active) {
-                    b.classList.add('border-teal-600');  // Solid teal border for active
+                    // Active state: opaque orange border, white background, gray text, NO hover effect
+                    b.classList.add('border-orange-500', 'bg-white');
+                    if (title) {
+                        title.classList.add('text-gray-600');
+                    }
                 } else {
-                    b.classList.add('border-teal-600/0'); // Transparent border for inactive
+                    // Inactive state: gray border, white background, gray text, WITH hover effect
+                    b.classList.add('border-gray-200', 'bg-white', 'hover:border-orange-500/50');
+                    if (title) {
+                        title.classList.add('text-gray-600');
+                    }
                 }
             });
 

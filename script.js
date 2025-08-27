@@ -329,9 +329,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function addHoverHighlight(conditionId) {
         const panelToHighlight = document.getElementById(`condition-${conditionId}`);
         if (panelToHighlight && !panelToHighlight.classList.contains('active')) {
-            panelToHighlight.style.borderLeftColor = 'rgba(201, 122, 83, 0.7)';
-            panelToHighlight.style.transform = 'translateX(4px)';
-            panelToHighlight.style.opacity = '1';
+            // Apply the same CSS classes as the card's built-in hover effect
+            panelToHighlight.classList.add('border-orange-500/60', 'shadow-lg', 'bg-sage-50/30', '-translate-y-1');
         }
     }
 
@@ -341,9 +340,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function removeHoverHighlight(conditionId) {
         const panelToHighlight = document.getElementById(`condition-${conditionId}`);
         if (panelToHighlight && !panelToHighlight.classList.contains('active')) {
-            panelToHighlight.style.borderLeftColor = '';
-            panelToHighlight.style.transform = '';
-            panelToHighlight.style.opacity = '';
+            // Remove the CSS classes to return to normal state
+            panelToHighlight.classList.remove('border-orange-500/60', 'shadow-lg', 'bg-sage-50/30', '-translate-y-1');
         }
     }
 

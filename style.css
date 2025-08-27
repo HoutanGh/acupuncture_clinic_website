@@ -2,6 +2,11 @@
    0.  Global tweaks that Tailwind pre-flight doesn't cover
 ===================================================================== */
 
+/* Global font family override */
+body, * {
+  font-family: 'Aptos', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
 /* Generic card-like sections */
 section {
   /* smooth scrolling anchor offset */
@@ -71,7 +76,7 @@ section {
 
 /* Animated underline effect for focused inputs */
 .form-input:focus {
-  border-bottom-color: #14b8a6 !important;
+  border-bottom-color: #ea580c !important;
   
 }
 
@@ -81,7 +86,7 @@ section {
 }
 
 .form-group:hover .form-input {
-  border-bottom-color: #6b7280;
+  border-bottom-color: #14b8a6;
 }
 
 /* Submit button enhancements */

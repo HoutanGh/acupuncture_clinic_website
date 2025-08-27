@@ -5,6 +5,7 @@
 - [ ] About Acupuncture section
 - [ ] Colour Palette 
 - [ ] Font
+- [ ] Might need FAQ
 
 ###  week 18/08/25
 - [ ] About Acupuncture Section

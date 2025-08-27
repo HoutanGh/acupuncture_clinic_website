@@ -32,7 +32,7 @@
             <svg class="inline h-4 w-4 mr-1 text-teal-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            info@healthmaster.co.uk
+            info@acuhealthmaster.co.uk
         </span>
         </div>
     </div>
@@ -500,12 +500,14 @@
 </section>
 
     <!-- ═══ About Acupuncture Section ═══ -->
-    <section id="about-acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 rounded-2xl shadow-lg overflow-hidden py-14 mt-16">
+    <section id="about-acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 rounded-2xl shadow-lg overflow-hidden py-14 mt-16 min-h-[650px]">
       <div class="max-w-6xl mx-auto px-6 space-y-10">
         <!-- Title -->
         <header class="text-center">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-800">About Acupuncture</h2>
-          <p class="mt-3 text-gray-700">Skim the cards for key points. Tap a card to open the full details below.</p>
+          <p class="mt-4 text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
+            Personalised medical acupuncture helps your body reset its own healing responses. Instead of one-size-fits-all protocols, each session is tailored to your symptoms, lifestyle, and goals. Many people leave feeling calmer, less tense, and more balanced. While results vary, treatment aims to reduce pain and support both physical and emotional well-being.
+          </p>
         </header>
 
         <!-- Minimal Section Headers -->
@@ -535,23 +537,66 @@
           </button>
         </div>
 
+        <!-- Subtle instruction text -->
+        <p class="text-center text-sm text-gray-400 italic -mt-8 -mb-4">Tap a card to open its details</p>
+
         <!-- Full-width drawer (content area) -->
-        <div id="about-panel" class="relative bg-white border rounded-xl shadow-sm overflow-hidden">
+        <div id="about-panel" class="relative bg-white border rounded-xl shadow-sm overflow-hidden transition-all duration-300 ease-in-out">
           <!-- What is -->
           <article data-content="what-is" class="about-content block">
-            <div class="p-6 md:p-8">
-              <h3 class="text-2xl font-semibold text-sage-700">What Is Medical Acupuncture?</h3>
-              <p class="mt-3 text-gray-700">
-                Medical acupuncture involves the insertion of very fine needles into specific points on the body, typically for short periods. Depending on the individual case, the treatment may also involve gentle manual stimulation or low-frequency electrical currents. Each treatment plan is tailored to the patient, so the number of needles used and the approach taken may vary.
-              </p>
-              <p class="mt-3 text-gray-700">
-                Treatment often begins weekly and tapers as symptoms improve. A standard course typically ranges from five to eight sessions.
-              </p>
-              <p class="mt-3 text-gray-700">
-                From a scientific perspective, acupuncture stimulates nerves in skin and muscle, prompting the release of natural pain-relieving chemicals (e.g., endorphins, serotonin) and modulating how pain signals are processed in the brain and spinal cord.
-              </p>
+  <div class="p-6 md:p-8 space-y-6">
+    <h3 class="text-2xl font-semibold text-sage-700">What Is Medical Acupuncture?</h3>
+
+    <!-- Lead -->
+    <p class="text-lg text-gray-800 leading-relaxed">
+      A clinician-guided treatment using very fine needles at specific points to help reduce pain and calm the nervous system.
+    </p>
+
+    <!-- Three-column content -->
+    <div class="grid gap-6 md:grid-cols-3">
+      <!-- Left: Process -->
+      <div class="space-y-4">
+        <h4 class="text-base font-semibold text-gray-900">How a session works</h4>
+        <ol class="list-decimal pl-5 space-y-1 text-gray-700">
+          <li>Clinical assessment and a tailored plan (needle number and placement vary).</li>
+          <li>Needle insertion; may include gentle manual stimulation or low-frequency electrical currents.</li>
+          <li>Short rest, followed by review and next steps.</li>
+        </ol>
+      </div>
+
+      <!-- Middle: How it works -->
+      <div class="space-y-4">
+        <h4 class="text-base font-semibold text-gray-900">How it works</h4>
+        <p class="text-gray-700">
+          Stimulating nerves in skin and muscle can prompt release of natural pain-relievers (e.g., endorphins, serotonin)
+          and influence how pain signals are processed in the brain and spinal cord.
+        </p>
+      </div>
+
+      <!-- Right: Course & cadence -->
+      <div class="space-y-4">
+        <h4 class="text-base font-semibold text-gray-900">Course & cadence</h4>
+        <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
+          <dl class="divide-y divide-gray-200">
+            <div class="py-2 grid grid-cols-5 gap-2">
+              <dt class="col-span-2 text-sm text-gray-600">Typical course</dt>
+              <dd class="col-span-3 text-sm font-medium text-gray-800">5–8 sessions</dd>
             </div>
-          </article>
+            <div class="py-2 grid grid-cols-5 gap-2">
+              <dt class="col-span-2 text-sm text-gray-600">Frequency</dt>
+              <dd class="col-span-3 text-sm font-medium text-gray-800">Starts weekly, then tapers as symptoms improve</dd>
+            </div>
+            <div class="py-2 grid grid-cols-5 gap-2">
+              <dt class="col-span-2 text-sm text-gray-600">Needle time</dt>
+              <dd class="col-span-3 text-sm font-medium text-gray-800">Short retention periods</dd>
+            </div>
+          </dl>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</article>
 
           <!-- Benefits -->
           <article data-content="benefits" class="about-content hidden">
@@ -565,7 +610,6 @@
                 <li>Headaches: migraine, tension-type</li>
                 <li>Nausea: selected contexts (e.g., some postoperative/therapy settings)</li>
               </ul>
-              
             </div>
           </article>
 
@@ -775,7 +819,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                info@healthmaster.co.uk
+                info@acuhealthmaster.co.uk
             </p>
             </div>
         </div>

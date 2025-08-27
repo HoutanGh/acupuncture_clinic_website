@@ -2,9 +2,15 @@
    0.  Global tweaks that Tailwind pre-flight doesn't cover
 ===================================================================== */
 
-/* Global font family override */
-body, * {
+/* Global font family override - exclude Font Awesome icons */
+body, 
+body *:not([class*="fa-"]):not(.fa):not(.fas):not(.far):not(.fal):not(.fab) {
   font-family: 'Aptos', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+/* Ensure Font Awesome icons use their proper font */
+.fa, .fas, .far, .fal, .fab, [class*="fa-"] {
+  font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands" !important;
 }
 
 /* Generic card-like sections */

@@ -38,12 +38,14 @@
     </div>
 
     <!-- ── Navigation bar ──────────────────────────────────────────────── -->
-    <header class="fixed top-10 inset-x-0 z-40 bg-white shadow-md">
-        <nav class="relative">
+    <header class="fixed top-10 inset-x-0 z-40 bg-white shadow-md" style="background-image: url(''); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <!-- Translucent overlay for readability -->
+        <div class="absolute inset-0 bg-white bg-opacity-80"></div>
+        <nav class="relative z-10">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center px-1 py-4 md:py-6 lg:py-2">
             <!-- Logo -->
             <div class="hidden lg:flex items-center space-x-4 mb-2 md:mb-0 md:mr-8">
-            <img src="images/healthmaster-logo.png" alt="HealthMaster Acupuncture Clinic Logo" class="h-16 md:h-24 lg:h-32 w-auto" />
+            <img src="images/logo.png" alt="HealthMaster Acupuncture Clinic Logo" class="h-16 md:h-24 lg:h-32 w-auto" />
             <div class="leading-tight">
                 <span class="block text-lg md:text-xl lg:text-2xl font-bold text-gray-800">HealthMaster</span>
                 <span class="block -mt-1 text-sm md:text-base lg:text-lg text-gray-600">Acupuncture Clinic</span>
@@ -170,7 +172,7 @@
             <!-- Submit button -->
             <button
                 type="submit"
-                class="submit-btn w-full h-14 mt-8 bg-gray-900 text-white font-light text-base tracking-wide rounded-xl hover:bg-gray-800 focus:bg-gray-800 active:scale-[0.98] transition-all duration-300 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
+                class="submit-btn w-full h-14 mt-8 bg-teal-700 text-white font-light text-base tracking-wide rounded-xl hover:bg-teal-800 focus:bg-teal-800 active:scale-[0.98] transition-all duration-300 shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-teal-700 focus:ring-offset-2"
             >
                 <span class="flex items-center justify-center gap-3">
                 <span class="submit-text">Send Message</span>
@@ -500,10 +502,10 @@
 </section>
 
     <!-- ═══ About Acupuncture Section ═══ -->
-    <section id="about-acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 rounded-2xl shadow-lg overflow-hidden py-14 mt-16 min-h-[650px]">
-      <div class="max-w-6xl mx-auto px-6 space-y-10">
+    <section id="about-acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 rounded-2xl shadow-lg overflow-hidden pt-14 pb-6 mt-16 min-h-[750px]">
+      <div class="max-w-6xl mx-auto px-6">
         <!-- Title -->
-        <header class="text-center">
+        <header class="text-center mb-6">
           <h2 class="text-3xl md:text-4xl font-bold text-gray-800">About Acupuncture</h2>
           <p class="mt-4 text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
             Personalised medical acupuncture helps your body reset its own healing responses. Instead of one-size-fits-all protocols, each session is tailored to your symptoms, lifestyle, and goals. Many people leave feeling calmer, less tense, and more balanced. While results vary, treatment aims to reduce pain and support both physical and emotional well-being.
@@ -511,7 +513,11 @@
         </header>
 
         <!-- Minimal Section Headers -->
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" role="tablist" aria-label="About acupuncture topics">
+        <div class="space-y-2 mb-6">
+          <!-- Subtle instruction text -->
+          <p class="text-center text-sm text-gray-400 italic">Tap a card to open its details</p>
+          
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" role="tablist" aria-label="About acupuncture topics">
           <!-- What is -->
           <button role="tab" aria-selected="true" data-panel="what-is"
             class="about-card group text-left px-6 py-4 rounded-lg border-l-4 border-orange-500 bg-white transition-all duration-200">
@@ -535,10 +541,8 @@
             class="about-card group text-left px-6 py-4 rounded-lg border-l-4 border-gray-200 bg-white hover:border-orange-500/50 transition-all duration-200">
             <h3 class="text-lg font-medium text-gray-600 group-hover:text-teal-600">Tradition Meets Modern Science</h3>
           </button>
+          </div>
         </div>
-
-        <!-- Subtle instruction text -->
-        <p class="text-center text-sm text-gray-400 italic -mt-8 -mb-4">Tap a card to open its details</p>
 
         <!-- Full-width drawer (content area) -->
         <div id="about-panel" class="relative bg-white border rounded-xl shadow-sm overflow-hidden transition-all duration-300 ease-in-out">
@@ -546,11 +550,6 @@
           <article data-content="what-is" class="about-content block">
   <div class="p-6 md:p-8 space-y-6">
     <h3 class="text-2xl font-semibold text-sage-700">What Is Medical Acupuncture?</h3>
-
-    <!-- Lead -->
-    <p class="text-lg text-gray-800 leading-relaxed">
-      A clinician-guided treatment using very fine needles at specific points to help reduce pain and calm the nervous system.
-    </p>
 
     <!-- Three-column content -->
     <div class="grid gap-6 md:grid-cols-3">
@@ -580,7 +579,7 @@
           <dl class="divide-y divide-gray-200">
             <div class="py-2 grid grid-cols-5 gap-2">
               <dt class="col-span-2 text-sm text-gray-600">Typical course</dt>
-              <dd class="col-span-3 text-sm font-medium text-gray-800">5–8 sessions</dd>
+              <dd class="col-span-3 text-sm font-medium text-gray-800">5 - 8 sessions</dd>
             </div>
             <div class="py-2 grid grid-cols-5 gap-2">
               <dt class="col-span-2 text-sm text-gray-600">Frequency</dt>

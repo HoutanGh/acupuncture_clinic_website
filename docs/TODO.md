@@ -2,10 +2,17 @@
 - [ ] SEO for the website
     - sheffield in the welcome section
 - [ ] Security for the form
-- [ ] About Acupuncture section
-- [ ] Colour Palette 
-- [ ] Font
+- [x] About Acupuncture section
+- [ ] Colour Palette for each section
+- [x] Font
 - [ ] Might need FAQ
+- [ ] indent everything properly 
+- [ ] check everything for mobile view
+    - [x] navigation bar too small
+    - [ ] conditions section
+- [ ] remove unnesscary code
+    - [ ] js code for old about acupuncture section
+- [x] interactive points - if you click on them they stay clicked
 
 ###  week 18/08/25
 - [ ] About Acupuncture Section

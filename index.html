@@ -502,7 +502,7 @@
 </section>
 
     <!-- ═══ About Acupuncture Section ═══ -->
-    <section id="about-acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 rounded-2xl shadow-lg overflow-hidden pt-14 pb-6 mt-16 min-h-[750px]">
+    <section id="about-acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 rounded-2xl shadow-lg overflow-hidden pt-14 pb-6 mt-16 min-h-[800px]">
       <div class="max-w-6xl mx-auto px-6">
         <!-- Title -->
         <header class="text-center mb-6">
@@ -612,31 +612,168 @@
             </div>
           </article>
 
-          <!-- Why medical -->
-          <article data-content="why-medical" class="about-content hidden">
-            <div class="p-6 md:p-8">
-              <h3 class="text-2xl font-semibold text-sage-700">Why Choose a Medical Acupuncturist?</h3>
-              <p class="mt-3 text-gray-700">
-                You'll work with a healthcare professional trained in both conventional medicine and acupuncture. They can interpret your history, tests, and medications, and coordinate with your GP if needed.
-              </p>
-              <p class="mt-3 text-gray-700">
-                Acupuncture can relieve symptoms and improve quality of life, but it is not a substitute for treatment of serious underlying conditions. It should be used alongside, not instead of, standard medical care.
-              </p>
-            </div>
-          </article>
+<!-- Why medical -->
+<article data-content="why-medical" class="about-content hidden">
+  <div class="p-6 md:p-8 space-y-6">
+    <h3 class="text-2xl font-semibold text-sage-700">Why Choose a Medical Acupuncturist?</h3>
 
-          <!-- Tradition -->
-          <article data-content="tradition" class="about-content hidden">
-            <div class="p-6 md:p-8">
-              <h3 class="text-2xl font-semibold text-sage-700">A Blend of Tradition and Modern Science</h3>
-              <p class="mt-3 text-gray-700">
-                Acupuncture has ancient roots in China (possibly 4,000+ years). Interest in the West grew in the 20th century. Research has clarified mechanisms and challenged myths, supporting its use alongside modern treatments.
-              </p>
-              <p class="mt-3 text-gray-700">
-                Today, acupuncture is integrated into many UK pain services and offered by a growing number of doctors and specialists.
-              </p>
+    <!-- Single streamlined card -->
+    <div class="relative rounded-xl border border-gray-200 bg-gradient-to-br from-white to-gray-50/30 shadow-sm p-6 overflow-hidden">
+      <!-- Subtle background accent -->
+      <div class="absolute top-0 right-0 w-24 h-24 bg-teal-600/5 rounded-full -translate-y-12 translate-x-12"></div>
+      
+      <div class="relative">
+        <p class="text-gray-800 leading-relaxed text-[15px]">
+          Choosing a medical acupuncturist means you're working with a healthcare professional trained in both conventional medicine and acupuncture. They understand your medical history, test results, and medications, and can coordinate care with your general practitioner if needed.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card: Use alongside standard care -->
+    <div class="rounded-xl border border-amber-200 bg-amber-50 p-5 border-l-4 border-amber-400">
+      <div class="flex items-start gap-3">
+        <!-- Icon: info -->
+        <svg class="w-5 h-5 mt-0.5 text-amber-700 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                d="M12 9h.01M11 12h1v6m-1-14a9 9 0 110 18 9 9 0 010-18z"/>
+        </svg>
+        <p class="text-amber-900 text-[15px]">
+          While acupuncture can relieve symptoms and improve quality of life, it is not a substitute for treatment of serious underlying conditions.
+          It should be used alongside, not instead of, standard medical care.
+        </p>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- Tradition -->
+<article data-content="tradition" class="about-content hidden">
+  <div class="p-6 md:p-8 space-y-6">
+    <h3 class="text-2xl font-semibold text-sage-700">A Blend of Tradition and Modern Science</h3>
+
+    <!-- Responsive timeline: vertical (sm) → horizontal (md+) -->
+    <div class="relative">
+      <!-- Horizontal connector (desktop) -->
+      <div class="hidden md:block absolute inset-x-0 top-8 h-0.5 bg-gray-200"></div>
+
+      <ol class="space-y-6 md:space-y-0 md:grid md:grid-cols-5 md:gap-6">
+        <!-- 1) Prehistory (Ötzi) -->
+        <li class="relative pt-0 md:pt-14 md:text-center group">
+          <!-- dot (desktop) -->
+          <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-7 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
+          <!-- mobile row -->
+          <div class="md:hidden flex items-start gap-3">
+            <div class="mt-1 h-2.5 w-2.5 rounded-full bg-sage-600 flex-shrink-0"></div>
+            <div>
+              <div class="text-sm font-semibold text-gray-900">c. 3300 BCE</div>
+              <div class="text-gray-700 text-[15px]">Prehistoric hints (Ötzi)</div>
             </div>
-          </article>
+          </div>
+          <!-- desktop text -->
+          <div class="hidden md:block">
+            <div class="text-sm font-semibold text-gray-900">c. 3300 BCE</div>
+            <p class="mt-1 text-gray-700 text-[15px]">Prehistoric hints (Ötzi)</p>
+          </div>
+          <!-- tooltip -->
+          <div class="pointer-events-none absolute md:left-1/2 md:-translate-x-1/2 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20">
+            <div class="w-56 rounded-lg border border-gray-300 bg-white/90 backdrop-blur-sm p-4 shadow-xl text-sm text-gray-800 leading-relaxed">
+              Tattoos on Ötzi cluster near points later used in acupuncture; scholars see this as suggestive, not proof.
+            </div>
+          </div>
+        </li>
+
+        <!-- 2) Ancient China -->
+        <li class="relative pt-0 md:pt-14 md:text-center group">
+          <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-7 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
+          <div class="md:hidden flex items-start gap-3">
+            <div class="mt-1 h-2.5 w-2.5 rounded-full bg-sage-600 flex-shrink-0"></div>
+            <div>
+              <div class="text-sm font-semibold text-gray-900">c. 200 BCE–100 CE</div>
+              <div class="text-gray-700 text-[15px]">Ancient China texts</div>
+            </div>
+          </div>
+          <div class="hidden md:block">
+            <div class="text-sm font-semibold text-gray-900">c. 200 BCE–100 CE</div>
+            <p class="mt-1 text-gray-700 text-[15px]">Ancient China texts</p>
+          </div>
+          <div class="pointer-events-none absolute md:left-1/2 md:-translate-x-1/2 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20">
+            <div class="w-56 rounded-lg border border-gray-300 bg-white/90 backdrop-blur-sm p-4 shadow-xl text-sm text-gray-800 leading-relaxed">
+              Compilation of foundational works (e.g., <em>Huangdi Neijing</em>) formalised theory and needling practice.
+            </div>
+          </div>
+        </li>
+
+        <!-- 3) 20th century West -->
+        <li class="relative pt-0 md:pt-14 md:text-center group">
+          <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-7 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
+          <div class="md:hidden flex items-start gap-3">
+            <div class="mt-1 h-2.5 w-2.5 rounded-full bg-sage-600 flex-shrink-0"></div>
+            <div>
+              <div class="text-sm font-semibold text-gray-900">20th c.</div>
+              <div class="text-gray-700 text-[15px]">Western interest</div>
+            </div>
+          </div>
+          <div class="hidden md:block">
+            <div class="text-sm font-semibold text-gray-900">20th c.</div>
+            <p class="mt-1 text-gray-700 text-[15px]">Western interest</p>
+          </div>
+          <div class="pointer-events-none absolute md:left-1/2 md:-translate-x-1/2 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20">
+            <div class="w-56 rounded-lg border border-gray-300 bg-white/90 backdrop-blur-sm p-4 shadow-xl text-sm text-gray-800 leading-relaxed">
+              Public interest surged after 1971 reporting from China; research activity followed.
+            </div>
+          </div>
+        </li>
+
+        <!-- 4) 1990s–2000s research/integration -->
+        <li class="relative pt-0 md:pt-14 md:text-center group">
+          <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-7 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
+          <div class="md:hidden flex items-start gap-3">
+            <div class="mt-1 h-2.5 w-2.5 rounded-full bg-sage-600 flex-shrink-0"></div>
+            <div>
+              <div class="text-sm font-semibold text-gray-900">1990s–2000s</div>
+              <div class="text-gray-700 text-[15px]">Research + integration</div>
+            </div>
+          </div>
+          <div class="hidden md:block">
+            <div class="text-sm font-semibold text-gray-900">1990s–2000s</div>
+            <p class="mt-1 text-gray-700 text-[15px]">Research + integration</p>
+          </div>
+          <div class="pointer-events-none absolute md:left-1/2 md:-translate-x-1/2 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20">
+            <div class="w-56 rounded-lg border border-gray-300 bg-white/90 backdrop-blur-sm p-4 shadow-xl text-sm text-gray-800 leading-relaxed">
+              Major reviews (e.g., NIH 1997) identified areas of benefit and priorities for better trials.
+            </div>
+          </div>
+        </li>
+
+        <!-- 5) Today (UK) -->
+        <li class="relative pt-0 md:pt-14 md:text-center group">
+          <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-7 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
+          <div class="md:hidden flex items-start gap-3">
+            <div class="mt-1 h-2.5 w-2.5 rounded-full bg-sage-600 flex-shrink-0"></div>
+            <div>
+              <div class="text-sm font-semibold text-gray-900">Today (UK)</div>
+              <div class="text-gray-700 text-[15px]">Selective NHS use</div>
+            </div>
+          </div>
+          <div class="hidden md:block">
+            <div class="text-sm font-semibold text-gray-900">Today (UK)</div>
+            <p class="mt-1 text-gray-700 text-[15px]">Selective NHS use</p>
+          </div>
+          <div class="pointer-events-none absolute md:left-1/2 md:-translate-x-1/2 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20">
+            <div class="w-56 rounded-lg border border-gray-300 bg-white/90 backdrop-blur-sm p-4 shadow-xl text-sm text-gray-800 leading-relaxed">
+              Sometimes available on the NHS; NICE (2021) recommends acupuncture for chronic primary pain.
+            </div>
+          </div>
+        </li>
+      </ol>
+    </div>
+
+    <!-- Summary paragraph (concise) -->
+    <p class="text-gray-800 leading-relaxed">
+      From prehistoric hints and classical Chinese texts to a 20th-century revival and modern evidence reviews, acupuncture has moved from tradition into a selective, research-informed role in UK care - sometimes available on the NHS and recommended by NICE for chronic primary pain.
+    </p>
+  </div>
+</article>
         </div>
       </div>
     </section>

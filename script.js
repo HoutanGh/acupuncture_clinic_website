@@ -345,30 +345,19 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Set up body point interactions
+    // Set up body point interactions (no click functionality)
     points.forEach(point => {
         const condition = point.dataset.condition;
-        
-        // Click to highlight condition
-        point.addEventListener('click', () => {
-            highlightCondition(condition);
-        });
-
         // Hover effects for points
         point.addEventListener('mouseenter', () => {
-            // Highlight the corresponding panel
             addHoverHighlight(condition);
-            // Add same orange halo effect to the point as panel hover does
             if (!point.classList.contains('active')) {
                 point.style.transform = 'translate(-50%, -50%) scale(1.15)';
                 point.style.boxShadow = '0 0 0 6px rgba(201, 122, 83, 0.3), 0 0 0 12px rgba(201, 122, 83, 0.15), 0 4px 12px rgba(0, 0, 0, 0.25)';
             }
         });
-
         point.addEventListener('mouseleave', () => {
-            // Remove panel highlight
             removeHoverHighlight(condition);
-            // Remove orange halo effect from point
             if (!point.classList.contains('active')) {
                 point.style.transform = '';
                 point.style.boxShadow = '';
@@ -376,15 +365,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Set up info panel interactions
+    // Set up info panel interactions (no click functionality)
     infoPanels.forEach(panel => {
         const condition = panel.id.replace('condition-', '');
-        
-        // Click to highlight condition
-        panel.addEventListener('click', () => {
-            highlightCondition(condition);
-        });
-
         // Hover effects for panels
         panel.addEventListener('mouseenter', () => {
             const pointToHighlight = document.querySelector(`[data-condition="${condition}"]`);
@@ -393,7 +376,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 pointToHighlight.style.boxShadow = '0 0 0 6px rgba(201, 122, 83, 0.3), 0 0 0 12px rgba(201, 122, 83, 0.15), 0 4px 12px rgba(0, 0, 0, 0.25)';
             }
         });
-
         panel.addEventListener('mouseleave', () => {
             const pointToHighlight = document.querySelector(`[data-condition="${condition}"]`);
             if (pointToHighlight && !pointToHighlight.classList.contains('active')) {
@@ -451,57 +433,43 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Initialize tabs on page load
+    // Initialise tabs on page load
     initializeTabs();
 
-    tabButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const target = btn.getAttribute('data-panel');
+        // Restore click functionality for About Acupuncture cards (tabs) only
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                // Only handle clicks within the About Acupuncture section
+                if (!btn.closest('#about-acupuncture')) return;
+                const target = btn.getAttribute('data-panel');
 
-            // Update tabs: aria attributes + styling
-            tabButtons.forEach(b => {
-                const active = b === btn;
-                const title = b.querySelector('h3');
-                
-                b.setAttribute('aria-selected', active ? 'true' : 'false');
-                
-                // Clear all background, border, and text color classes first
-                b.classList.remove(
-                    'border-orange-500', 'border-gray-200', 'border-orange-500/50',
-                    'bg-white', 'bg-teal-50/30', 'bg-orange-50/30',
-                    'hover:border-orange-500/50'
-                );
-                if (title) {
-                    title.classList.remove('text-gray-600', 'text-gray-800', 'text-teal-600', 'text-orange-700', 'text-teal-700');
-                }
-                
-                // Apply the correct styling based on active state
-                if (active) {
-                    // Active state: opaque orange border, white background, gray text, NO hover effect
-                    b.classList.add('border-orange-500', 'bg-white');
+                // Update tabs: aria attributes + styling
+                tabButtons.forEach(b => {
+                    const active = b === btn;
+                    const title = b.querySelector('h3');
+                    b.setAttribute('aria-selected', active ? 'true' : 'false');
+                    b.classList.remove(
+                        'border-orange-500', 'border-gray-200', 'border-orange-500/50',
+                        'bg-white', 'bg-teal-50/30', 'bg-orange-50/30',
+                        'hover:border-orange-500/50'
+                    );
                     if (title) {
-                        title.classList.add('text-gray-600');
+                        title.classList.remove('text-gray-600', 'text-gray-800', 'text-teal-600', 'text-orange-700', 'text-teal-700');
                     }
-                } else {
-                    // Inactive state: gray border, white background, gray text, WITH hover effect
-                    b.classList.add('border-gray-200', 'bg-white', 'hover:border-orange-500/50');
-                    if (title) {
-                        title.classList.add('text-gray-600');
+                    if (active) {
+                        b.classList.add('border-orange-500', 'bg-white');
+                        if (title) title.classList.add('text-gray-600');
+                    } else {
+                        b.classList.add('border-gray-200', 'bg-white', 'hover:border-orange-500/50');
+                        if (title) title.classList.add('text-gray-600');
                     }
-                }
-            });
+                });
 
-            // Swap content visibility
-            contentBlocks.forEach(el => {
-                el.classList.toggle('hidden', el.getAttribute('data-content') !== target);
-                el.classList.toggle('block', el.getAttribute('data-content') === target);
+                // Swap content visibility
+                contentBlocks.forEach(el => {
+                    el.classList.toggle('hidden', el.getAttribute('data-content') !== target);
+                    el.classList.toggle('block', el.getAttribute('data-content') === target);
+                });
             });
-
-            // Optional: scroll content into view on mobile devices
-            const panel = document.querySelector('#about-panel');
-            if (panel && window.innerWidth < 1024) {
-                panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
         });
-    });
 });

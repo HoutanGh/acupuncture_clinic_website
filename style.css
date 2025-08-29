@@ -192,5 +192,22 @@ section {
 }
 
 
+/* =====================================================================
+   3.  Timeline tweaks (About Acupuncture → Tradition)
+   - Horizontal on mobile, compact spacing
+   - Tooltips open on tap (mobile) or hover (desktop)
+===================================================================== */
+
+/* Show tooltip when a timeline item is programmatically opened */
+.timeline-item.open .timeline-tooltip { 
+  opacity: 1 !important; 
+  pointer-events: auto !important; 
+}
+
+/* Small nudge for reduced spacing under the time label on desktop */
+@media (min-width: 768px) {
+  .timeline-item p { margin-top: 0.25rem !important; }
+}
+
 
 

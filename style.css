@@ -211,3 +211,82 @@ section {
 
 
 
+/* =====================================================================
+   4.  Treated Conditions (mobile overlay)
+   - Hide cards on mobile; show diagram-only
+   - Show translucent overlay on point hover/tap
+===================================================================== */
+
+/* Hide the list of condition cards on smaller screens */
+@media (max-width: 1023px) {
+  .conditions-list { display: none !important; }
+}
+
+
+/* =====================================================================
+   5.  Prices section (mobile horizontal cards)
+   - Make cards adjacent horizontally with smaller footprint
+===================================================================== */
+
+@media (max-width: 639px) {
+  #prices .prices-cards {
+    display: flex !important;
+    gap: 0.5rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.25rem;
+  }
+  #prices .prices-cards > div {
+    flex: 0 0 220px; /* slightly smaller cards to fit */
+    padding: 0.875rem !important;
+    border-radius: 0.75rem;
+    scroll-snap-align: start;
+    transform: none !important; /* disable hover scale on mobile */
+  }
+  #prices .prices-cards > div:hover {
+    transform: none !important;
+  }
+  /* Slightly smaller icon circle */
+  #prices .prices-cards > div .w-12.h-12 {
+    width: 2.5rem; /* 40px */
+    height: 2.5rem;
+  }
+}
+
+/* Overlay container injected in the figure */
+.condition-overlay {
+  position: absolute;
+  width: 300px;
+  max-width: calc(100% - 24px);
+  z-index: 30;
+  background: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 0.75rem; /* ~rounded-xl */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  padding: 0.75rem 0.875rem;
+  opacity: 0;
+  transform: translate(-50%, -8px);
+  transition: opacity 100ms ease, transform 100ms ease;
+  pointer-events: none; /* don't block unless visible */
+}
+
+.condition-overlay.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+.condition-overlay .title {
+  font-weight: 600;
+  color: #6b7f57; /* text-sage-700 */
+  margin-bottom: 0.25rem;
+}
+
+.condition-overlay .desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #374151; /* gray-700 */
+}

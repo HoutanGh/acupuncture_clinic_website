@@ -335,9 +335,33 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
     const points = document.querySelectorAll('.condition-point');
     const infoPanels = document.querySelectorAll('.condition-info');
+    const figure = document.getElementById('conditions-figure');
 
     // Exit if interactive body map doesn't exist
     if (!points.length) return;
+
+    // Mobile overlay for condition details (diagram-only view)
+    let overlay;
+    let hideOverlayTimeout = null;
+    if (figure) {
+        overlay = document.createElement('div');
+        overlay.className = 'condition-overlay';
+        overlay.innerHTML = '<div class="title"></div><div class="desc"></div>';
+        figure.appendChild(overlay);
+
+        // Keep overlay open while hovered; hide shortly after leaving
+        overlay.addEventListener('mouseenter', () => {
+            if (hideOverlayTimeout) {
+                clearTimeout(hideOverlayTimeout);
+                hideOverlayTimeout = null;
+            }
+        });
+        overlay.addEventListener('mouseleave', () => {
+            if (window.innerWidth < 1024) {
+                hideOverlayTimeout = setTimeout(() => hideConditionOverlay(), 120);
+            }
+        });
+    }
 
     /**
      * Highlight a specific condition (both point and info panel)
@@ -396,12 +420,39 @@ document.addEventListener("DOMContentLoaded", function () {
                 point.style.transform = 'translate(-50%, -50%) scale(1.15)';
                 point.style.boxShadow = '0 0 0 6px rgba(201, 122, 83, 0.3), 0 0 0 12px rgba(201, 122, 83, 0.15), 0 4px 12px rgba(0, 0, 0, 0.25)';
             }
+            // On mobile widths, show overlay with details
+            if (window.innerWidth < 1024) {
+                if (hideOverlayTimeout) {
+                    clearTimeout(hideOverlayTimeout);
+                    hideOverlayTimeout = null;
+                }
+                showConditionOverlay(condition, point);
+            }
         });
         point.addEventListener('mouseleave', () => {
             removeHoverHighlight(condition);
             if (!point.classList.contains('active')) {
                 point.style.transform = '';
                 point.style.boxShadow = '';
+            }
+            // Fade out overlay after a short delay when leaving the point (mobile widths)
+            if (window.innerWidth < 1024) {
+                hideOverlayTimeout = setTimeout(() => hideConditionOverlay(), 120);
+            }
+        });
+
+        // Touch/click support for mobile
+        point.addEventListener('touchstart', (e) => {
+            if (window.innerWidth < 1024) {
+                e.preventDefault();
+                showConditionOverlay(condition, point);
+            }
+        }, { passive: false });
+
+        point.addEventListener('click', (e) => {
+            if (window.innerWidth < 1024) {
+                e.preventDefault();
+                showConditionOverlay(condition, point);
             }
         });
     });
@@ -425,6 +476,73 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    // Hide overlay if leaving the figure or resizing to desktop
+    if (figure) {
+        figure.addEventListener('mouseleave', () => {
+            if (window.innerWidth < 1024) hideConditionOverlay();
+        });
+    }
+
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 1024) hideConditionOverlay();
+    });
+
+    // Tap outside to close overlay on mobile
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth >= 1024) return;
+        const t = e.target;
+        const isPoint = t instanceof Element && t.closest('.condition-point');
+        const isOverlay = t instanceof Element && t.closest('.condition-overlay');
+        if (!isPoint && !isOverlay) hideConditionOverlay();
+    });
+
+    // Helper: show translucent overlay near a point (mobile)
+    function showConditionOverlay(conditionId, anchorEl) {
+        if (!overlay) return;
+        const panel = document.getElementById(`condition-${conditionId}`);
+        const titleEl = overlay.querySelector('.title');
+        const descEl = overlay.querySelector('.desc');
+        const title = panel ? (panel.querySelector('h3')?.textContent || '') : '';
+        const desc = panel ? (panel.querySelector('p')?.textContent || '') : '';
+        titleEl.textContent = title || 'Condition';
+        descEl.textContent = desc || '';
+
+        // Position relative to the figure and the anchor point
+        const figRect = figure.getBoundingClientRect();
+        const ptRect = anchorEl.getBoundingClientRect();
+        const centerX = ptRect.left + ptRect.width / 2 - figRect.left;
+        // Pre-position to measure size
+        overlay.style.left = '50%';
+        overlay.style.top = '0px';
+        const overlayH = overlay.offsetHeight;
+        const overlayHalfW = overlay.offsetWidth / 2;
+        const gap = 12; // space between point and overlay
+        // Default above point without covering it
+        let top = ptRect.top - figRect.top - overlayH - gap;
+
+        // Clamp X so overlay stays within figure bounds
+        const padding = 8;
+        let clampedX = centerX;
+        if (clampedX - overlayHalfW < padding) clampedX = overlayHalfW + padding;
+        if (clampedX + overlayHalfW > figure.clientWidth - padding) {
+            clampedX = figure.clientWidth - overlayHalfW - padding;
+        }
+        overlay.style.left = `${clampedX}px`;
+
+        // If not enough space above, place below the point
+        if (top < padding) {
+            top = ptRect.bottom - figRect.top + gap;
+        }
+        overlay.style.top = `${top}px`;
+
+        overlay.classList.add('visible');
+    }
+
+    function hideConditionOverlay() {
+        if (!overlay) return;
+        overlay.classList.remove('visible');
+    }
 });
 
 /* =====================================================================

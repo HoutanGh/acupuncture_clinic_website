@@ -201,6 +201,47 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* =====================================================================
+   5. TIMELINE (Tradition) – mobile tap-to-open tooltips
+   - Makes the timeline tooltips accessible on touch devices
+===================================================================== */
+
+document.addEventListener('DOMContentLoaded', function () {
+  const items = document.querySelectorAll('.timeline-item');
+  if (!items.length) return;
+
+  function closeAll() {
+    items.forEach(i => i.classList.remove('open'));
+  }
+
+  items.forEach(item => {
+    // Open/close on click (mobile/touch-friendly)
+    item.addEventListener('click', function (e) {
+      // Allow clicks inside tooltip to just close others
+      const isOpen = item.classList.contains('open');
+      closeAll();
+      if (!isOpen) item.classList.add('open');
+      e.stopPropagation();
+    });
+
+    // Keyboard accessibility
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        const isOpen = item.classList.contains('open');
+        closeAll();
+        if (!isOpen) item.classList.add('open');
+      }
+      if (e.key === 'Escape') {
+        item.classList.remove('open');
+      }
+    });
+  });
+
+  // Clicking anywhere else closes tooltips
+  document.addEventListener('click', function () { closeAll(); });
+});
+
+/* =====================================================================
    2. LOCATION GALLERY FUNCTIONALITY
    =====================================================================
    Handles the image slideshow in the location section with navigation

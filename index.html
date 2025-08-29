@@ -296,7 +296,7 @@
     </section>
 
     <!-- ═══ About Acupuncture Section ═══ -->
-    <section id="about-acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 rounded-2xl shadow-lg overflow-hidden pt-14 pb-6 mt-16 min-h-[800px]">
+    <section id="about-acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 rounded-2xl shadow-lg overflow-hidden pt-14 pb-6 mt-16 min-h-[800px] sm:min-h-[960px]">
       <div class="max-w-6xl mx-auto px-6">
         <!-- Title -->
         <header class="text-center mb-6">
@@ -339,65 +339,65 @@
         </div>
 
         <!-- Full-width drawer (content area) -->
-        <div id="about-panel" class="relative bg-white border rounded-xl shadow-sm overflow-hidden transition-all duration-300 ease-in-out min-h-[420px]">
+        <div id="about-panel" class="relative bg-white border rounded-xl shadow-sm overflow-hidden transition-all duration-300 ease-in-out min-h-[300px]">
           <!-- What is -->
           <article data-content="what-is" class="about-content block">
             <div class="p-6 md:p-8 space-y-6">
             <h3 class="text-2xl font-semibold text-sage-700">What Is Medical Acupuncture?</h3>
 
-            <!-- Three-column content -->
-            <div class="grid gap-6 md:grid-cols-3">
-            <!-- Left: Process -->
-            <div class="space-y-4">
+            <!-- Two-column on mobile, three-column on md+; 'How it works' below on mobile -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+              <!-- Left: How a session works -->
+              <div class="space-y-4 col-span-1">
                 <h4 class="text-base font-semibold text-gray-900">How a session works</h4>
                 <ol class="list-decimal pl-5 space-y-1 text-gray-700">
-                <li>Clinical assessment and a tailored plan (needle number and placement vary).</li>
-                <li>Needle insertion; may include gentle manual stimulation or low-frequency electrical currents.</li>
-                <li>Short rest, followed by review and next steps.</li>
+                  <li>Clinical assessment and a tailored plan (needle number and placement vary).</li>
+                  <li>Needle insertion; may include gentle manual stimulation or low-frequency electrical currents.</li>
+                  <li>Short rest, followed by review and next steps.</li>
                 </ol>
-            </div>
+              </div>
 
-            <!-- Middle: How it works -->
-            <div class="space-y-4">
-                <h4 class="text-base font-semibold text-gray-900">How it works</h4>
-                <p class="text-gray-700">
-                Stimulating nerves in skin and muscle can prompt release of natural pain-relievers (e.g., endorphins, serotonin)
-                and influence how pain signals are processed in the brain and spinal cord.
-                </p>
-            </div>
-
-            <!-- Right: Course & cadence -->
-            <div class="space-y-4">
+              <!-- Right: Course & cadence -->
+              <div class="space-y-4 col-span-1">
                 <h4 class="text-base font-semibold text-gray-900">Course & cadence</h4>
                 <div class="rounded-lg border border-gray-200 bg-gray-50 p-4">
-                <dl class="divide-y divide-gray-200">
+                  <dl class="divide-y divide-gray-200">
                     <div class="py-2 grid grid-cols-5 gap-2">
-                    <dt class="col-span-2 text-sm text-gray-600">Typical course</dt>
-                    <dd class="col-span-3 text-sm font-medium text-gray-800">5 - 8 sessions</dd>
+                      <dt class="col-span-2 text-sm text-gray-600">Typical course</dt>
+                      <dd class="col-span-3 text-sm font-medium text-gray-800">5 - 8 sessions</dd>
                     </div>
                     <div class="py-2 grid grid-cols-5 gap-2">
-                    <dt class="col-span-2 text-sm text-gray-600">Frequency</dt>
-                    <dd class="col-span-3 text-sm font-medium text-gray-800">Starts weekly, then tapers as symptoms improve</dd>
+                      <dt class="col-span-2 text-sm text-gray-600">Frequency</dt>
+                      <dd class="col-span-3 text-sm font-medium text-gray-800">Starts weekly, then tapers as symptoms improve</dd>
                     </div>
                     <div class="py-2 grid grid-cols-5 gap-2">
-                    <dt class="col-span-2 text-sm text-gray-600">Needle time</dt>
-                    <dd class="col-span-3 text-sm font-medium text-gray-800">Short retention periods</dd>
+                      <dt class="col-span-2 text-sm text-gray-600">Needle time</dt>
+                      <dd class="col-span-3 text-sm font-medium text-gray-800">Short retention periods</dd>
                     </div>
-                </dl>
+                  </dl>
                 </div>
-            </div>
+              </div>
+
+              <!-- How it works: below on mobile, third column on md+ -->
+              <div class="space-y-4 col-span-2 md:col-span-1">
+                <h4 class="text-base font-semibold text-gray-900">How it works</h4>
+                <p class="text-gray-700">
+                  Stimulating nerves in skin and muscle can prompt release of natural pain-relievers (e.g., endorphins, serotonin)
+                  and influence how pain signals are processed in the brain and spinal cord.
+                </p>
+              </div>
             </div>
             </div>
         </article>
 
           <!-- Benefits -->
           <article data-content="benefits" class="about-content hidden">
-            <div class="p-6 md:p-8">
-              <h3 class="text-2xl font-semibold text-sage-700">Benefits & Evidence</h3>
-              <p class="mt-3 text-gray-700">
+            <div class="p-6 md:p-8 space-y-8">
+              <h3 class="text-2xl font-semibold text-sage-700 mb-6">Benefits & Evidence</h3>
+              <p class="mt-4 text-gray-700">
                 Clinical research supports short-term relief for lower-back pain, knee pain, neck pain, and certain headaches (migraines, tension-type). It has also been shown to help reduce nausea in specific situations. Evidence varies by condition, and improvement isn't guaranteed.
               </p>
-              <ul class="mt-4 list-disc pl-6 text-gray-700 space-y-2">
+              <ul class="mt-6 list-disc pl-6 text-gray-700 space-y-2">
                 <li>Pain management: back, knee, neck</li>
                 <li>Headaches: migraine, tension-type</li>
                 <li>Nausea: selected contexts (e.g., some postoperative/therapy settings)</li>
@@ -441,128 +441,97 @@
 
         <!-- Tradition -->
         <article data-content="tradition" class="about-content hidden">
-        <div class="p-6 md:p-8 space-y-6">
-            <h3 class="text-2xl font-semibold text-sage-700">A Blend of Tradition and Modern Science</h3>
+    <div class="p-6 md:p-8 space-y-10">
+      <h3 class="text-2xl font-semibold text-sage-700 mb-6">A Blend of Tradition and Modern Science</h3>
 
-            <!-- Responsive timeline: vertical (sm) → horizontal (md+) -->
-            <div class="relative">
-            <!-- Horizontal connector (desktop) -->
-            <div class="hidden md:block absolute inset-x-0 top-8 h-0.5 bg-gray-200"></div>
+      <!-- Timeline (now horizontal on mobile too) -->
+      <div class="relative mb-10">
+      <!-- Horizontal connector (all viewports) -->
+      <div class="absolute inset-x-0 top-7 h-0.5 bg-gray-200"></div>
 
-            <ol class="space-y-6 md:space-y-0 md:grid md:grid-cols-5 md:gap-6">
+      <ol class="grid grid-cols-5 gap-3 sm:gap-4 md:gap-6">
                 <!-- 1) Prehistory (Ötzi) -->
-                <li class="relative pt-0 md:pt-14 md:text-center group">
-                <!-- dot (desktop) -->
-                <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-7 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
-                <!-- mobile row -->
-                <div class="md:hidden flex items-start gap-3">
-                    <div class="mt-1 h-2.5 w-2.5 rounded-full bg-sage-600 flex-shrink-0"></div>
-                    <div>
+                <li class="relative pt-12 md:pt-14 text-center group timeline-item" tabindex="0">
+                  <!-- dot -->
+                  <div class="absolute left-1/2 -translate-x-1/2 top-6 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
+                  <!-- label + short text (compact); hide short text on mobile -->
+                  <div>
                     <div class="text-sm font-semibold text-gray-900">c. 3300 BCE</div>
-                    <div class="text-gray-700 text-[15px]">Prehistoric hints (Ötzi)</div>
-                    </div>
-                </div>
-                <!-- desktop text -->
-                <div class="hidden md:block">
-                    <div class="text-sm font-semibold text-gray-900">c. 3300 BCE</div>
-                    <p class="mt-1 text-gray-700 text-[15px]">Prehistoric hints (Ötzi)</p>
-                </div>
-                <!-- tooltip -->
-                <div class="pointer-events-none absolute md:left-1/2 md:-translate-x-1/2 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20">
+                    <p class="mt-0.5 text-gray-700 text-[15px] hidden md:block">Prehistoric hints (Ötzi)</p>
+                  </div>
+                  <!-- tooltip (tap/hover) -->
+                  <div class="timeline-tooltip absolute left-1/2 -translate-x-1/2 top-16 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20 pointer-events-none md:pointer-events-none">
                     <div class="w-56 rounded-lg border border-gray-300 bg-white/90 backdrop-blur-sm p-4 shadow-xl text-sm text-gray-800 leading-relaxed">
-                    Tattoos on Ötzi cluster near points later used in acupuncture.
+                      <div class="font-semibold mb-1">Prehistoric hints (Ötzi)</div>
+                      Tattoos on Ötzi cluster near points later used in acupuncture.
                     </div>
-                </div>
+                  </div>
                 </li>
 
                 <!-- 2) Ancient China -->
-                <li class="relative pt-0 md:pt-14 md:text-center group">
-                <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-7 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
-                <div class="md:hidden flex items-start gap-3">
-                    <div class="mt-1 h-2.5 w-2.5 rounded-full bg-sage-600 flex-shrink-0"></div>
-                    <div>
+                <li class="relative pt-12 md:pt-14 text-center group timeline-item" tabindex="0">
+                  <div class="absolute left-1/2 -translate-x-1/2 top-6 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
+                  <div>
                     <div class="text-sm font-semibold text-gray-900">c. 200 BCE–100 CE</div>
-                    <div class="text-gray-700 text-[15px]">Ancient China texts</div>
-                    </div>
-                </div>
-                <div class="hidden md:block">
-                    <div class="text-sm font-semibold text-gray-900">c. 200 BCE–100 CE</div>
-                    <p class="mt-1 text-gray-700 text-[15px]">Ancient China texts</p>
-                </div>
-                <div class="pointer-events-none absolute md:left-1/2 md:-translate-x-1/2 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20">
+                    <p class="mt-0.5 text-gray-700 text-[15px] hidden md:block">Ancient China texts</p>
+                  </div>
+                  <div class="timeline-tooltip absolute left-1/2 -translate-x-1/2 top-16 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20 pointer-events-none md:pointer-events-none">
                     <div class="w-56 rounded-lg border border-gray-300 bg-white/90 backdrop-blur-sm p-4 shadow-xl text-sm text-gray-800 leading-relaxed">
-                    Compilation of foundational works (e.g., <em>Huangdi Neijing</em>) formalised theory and needling practice.
+                      <div class="font-semibold mb-1">Ancient China texts</div>
+                      Compilation of foundational works (e.g., <em>Huangdi Neijing</em>) formalised theory and needling practice.
                     </div>
-                </div>
+                  </div>
                 </li>
 
                 <!-- 3) 20th century West -->
-                <li class="relative pt-0 md:pt-14 md:text-center group">
-                <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-7 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
-                <div class="md:hidden flex items-start gap-3">
-                    <div class="mt-1 h-2.5 w-2.5 rounded-full bg-sage-600 flex-shrink-0"></div>
-                    <div>
+                <li class="relative pt-12 md:pt-14 text-center group timeline-item" tabindex="0">
+                  <div class="absolute left-1/2 -translate-x-1/2 top-6 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
+                  <div>
                     <div class="text-sm font-semibold text-gray-900">20th c.</div>
-                    <div class="text-gray-700 text-[15px]">Western interest</div>
-                    </div>
-                </div>
-                <div class="hidden md:block">
-                    <div class="text-sm font-semibold text-gray-900">20th c.</div>
-                    <p class="mt-1 text-gray-700 text-[15px]">Western interest</p>
-                </div>
-                <div class="pointer-events-none absolute md:left-1/2 md:-translate-x-1/2 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20">
+                    <p class="mt-0.5 text-gray-700 text-[15px] hidden md:block">Western interest</p>
+                  </div>
+                  <div class="timeline-tooltip absolute left-1/2 -translate-x-1/2 top-16 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20 pointer-events-none md:pointer-events-none">
                     <div class="w-56 rounded-lg border border-gray-300 bg-white/90 backdrop-blur-sm p-4 shadow-xl text-sm text-gray-800 leading-relaxed">
-                    Public interest surged after 1971 reporting from China; research activity followed.
+                      <div class="font-semibold mb-1">Western interest</div>
+                      Public interest surged after 1971 reporting from China; research activity followed.
                     </div>
-                </div>
+                  </div>
                 </li>
 
                 <!-- 4) 1990s–2000s research/integration -->
-                <li class="relative pt-0 md:pt-14 md:text-center group">
-                <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-7 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
-                <div class="md:hidden flex items-start gap-3">
-                    <div class="mt-1 h-2.5 w-2.5 rounded-full bg-sage-600 flex-shrink-0"></div>
-                    <div>
+                <li class="relative pt-12 md:pt-14 text-center group timeline-item" tabindex="0">
+                  <div class="absolute left-1/2 -translate-x-1/2 top-6 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
+                  <div>
                     <div class="text-sm font-semibold text-gray-900">1990s–2000s</div>
-                    <div class="text-gray-700 text-[15px]">Research + integration</div>
-                    </div>
-                </div>
-                <div class="hidden md:block">
-                    <div class="text-sm font-semibold text-gray-900">1990s–2000s</div>
-                    <p class="mt-1 text-gray-700 text-[15px]">Research + integration</p>
-                </div>
-                <div class="pointer-events-none absolute md:left-1/2 md:-translate-x-1/2 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20">
+                    <p class="mt-0.5 text-gray-700 text-[15px] hidden md:block">Research + integration</p>
+                  </div>
+                  <div class="timeline-tooltip absolute left-1/2 -translate-x-1/2 top-16 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20 pointer-events-none md:pointer-events-none">
                     <div class="w-56 rounded-lg border border-gray-300 bg-white/90 backdrop-blur-sm p-4 shadow-xl text-sm text-gray-800 leading-relaxed">
-                    Major reviews (e.g., NIH 1997) identified areas of benefit and priorities for better trials.
+                      <div class="font-semibold mb-1">Research + integration</div>
+                      Major reviews (e.g., NIH 1997) identified areas of benefit and priorities for better trials.
                     </div>
-                </div>
+                  </div>
                 </li>
 
                 <!-- 5) Today (UK) -->
-                <li class="relative pt-0 md:pt-14 md:text-center group">
-                <div class="hidden md:block absolute left-1/2 -translate-x-1/2 top-7 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
-                <div class="md:hidden flex items-start gap-3">
-                    <div class="mt-1 h-2.5 w-2.5 rounded-full bg-sage-600 flex-shrink-0"></div>
-                    <div>
+                <li class="relative pt-12 md:pt-14 text-center group timeline-item" tabindex="0">
+                  <div class="absolute left-1/2 -translate-x-1/2 top-6 h-3 w-3 rounded-full bg-sage-600 shadow"></div>
+                  <div>
                     <div class="text-sm font-semibold text-gray-900">Today (UK)</div>
-                    <div class="text-gray-700 text-[15px]">Selective NHS use</div>
-                    </div>
-                </div>
-                <div class="hidden md:block">
-                    <div class="text-sm font-semibold text-gray-900">Today (UK)</div>
-                    <p class="mt-1 text-gray-700 text-[15px]">Selective NHS use</p>
-                </div>
-                <div class="pointer-events-none absolute md:left-1/2 md:-translate-x-1/2 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20">
+                    <p class="mt-0.5 text-gray-700 text-[15px] hidden md:block">Selective NHS use</p>
+                  </div>
+                  <div class="timeline-tooltip absolute left-1/2 -translate-x-1/2 top-16 md:-top-16 mt-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out z-20 pointer-events-none md:pointer-events-none">
                     <div class="w-56 rounded-lg border border-gray-300 bg-white/90 backdrop-blur-sm p-4 shadow-xl text-sm text-gray-800 leading-relaxed">
-                    Sometimes available on the NHS; NICE (2021) recommends acupuncture for chronic primary pain.
+                      <div class="font-semibold mb-1">Selective NHS use</div>
+                      Sometimes available on the NHS; NICE (2021) recommends acupuncture for chronic primary pain.
                     </div>
-                </div>
+                  </div>
                 </li>
             </ol>
             </div>
 
             <!-- Summary paragraph (concise) -->
-            <p class="text-gray-800 leading-relaxed">
+            <p class="text-gray-800 leading-relaxed mt-8">
             From prehistoric hints and classical Chinese texts to a 20th-century revival and modern evidence reviews, acupuncture has moved from tradition into a selective, research-informed role in UK care - sometimes available on the NHS and recommended by NICE for chronic primary pain.
             </p>
         </div>

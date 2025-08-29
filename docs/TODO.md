@@ -1,4 +1,6 @@
 ### week 25/08/25
+- [ ] clean code
+    - [ ] indent everything properly 
 - [ ] SEO for the website
     - sheffield in the welcome section
 - [ ] Security for the form
@@ -6,9 +8,8 @@
 - [ ] Colour Palette for each section
 - [x] Font
 - [ ] Might need FAQ
-- [ ] indent everything properly 
 - [ ] check everything for mobile view
-    - [x] navigation bar too small
+    - [ ] navigation bar too small
     - [ ] conditions section
 - [ ] remove unnesscary code
     - [ ] js code for old about acupuncture section

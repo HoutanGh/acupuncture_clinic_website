@@ -13,6 +13,7 @@
 - [ ] remove unnesscary code
     - [ ] js code for old about acupuncture section
 - [x] interactive points - if you click on them they stay clicked
+- [ ] actual mobile view
 
 ###  week 18/08/25
 - [ ] About Acupuncture Section

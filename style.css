@@ -21,6 +21,16 @@ section {
   margin-bottom: 4rem;
   border: 2px solid transparent;
   transition: all 0.3s;
+  /* Force square corners for all sections */
+  border-radius: 0 !important;
+}
+
+/* Remove any outline highlight on hover/focus for sections */
+section:hover,
+section:focus,
+section:focus-visible,
+section:focus-within {
+  outline: none !important;
 }
 
 

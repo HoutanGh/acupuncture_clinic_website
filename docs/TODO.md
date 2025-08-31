@@ -1,3 +1,15 @@
+### week 01/09/25
+- [ ] clean the code
+    - [ ] indenting
+    - [ ] removing duplicate
+- [ ] All sections medium view
+- [ ] All sections mobile view
+- [ ] Understand the steps of deployment
+- [ ] Colour Palette
+- [ ] Logo of card
+- [ ] SEO for website
+- [ ] Form security
+
 ### week 25/08/25
 - [ ] clean code
     - [ ] indent everything properly 

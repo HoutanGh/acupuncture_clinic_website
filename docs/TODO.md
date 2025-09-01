@@ -10,6 +10,9 @@
 - [ ] Business card
 - [ ] SEO for website
 - [ ] Form security
+    - [ ] Research the security for form
+- [ ] Imaging the website
+- [ ] Logo for website tab
 
 ### week 25/08/25
 - [ ] clean code

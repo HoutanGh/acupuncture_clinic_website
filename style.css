@@ -213,6 +213,62 @@ section:focus-within {
 
 
 /* =====================================================================
+   2a. Welcome Section — Mobile refinements
+   - Tighter spacing, smaller type, smoother background on phones
+===================================================================== */
+
+@media (max-width: 639px) {
+  /* Reduce heavy vertical rhythm and side padding */
+  #home > .relative {
+    padding: 1.5rem 1rem !important; /* was px-6 py-16 */
+  }
+
+  /* Avoid fixed backgrounds on mobile for smoother scrolling */
+  #home { background-attachment: scroll; }
+
+  /* Headline scaling for small screens */
+  #home h1 {
+    font-size: clamp(1.75rem, 6vw, 2rem);
+    line-height: 1.2;
+  }
+  /* Secondary lines in the headline stack a touch smaller */
+  #home h1 .block {
+    font-size: clamp(1.25rem, 5.2vw, 1.5rem);
+    line-height: 1.25;
+  }
+
+  /* Intro paragraph readability */
+  #home p {
+    font-size: 1rem; /* ~text-base */
+    line-height: 1.6;
+    margin-top: 0.25rem;
+  }
+
+  /* The contact column has px-16 on mobile — soften it */
+  #home .relative > div:last-child {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+
+  /* Form card breathing room */
+  #home #contact {
+    padding: 1rem !important; /* was p-8 */
+    border-radius: 0.875rem; /* ~rounded-xl but a bit tighter */
+  }
+
+  /* Button size harmony */
+  #home .submit-btn {
+    height: 3.25rem !important; /* a little shorter */
+    font-size: 0.95rem;
+  }
+
+  /* Tighten vertical rhythm for space-y utilities inside #home */
+  #home .space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem !important; }
+  #home .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem !important; }
+}
+
+
+/* =====================================================================
    3.  Timeline tweaks (About Acupuncture → Tradition)
    - Horizontal on mobile, compact spacing
    - Tooltips open on tap (mobile) or hover (desktop)

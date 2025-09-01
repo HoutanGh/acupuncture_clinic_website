@@ -2,6 +2,16 @@
    0.  Global tweaks that Tailwind pre-flight doesn't cover
 ===================================================================== */
 
+/* Global sanity + reset (complements Tailwind Preflight) */
+html { box-sizing: border-box; }
+*, *::before, *::after { box-sizing: inherit; }
+body { margin: 0; }
+img, video, canvas { max-width: 100%; height: auto; display: block; }
+svg { max-width: 100%; height: auto; }
+
+/* Optional temporary guard while auditing overflow (keep disabled by default) */
+/* html, body { overflow-x: clip; } */
+
 /* Global font family override - exclude Font Awesome icons */
 body, 
 body *:not([class*="fa-"]):not(.fa):not(.fas):not(.far):not(.fal):not(.fab) {

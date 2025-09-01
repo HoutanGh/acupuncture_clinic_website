@@ -7,6 +7,7 @@
 - [ ] Understand the steps of deployment
 - [ ] Colour Palette
 - [ ] Logo of card
+- [ ] Business card
 - [ ] SEO for website
 - [ ] Form security
 

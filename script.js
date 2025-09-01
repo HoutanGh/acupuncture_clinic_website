@@ -201,6 +201,30 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* =====================================================================
+   DEV: OVERFLOW AUDITOR (runs with ?debug=overflow)
+   Highlights elements wider than the viewport for quick auditing
+===================================================================== */
+document.addEventListener('DOMContentLoaded', function () {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    if (!params.has('debug') || params.get('debug') !== 'overflow') return;
+
+    const docWidth = document.documentElement.clientWidth;
+    let offenders = 0;
+    document.querySelectorAll('*').forEach(el => {
+      if (el.scrollWidth > docWidth) {
+        el.style.outline = '2px solid red';
+        offenders++;
+      }
+    });
+    // eslint-disable-next-line no-console
+    console.log(`[Overflow Auditor] Potential offenders outlined in red: ${offenders}`);
+  } catch (e) {
+    // no-op
+  }
+});
+
+/* =====================================================================
    5. TIMELINE (Tradition) – mobile tap-to-open tooltips
    - Makes the timeline tooltips accessible on touch devices
 ===================================================================== */

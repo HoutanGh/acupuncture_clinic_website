@@ -53,3 +53,4 @@ acupuncture_clinic_website/
 
 
 
+hosting on phone using ngrok

@@ -4,6 +4,13 @@
     - [ ] removing duplicate
 - [ ] All sections medium view
 - [ ] All sections mobile view
+    - [ ] Top Bar: size correction and alignment
+    - [ ] Navigation Bar: fitting with top bar, getting drop down to work
+    - [ ] Welcome Section: Title, blurb
+    - [ ] About Me Section: Sizing, Photo
+    - [ ] About Acupuncture: Complete overhaul?
+    - [ ] Conditions Section: Points highlighted when clicked
+- [ ] Mobile section: Landscape view
 - [ ] Understand the steps of deployment
 - [ ] Colour Palette
 - [ ] Logo of card

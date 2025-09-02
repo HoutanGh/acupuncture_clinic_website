@@ -72,6 +72,8 @@ section:focus-within {
 .text-sage-700 { color: #6b7f57; }
 .text-sage-800 { color: #5a6e4a; }
 
+/* Intentionally left for Tailwind-first approach. Any top bar tweaks now live in index.html classes. */
+
 /* =====================================================================
    1.  Enhanced Form Styling - Minimal & Cool
 ===================================================================== */

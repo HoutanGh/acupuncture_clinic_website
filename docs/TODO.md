@@ -2,17 +2,18 @@
 - [ ] clean the code
     - [ ] indenting
     - [ ] removing duplicate
+- [ ] can't scroll when drop down open on mobile view
 - [ ] All sections medium view
 - [ ] All sections mobile view
-    - [ ] Top Bar: size correction and alignment
-    - [ ] Navigation Bar: fitting with top bar, getting drop down to work
+    - [x] Top Bar: size correction and alignment
+    - [x] Navigation Bar: fitting with top bar, getting drop down to work
     - [ ] Welcome Section: Title, blurb
-    - [ ] About Me Section: Sizing, Photo
-    - [ ] About Acupuncture: Complete overhaul?
-    - [ ] Conditions Section: Points highlighted when clicked
+    - [x] About Me Section: Sizing, Photo
+    - [x] About Acupuncture: Complete overhaul?
+    - [x] Conditions Section: Points highlighted when clicked
 - [ ] Mobile section: Landscape view
 - [ ] Understand the steps of deployment
-- [ ] Colour Palette
+- [x] Colour Palette
 - [ ] Logo of card
 - [ ] Business card
 - [ ] SEO for website

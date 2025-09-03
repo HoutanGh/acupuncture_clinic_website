@@ -480,13 +480,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     /**
+     * Clear all condition highlights (points + info panels)
+     */
+    function clearConditionHighlight() {
+        infoPanels.forEach(panel => panel.classList.remove('active'));
+        points.forEach(p => {
+            p.classList.remove('active');
+            // Also reset any inline hover styles applied
+            p.style.transform = '';
+            p.style.boxShadow = '';
+        });
+    }
+
+    /**
      * Add hover highlight effect to condition info panel
      */
     function addHoverHighlight(conditionId) {
         const panelToHighlight = document.getElementById(`condition-${conditionId}`);
         if (panelToHighlight && !panelToHighlight.classList.contains('active')) {
-            // Apply the same CSS classes as the card's built-in hover effect
-            panelToHighlight.classList.add('border-orange-500/60', 'shadow-lg', 'bg-sage-50/30', '-translate-y-1');
+            panelToHighlight.classList.add('hovered');
         }
     }
 
@@ -496,8 +508,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function removeHoverHighlight(conditionId) {
         const panelToHighlight = document.getElementById(`condition-${conditionId}`);
         if (panelToHighlight && !panelToHighlight.classList.contains('active')) {
-            // Remove the CSS classes to return to normal state
-            panelToHighlight.classList.remove('border-orange-500/60', 'shadow-lg', 'bg-sage-50/30', '-translate-y-1');
+            panelToHighlight.classList.remove('hovered');
         }
     }
 
@@ -536,6 +547,13 @@ document.addEventListener("DOMContentLoaded", function () {
         point.addEventListener('touchstart', (e) => {
             if (window.innerWidth < 1024) {
                 e.preventDefault();
+                const alreadyActive = point.classList.contains('active');
+                if (alreadyActive) {
+                    // Toggle off: clear highlight and hide overlay
+                    clearConditionHighlight();
+                    hideConditionOverlay();
+                    return;
+                }
                 showConditionOverlay(condition, point);
                 highlightCondition(condition);
             }
@@ -543,11 +561,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         point.addEventListener('click', (e) => {
             e.preventDefault();
+            const alreadyActive = point.classList.contains('active');
             if (window.innerWidth < 1024) {
+                if (alreadyActive) {
+                    // Mobile: toggle off on second tap
+                    clearConditionHighlight();
+                    hideConditionOverlay();
+                    return;
+                }
                 showConditionOverlay(condition, point);
+                highlightCondition(condition);
             }
-            // Always sync highlight so other views reflect selection
-            highlightCondition(condition);
+            // Desktop/tablet (>=1024px): no selection state; hover-only behavior
         });
     });
 
@@ -579,7 +604,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.addEventListener('resize', () => {
-        if (window.innerWidth >= 1024) hideConditionOverlay();
+        if (window.innerWidth >= 1024) {
+            hideConditionOverlay();
+            clearConditionHighlight(); // ensure no selected state persists on desktop
+        }
     });
 
     // Tap outside to close overlay on mobile

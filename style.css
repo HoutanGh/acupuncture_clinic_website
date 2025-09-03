@@ -411,3 +411,11 @@ section:focus-within {
   box-shadow: 0 10px 22px rgba(0,0,0,0.15);
   transform: translateY(-2px);
 }
+
+/* Ensure consistent orange highlight when a card is hovered via point hover */
+.condition-info.hovered {
+  border-left-color: rgba(234, 88, 12, 0.6) !important; /* orange-500/60 */
+  background-color: rgba(247, 249, 245, 0.35) !important; /* sage-50/35 */
+  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}

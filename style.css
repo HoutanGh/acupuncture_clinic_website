@@ -347,7 +347,7 @@ section:focus-within {
   width: 300px;
   max-width: calc(100% - 24px);
   z-index: 30;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.82); /* more translucent */
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
   border: 1px solid rgba(0,0,0,0.06);
@@ -357,13 +357,26 @@ section:focus-within {
   opacity: 0;
   transform: translate(-50%, -8px);
   transition: opacity 100ms ease, transform 100ms ease;
-  pointer-events: none; /* don't block unless visible */
+  pointer-events: none; /* allow clicks to pass through */
 }
 
 .condition-overlay.visible {
   opacity: 1;
   transform: translate(-50%, 0);
-  pointer-events: auto;
+  /* keep pointer-events none so points can be clicked through */
+}
+
+/* =====================================================================
+   6.  Utilities
+   - Hide scrollbars for horizontal carousels on mobile
+===================================================================== */
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }
 
 .condition-overlay .title {
@@ -376,4 +389,25 @@ section:focus-within {
   font-size: 0.9rem;
   line-height: 1.4;
   color: #374151; /* gray-700 */
+}
+
+/* =====================================================================
+   6a. Conditions active highlight (points + cards)
+===================================================================== */
+
+.condition-point {
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.condition-point.active {
+  transform: translate(-50%, -50%) scale(1.15);
+  background-color: rgba(20, 184, 166, 0.7); /* teal-500 stronger */
+  box-shadow: 0 0 0 6px rgba(201, 122, 83, 0.28), 0 0 0 12px rgba(201, 122, 83, 0.14), 0 8px 18px rgba(0,0,0,0.25);
+}
+
+.condition-info.active {
+  border-left-color: rgba(234, 88, 12, 0.6) !important; /* orange-500/60 */
+  background-color: rgba(247, 249, 245, 0.35) !important; /* sage-50/35 */
+  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
 }

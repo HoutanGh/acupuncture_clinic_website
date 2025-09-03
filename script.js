@@ -201,6 +201,73 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /* =====================================================================
+   NAVIGATION: Mobile menu toggle
+   - Toggles the hamburger menu on small screens
+   - Updates aria-expanded and swaps the icon
+===================================================================== */
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  if (!toggle || !menu) return;
+
+  const icon = toggle.querySelector('i');
+
+  function setMenuState(open) {
+    // Show/hide menu
+    menu.classList.toggle('hidden', !open);
+    // Accessibility state
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    // Swap hamburger/close icon (Font Awesome 6)
+    if (icon) {
+      icon.classList.toggle('fa-bars', !open);
+      icon.classList.toggle('fa-xmark', open);
+    }
+    // Prevent background scroll when open on mobile
+    document.body.classList.toggle('overflow-hidden', open);
+  }
+
+  // Initialize correct state depending on viewport
+  const mql = window.matchMedia('(min-width: 768px)');
+  function handleBreakpoint(e) {
+    if (e.matches) {
+      // md+ view: ensure menu is visible and UI is reset
+      menu.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark'); }
+      document.body.classList.remove('overflow-hidden');
+    } else {
+      // mobile view: start hidden
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+      if (icon) { icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark'); }
+    }
+  }
+  handleBreakpoint(mql);
+  if (mql.addEventListener) {
+    mql.addEventListener('change', handleBreakpoint);
+  } else if (mql.addListener) {
+    // Safari support
+    mql.addListener(handleBreakpoint);
+  }
+
+  // Toggle on click
+  toggle.addEventListener('click', function () {
+    const willOpen = menu.classList.contains('hidden');
+    setMenuState(willOpen);
+  });
+
+  // Close on nav link click (for in-page anchors)
+  menu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', function () { setMenuState(false); });
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setMenuState(false);
+  });
+});
+
+/* =====================================================================
    DEV: OVERFLOW AUDITOR (runs with ?debug=overflow)
    Highlights elements wider than the viewport for quick auditing
 ===================================================================== */
@@ -434,7 +501,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Set up body point interactions (no click functionality)
+    // Set up body point interactions (click highlights across views)
     points.forEach(point => {
         const condition = point.dataset.condition;
         // Hover effects for points
@@ -470,14 +537,17 @@ document.addEventListener("DOMContentLoaded", function () {
             if (window.innerWidth < 1024) {
                 e.preventDefault();
                 showConditionOverlay(condition, point);
+                highlightCondition(condition);
             }
         }, { passive: false });
 
         point.addEventListener('click', (e) => {
+            e.preventDefault();
             if (window.innerWidth < 1024) {
-                e.preventDefault();
                 showConditionOverlay(condition, point);
             }
+            // Always sync highlight so other views reflect selection
+            highlightCondition(condition);
         });
     });
 
@@ -576,83 +646,71 @@ document.addEventListener("DOMContentLoaded", function () {
 ===================================================================== */
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Minimal tabs logic for about acupuncture section
-    const tabButtons = document.querySelectorAll('#about-acupuncture [role="tab"]');
-    const contentBlocks = document.querySelectorAll('#about-panel .about-content');
+    // About Acupuncture: mobile horizontal slideshow + linked content panel
+    const aboutSection = document.querySelector('#about-acupuncture');
+    if (!aboutSection) return;
 
-    // Exit if about acupuncture section doesn't exist
-    if (!tabButtons.length || !contentBlocks.length) return;
+    const list = aboutSection.querySelector('#about-cards');
+    const tabButtons = aboutSection.querySelectorAll('[role="tab"][data-panel]');
+    const contentBlocks = aboutSection.querySelectorAll('#about-panel .about-content');
 
-    // Initialize all tabs to ensure consistent styling
-    function initializeTabs() {
-        tabButtons.forEach(btn => {
-            const isActive = btn.getAttribute('aria-selected') === 'true';
-            const title = btn.querySelector('h3');
-            
-            // Clear all classes that might be hardcoded in HTML
-            btn.classList.remove(
+    if (!list || !tabButtons.length || !contentBlocks.length) return;
+
+    // Initialize tabs styles and state
+    function setActive(btn) {
+        const target = btn.getAttribute('data-panel');
+        tabButtons.forEach(b => {
+            const active = b === btn;
+            const title = b.querySelector('h3');
+            b.setAttribute('aria-selected', active ? 'true' : 'false');
+            b.classList.remove(
                 'border-orange-500', 'border-gray-200', 'border-orange-500/50',
-                'bg-white', 'bg-teal-50/30', 'bg-orange-50/30',
-                'hover:border-orange-500/50'
+                'bg-white', 'bg-teal-50/30', 'bg-orange-50/30', 'hover:border-orange-500/50'
             );
-            if (title) {
-                title.classList.remove('text-gray-600', 'text-gray-800', 'text-teal-600', 'text-orange-700', 'text-teal-700');
-            }
-            
-            // Apply correct initial state
-            if (isActive) {
-                // Active: opaque orange border, white background, gray text, NO hover effect
-                btn.classList.add('border-orange-500', 'bg-white');
-                if (title) {
-                    title.classList.add('text-gray-600');
-                }
+            if (title) title.classList.remove('text-gray-600','text-gray-800','text-teal-600','text-orange-700','text-teal-700');
+            if (active) {
+                b.classList.add('border-orange-500','bg-white');
+                if (title) title.classList.add('text-gray-600');
             } else {
-                // Inactive: gray border, white background, gray text, WITH hover effect
-                btn.classList.add('border-gray-200', 'bg-white', 'hover:border-orange-500/50');
-                if (title) {
-                    title.classList.add('text-gray-600');
-                }
+                b.classList.add('border-gray-200','bg-white','hover:border-orange-500/50');
+                if (title) title.classList.add('text-gray-600');
             }
+        });
+        // Swap content visibility
+        contentBlocks.forEach(el => {
+            const match = el.getAttribute('data-content') === target;
+            el.classList.toggle('hidden', !match);
+            el.classList.toggle('block', match);
         });
     }
 
-    // Initialise tabs on page load
-    initializeTabs();
+    // Initial normalize
+    setActive(aboutSection.querySelector('[role="tab"][aria-selected="true"]') || tabButtons[0]);
 
-        // Restore click functionality for About Acupuncture cards (tabs) only
-        tabButtons.forEach(btn => {
-            btn.addEventListener('click', function (e) {
-                // Only handle clicks within the About Acupuncture section
-                if (!btn.closest('#about-acupuncture')) return;
-                const target = btn.getAttribute('data-panel');
-
-                // Update tabs: aria attributes + styling
-                tabButtons.forEach(b => {
-                    const active = b === btn;
-                    const title = b.querySelector('h3');
-                    b.setAttribute('aria-selected', active ? 'true' : 'false');
-                    b.classList.remove(
-                        'border-orange-500', 'border-gray-200', 'border-orange-500/50',
-                        'bg-white', 'bg-teal-50/30', 'bg-orange-50/30',
-                        'hover:border-orange-500/50'
-                    );
-                    if (title) {
-                        title.classList.remove('text-gray-600', 'text-gray-800', 'text-teal-600', 'text-orange-700', 'text-teal-700');
-                    }
-                    if (active) {
-                        b.classList.add('border-orange-500', 'bg-white');
-                        if (title) title.classList.add('text-gray-600');
-                    } else {
-                        b.classList.add('border-gray-200', 'bg-white', 'hover:border-orange-500/50');
-                        if (title) title.classList.add('text-gray-600');
-                    }
-                });
-
-                // Swap content visibility
-                contentBlocks.forEach(el => {
-                    el.classList.toggle('hidden', el.getAttribute('data-content') !== target);
-                    el.classList.toggle('block', el.getAttribute('data-content') === target);
-                });
-            });
+    // Click to activate + center on mobile
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            setActive(btn);
+            // Center clicked card in the horizontal list on small screens
+            btn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
         });
+    });
+
+    // On horizontal scroll, activate the card closest to center (mobile)
+    let scrollTimer;
+    function updateActiveFromScroll() {
+        const center = list.scrollLeft + list.clientWidth / 2;
+        let best = { btn: null, dist: Infinity };
+        tabButtons.forEach(b => {
+            const childCenter = b.offsetLeft + b.offsetWidth / 2;
+            const d = Math.abs(childCenter - center);
+            if (d < best.dist) best = { btn: b, dist: d };
+        });
+        if (best.btn) setActive(best.btn);
+    }
+    list.addEventListener('scroll', () => {
+        // Debounce to avoid thrashing while scrolling
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(updateActiveFromScroll, 80);
+    }, { passive: true });
 });

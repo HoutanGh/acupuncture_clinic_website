@@ -469,7 +469,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (panelToHighlight) {
             panelToHighlight.classList.add('active');
             // Scroll to panel on mobile devices
-            if (window.innerWidth < 1024) {
+            if (window.innerWidth < 768) {
                 panelToHighlight.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
@@ -522,7 +522,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 point.style.transform = 'translate(-50%, -50%) scale(1.15)';
                 point.style.boxShadow = '0 0 0 6px rgba(201, 122, 83, 0.3), 0 0 0 12px rgba(201, 122, 83, 0.15), 0 4px 12px rgba(0, 0, 0, 0.25)';
             }
-            // On mobile widths, show overlay with details
+            // On mobile and medium widths, show overlay with details
             if (window.innerWidth < 1024) {
                 if (hideOverlayTimeout) {
                     clearTimeout(hideOverlayTimeout);
@@ -537,7 +537,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 point.style.transform = '';
                 point.style.boxShadow = '';
             }
-            // Fade out overlay after a short delay when leaving the point (mobile widths)
+            // Fade out overlay after a short delay when leaving the point (mobile/medium widths)
             if (window.innerWidth < 1024) {
                 hideOverlayTimeout = setTimeout(() => hideConditionOverlay(), 120);
             }
@@ -545,7 +545,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Touch/click support for mobile
         point.addEventListener('touchstart', (e) => {
-            if (window.innerWidth < 1024) {
+            if (window.innerWidth < 768) {
                 e.preventDefault();
                 const alreadyActive = point.classList.contains('active');
                 if (alreadyActive) {
@@ -562,7 +562,7 @@ document.addEventListener("DOMContentLoaded", function () {
         point.addEventListener('click', (e) => {
             e.preventDefault();
             const alreadyActive = point.classList.contains('active');
-            if (window.innerWidth < 1024) {
+            if (window.innerWidth < 768) {
                 if (alreadyActive) {
                     // Mobile: toggle off on second tap
                     clearConditionHighlight();

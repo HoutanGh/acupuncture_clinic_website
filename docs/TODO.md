@@ -3,11 +3,11 @@
     - [ ] indenting
     - [ ] removing duplicate
 - [ ] can't scroll when drop down open on mobile view
-- [ ] All sections medium view
-- [ ] All sections mobile view
+- [ ] Welcome Section: Title, blurb
+- [x] All sections medium view
+- [x] All sections mobile view
     - [x] Top Bar: size correction and alignment
     - [x] Navigation Bar: fitting with top bar, getting drop down to work
-    - [ ] Welcome Section: Title, blurb
     - [x] About Me Section: Sizing, Photo
     - [x] About Acupuncture: Complete overhaul?
     - [x] Conditions Section: Points highlighted when clicked

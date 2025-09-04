@@ -297,9 +297,10 @@ section:focus-within {
    - Show translucent overlay on point hover/tap
 ===================================================================== */
 
-/* Hide the list of condition cards on smaller screens */
+/* Hide the list of condition cards on small and medium screens */
 @media (max-width: 1023px) {
   .conditions-list { display: none !important; }
+  .condition-info { display: none !important; }
 }
 
 

@@ -21,6 +21,7 @@
     - [ ] Research the security for form
 - [ ] Imaging the website
 - [ ] Logo for website tab
+- [ ] Night Mode
 
 ### week 25/08/25
 - [ ] clean code

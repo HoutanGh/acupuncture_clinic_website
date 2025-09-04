@@ -5,7 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Acupuncture HM Site</title>
 
-  <!-- Tailwind CSS -->
+  <!-- Tailwind CSS (with custom sage palette) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sage: {
+              50:  '#f7f9f5',
+              100: '#ecf3e2',
+              200: '#d4e4c1',
+              500: '#8ca470',
+              600: '#7c9063',
+              700: '#6b7f57',
+              800: '#5a6e4a',
+            }
+          }
+        }
+      }
+    };
+  </script>
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Font Awesome for icons -->
@@ -79,7 +98,7 @@
     </nav>
     </header>
 
-    <main class="pt-36 md:pt-48 lg:pt-52 space-y-10">
+    <main class="pt-36 md:pt-48 lg:pt-52">
     <!-- ═══ Welcome Section ═══ -->
     <section
     id="home"
@@ -121,7 +140,7 @@
                 <select
                     name="appointment_type"
                     required
-                    class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 transition-all duration-300 text-base font-light"
+                    class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 hover:border-teal-500 focus:border-orange-600 focus:ring-0 focus:outline-none focus:shadow-none text-gray-900 transition-all duration-300 text-base font-light"
                 >
                     <option value="" disabled selected class="text-gray-400">Select type of contact</option>
                     <option value="initial_consultation">Initial Consultation</option>
@@ -137,7 +156,7 @@
                     type="text"
                     name="first_name"
                     required
-                    class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
+                    class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 hover:border-teal-500 focus:border-orange-600 focus:ring-0 focus:outline-none focus:shadow-none text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
                     placeholder="First Name"
                 />
                 </div>
@@ -146,7 +165,7 @@
                     type="text"
                     name="last_name"
                     required
-                    class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
+                    class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 hover:border-teal-500 focus:border-orange-600 focus:ring-0 focus:outline-none focus:shadow-none text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
                     placeholder="Last Name"
                 />
                 </div>
@@ -158,7 +177,7 @@
                 type="email"
                 name="email"
                 required
-                class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
+                class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 hover:border-teal-500 focus:border-orange-600 focus:ring-0 focus:outline-none focus:shadow-none text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
                 placeholder="Email Address"
                 />
             </div>
@@ -168,7 +187,7 @@
                 <input
                 type="tel"
                 name="phone"
-                class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
+                class="form-input w-full h-12 px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 hover:border-teal-500 focus:border-orange-600 focus:ring-0 focus:outline-none focus:shadow-none text-gray-900 placeholder-gray-400 transition-all duration-300 text-base font-light"
                 placeholder="Phone Number (Optional)"
                 />
             </div>
@@ -178,7 +197,7 @@
                 <textarea
                 name="message"
                 rows="4"
-                class="form-input w-full px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 focus:border-teal-500 focus:ring-0 text-gray-900 placeholder-gray-400 transition-all duration-300 resize-none text-base font-light"
+                class="form-input w-full px-0 py-3 bg-transparent border-0 border-b-2 border-gray-200 hover:border-teal-500 focus:border-orange-600 focus:ring-0 focus:outline-none focus:shadow-none text-gray-900 placeholder-gray-400 transition-all duration-300 resize-none text-base font-light"
                 placeholder="Tell us about your condition or what brings you here..."
                 ></textarea>
             </div>
@@ -208,7 +227,7 @@
 
 
     <!-- About Me Section -->
-  <section id="about" class="relative bg-teal-50 overflow-hidden">
+  <section id="about" class="relative bg-teal-50 overflow-hidden mt-16">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row lg:flex-row min-h-[560px]">
         <!-- Sidebar (profile & ethos) -->
         <aside class="w-full md:w-1/2 lg:w-1/2 bg-white/95 backdrop-blur-sm md:rounded-l-2xl lg:rounded-l-2xl p-10 flex flex-col justify-center items-center space-y-10 text-center">
@@ -306,7 +325,7 @@
     </section>
 
     <!-- ═══ About Acupuncture Section ═══ -->
-    <section id="about-acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 shadow-lg overflow-hidden pt-14 pb-6 mt-16 lg:min-h-[800px] md:min-h-[825px] sm:min-h-[800px]">
+    <section id="about-acupuncture" class="relative bg-sage-50 border-2 border-sage-200/70 shadow-lg overflow-hidden pt-14 pb-6 lg:min-h-[800px] md:min-h-[825px] sm:min-h-[800px] mt-16">
       <div class="max-w-6xl mx-auto px-6">
         <!-- Title -->
         <header class="text-center mb-6">
@@ -554,7 +573,7 @@
     <!-- ═══ Treated Conditions Section (re-organised) ═══ -->
     <section id="conditions"
     class="relative bg-sage-50 border-2 border-sage-200/70
-            shadow-lg overflow-hidden py-16">
+            shadow-lg overflow-hidden py-16 mt-16">
     <div class="max-w-6xl mx-auto px-6 space-y-14">
 
     <!-- Title -->
@@ -697,7 +716,7 @@
 
 
     <!-- Prices Section -->
-    <section id="prices" class="relative bg-sage-50 py-16">
+    <section id="prices" class="relative bg-sage-50 py-16 mt-16">
     <div class="max-w-5xl mx-auto px-4">
 
         <!-- Section header -->
@@ -771,7 +790,7 @@
 
 
     <!-- Location section -->
-    <section id="location" class="relative bg-white border-2 border-gray-200 shadow">
+    <section id="location" class="relative bg-white border-2 border-gray-200 shadow mt-16">
     <div class="max-w-6xl mx-auto p-8">
         <h2 class="text-3xl font-semibold mb-8 text-center">Location Information</h2>
         <div class="flex flex-col md:flex-row lg:flex-row items-center gap-12">

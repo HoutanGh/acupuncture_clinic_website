@@ -25,10 +25,9 @@ body *:not([class*="fa-"]):not(.fa):not(.fas):not(.far):not(.fal):not(.fab) {
 
 /* Generic card-like sections */
 section {
-  /* smooth scrolling anchor offset */
-  scroll-margin-top: 180px;
+  /* Anchor offset handled via Tailwind scroll-pt utilities */
   position: relative;
-  margin-bottom: 4rem;
+  /* Inter-section spacing is controlled in HTML via Tailwind mt-* */
   border: 2px solid transparent;
   transition: all 0.3s;
   /* Force square corners for all sections */
@@ -63,14 +62,14 @@ section:focus-within {
 .nav-link:hover::after,
 .nav-link:focus::after { width: 100%; }
 
-/* Custom sage palette */
+/* Sage palette now provided via Tailwind config (see index.html) */
+/* Also provide CSS fallbacks to ensure backgrounds always render */
 .bg-sage-50  { background-color: #f7f9f5; }
-.bg-sage-100 { background-color: #ecf3e2; }
-.bg-sage-200 { background-color: #d4e4c1; }
-.text-sage-500 { color: #8ca470; }
-.text-sage-600 { color: #7c9063; }
-.text-sage-700 { color: #6b7f57; }
-.text-sage-800 { color: #5a6e4a; }
+
+/* Section background fallbacks (in case Tailwind classes are unavailable) */
+#about-acupuncture,
+#conditions,
+#prices { background-color: #f7f9f5; }
 
 /* Intentionally left for Tailwind-first approach. Any top bar tweaks now live in index.html classes. */
 
@@ -102,20 +101,14 @@ section:focus-within {
   transform: translateY(-2px);
 }
 
-/* Animated underline effect for focused inputs */
-.form-input:focus {
-  border-bottom-color: #ea580c !important;
-  
-}
+/* Tailwind controls hover/focus border colors for inputs */
 
 /* Form group animation */
 .form-group {
   position: relative;
 }
 
-.form-group:hover .form-input {
-  border-bottom-color: #14b8a6;
-}
+/* Hover border handled via Tailwind utilities */
 
 /* Submit button enhancements */
 .submit-btn {

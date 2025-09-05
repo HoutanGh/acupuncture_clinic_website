@@ -1,5 +1,6 @@
 ### week 01/09/25
 - [ ] UK english
+- [ ] Tradition part in About Acupuncture Mobile view
 - [x] clean the code
     - [x] indenting
     - [x] removing duplicate

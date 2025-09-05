@@ -1,29 +1,35 @@
 /* =====================================================================
-   0.  Global tweaks that Tailwind pre-flight doesn't cover
+   Site styles (Tailwind complement)
+   - Light, targeted rules that sit alongside Tailwind utilities
+   - Comments written in UK English; no visual formatting changes made
 ===================================================================== */
 
-/* Global sanity + reset (complements Tailwind Preflight) */
+/* =====================================================================
+   0.  Global tweaks that Tailwind Preflight does not cover
+===================================================================== */
+
+/* Global sanity and reset (complements Tailwind Preflight) */
 html { box-sizing: border-box; }
 *, *::before, *::after { box-sizing: inherit; }
 body { margin: 0; }
 img, video, canvas { max-width: 100%; height: auto; display: block; }
 svg { max-width: 100%; height: auto; }
 
-/* Optional temporary guard while auditing overflow (keep disabled by default) */
+/* Optional temporary guard whilst auditing overflow (keep disabled by default) */
 /* html, body { overflow-x: clip; } */
 
-/* Global font family override - exclude Font Awesome icons */
+/* Global typeface override — exclude Font Awesome icons */
 body, 
 body *:not([class*="fa-"]):not(.fa):not(.fas):not(.far):not(.fal):not(.fab) {
   font-family: 'Aptos', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif !important;
 }
 
-/* Ensure Font Awesome icons use their proper font */
+/* Ensure Font Awesome icons use their correct typeface */
 .fa, .fas, .far, .fal, .fab, [class*="fa-"] {
   font-family: "Font Awesome 6 Free", "Font Awesome 6 Pro", "Font Awesome 6 Brands" !important;
 }
 
-/* Generic card-like sections */
+/* Generic card‑style sections */
 section {
   /* Anchor offset handled via Tailwind scroll-pt utilities */
   position: relative;
@@ -34,16 +40,10 @@ section {
   border-radius: 0 !important;
 }
 
-/* Remove any outline highlight on hover/focus for sections */
-section:hover,
-section:focus,
-section:focus-visible,
-section:focus-within {
-  outline: none !important;
-}
+/* Removed outline suppression on sections to allow Tailwind focus styles */
 
 
-/* Fancy underline for nav links */
+/* Underline flourish for navigation links */
 .nav-link {
   position: relative;
   padding-bottom: 0.125rem;   /* 2px */
@@ -62,8 +62,8 @@ section:focus-within {
 .nav-link:hover::after,
 .nav-link:focus::after { width: 100%; }
 
-/* Sage palette now provided via Tailwind config (see index.html) */
-/* Also provide CSS fallbacks to ensure backgrounds always render */
+/* Sage palette provided via Tailwind config (see index.html) */
+/* CSS fallbacks to ensure backgrounds always render */
 .bg-sage-50  { background-color: #f7f9f5; }
 
 /* Section background fallbacks (in case Tailwind classes are unavailable) */
@@ -71,13 +71,13 @@ section:focus-within {
 #conditions,
 #prices { background-color: #f7f9f5; }
 
-/* Intentionally left for Tailwind-first approach. Any top bar tweaks now live in index.html classes. */
+/* Deliberately minimal: header/top-bar tweaks live in index.html Tailwind classes. */
 
 /* =====================================================================
-   1.  Enhanced Form Styling - Minimal & Cool
+   1.  Enhanced form styling — minimal and calm
 ===================================================================== */
 
-/* Glass morphism effect for the form container */
+/* Glass‑morphism effect for the form container */
 .glass-morphism {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -101,14 +101,14 @@ section:focus-within {
   transform: translateY(-2px);
 }
 
-/* Tailwind controls hover/focus border colors for inputs */
+/* Tailwind controls hover/focus border colours for inputs */
 
-/* Form group animation */
+/* Form group wrapper (for state/animation hooks) */
 .form-group {
   position: relative;
 }
 
-/* Hover border handled via Tailwind utilities */
+/* Hover borders handled via Tailwind utilities */
 
 /* Submit button enhancements */
 .submit-btn {
@@ -136,7 +136,7 @@ section:focus-within {
   transform: translateX(2px);
 }
 
-/* Loading state for submit button */
+/* Loading state for the submit button */
 .submit-btn.loading {
   cursor: not-allowed;
   opacity: 0.7;
@@ -176,7 +176,7 @@ section:focus-within {
 }
 
 /* =====================================================================
-   2.  Welcome Section Background with Jay Castor Image
+   2.  Welcome section background (Jay Castor image)
 ===================================================================== */
 
 #home {
@@ -187,13 +187,13 @@ section:focus-within {
   background-attachment: fixed;
 }
 
-/* Ensure content is properly layered */
+/* Ensure content is correctly layered */
 #home > .relative {
   position: relative;
   z-index: 2;
 }
 
-/* Add subtle overlay for better text contrast */
+/* Add a subtle overlay for improved text contrast */
 #home::before {
   content: '';
   position: absolute;
@@ -208,7 +208,7 @@ section:focus-within {
 
 
 /* =====================================================================
-   2a. Welcome Section — Mobile refinements
+  2a. Welcome section — mobile refinements
    - Tighter spacing, smaller type, smoother background on phones
 ===================================================================== */
 
@@ -261,13 +261,9 @@ section:focus-within {
   #home .space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 1rem !important; }
   #home .space-y-6 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.75rem !important; }
 
-  /* Put first/last name on one row on mobile */
-  #home #contact .grid.grid-cols-1 {
-    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-    gap: 0.75rem !important; /* ~gap-3 for tighter fit */
-  }
+  /* Name grid now handled with Tailwind responsive utilities in HTML */
 
-  /* Ensure overlay covers right up to the border on mobile */
+  /* Ensure the overlay covers right up to the border on mobile */
   #home::before { inset: -2px; }
 }
 
@@ -278,13 +274,13 @@ section:focus-within {
    - Tooltips open on tap (mobile) or hover (desktop)
 ===================================================================== */
 
-/* Show tooltip when a timeline item is programmatically opened */
+/* Show the tooltip when a timeline item is opened programmatically */
 .timeline-item.open .timeline-tooltip { 
   opacity: 1 !important; 
   pointer-events: auto !important; 
 }
 
-/* Small nudge for reduced spacing under the time label on desktop */
+/* Small nudge to reduce spacing under the time label on desktop */
 @media (min-width: 768px) {
   .timeline-item p { margin-top: 0.25rem !important; }
 }
@@ -292,8 +288,8 @@ section:focus-within {
 
 
 /* =====================================================================
-   4.  Treated Conditions (mobile overlay)
-   - Hide cards on mobile; show diagram-only
+   4.  Treated conditions (mobile overlay)
+   - Hide cards on mobile; show diagram‑only
    - Show translucent overlay on point hover/tap
 ===================================================================== */
 
@@ -305,8 +301,8 @@ section:focus-within {
 
 
 /* =====================================================================
-   5.  Prices section (mobile horizontal cards)
-   - Make cards adjacent horizontally with smaller footprint
+  5.  Prices section (mobile horizontal cards)
+   - Make cards adjacent horizontally with a smaller footprint
 ===================================================================== */
 
 @media (max-width: 639px) {
@@ -328,11 +324,7 @@ section:focus-within {
   #prices .prices-cards > div:hover {
     transform: none !important;
   }
-  /* Slightly smaller icon circle */
-  #prices .prices-cards > div .w-12.h-12 {
-    width: 2.5rem; /* 40px */
-    height: 2.5rem;
-  }
+  /* Icon sizing now handled with Tailwind responsive utilities in HTML */
 }
 
 /* Overlay container injected in the figure */
@@ -357,7 +349,7 @@ section:focus-within {
 .condition-overlay.visible {
   opacity: 1;
   transform: translate(-50%, 0);
-  /* keep pointer-events none so points can be clicked through */
+  /* Keep pointer-events none so points can be clicked through */
 }
 
 /* =====================================================================
@@ -406,7 +398,7 @@ section:focus-within {
   transform: translateY(-2px);
 }
 
-/* Ensure consistent orange highlight when a card is hovered via point hover */
+/* Ensure a consistent orange highlight when a card is hovered via point hover */
 .condition-info.hovered {
   border-left-color: rgba(234, 88, 12, 0.6) !important; /* orange-500/60 */
   background-color: rgba(247, 249, 245, 0.35) !important; /* sage-50/35 */

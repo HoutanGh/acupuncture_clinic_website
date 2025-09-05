@@ -1,9 +1,9 @@
 ### week 01/09/25
 - [ ] UK english
-- [ ] clean the code
-    - [ ] indenting
-    - [ ] removing duplicate
-- [ ] can't scroll when drop down open on mobile view
+- [x] clean the code
+    - [x] indenting
+    - [x] removing duplicate
+- [x] can't scroll when drop down open on mobile view
 - [ ] Welcome Section: Title, blurb
 - [x] All sections medium view
 - [x] All sections mobile view
@@ -18,11 +18,15 @@
 - [ ] Logo of card
 - [ ] Business card
 - [ ] SEO for website
+    - GMC Number
 - [ ] Form security
     - [ ] Research the security for form
 - [ ] Imaging the website
 - [ ] Logo for website tab
 - [ ] Night Mode
+- [ ] FAQ section
+- [ ] Citation that dad posted
+- [ ] Cookies?
 
 ### week 25/08/25
 - [ ] clean code

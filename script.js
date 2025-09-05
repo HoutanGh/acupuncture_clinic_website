@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
    * - Toggles menu visibility (hidden class) based on `open` flag.
    * - Updates aria-expanded to reflect state.
    * - Swaps hamburger vs close icon depending on `open`.
-   * - Disables body scroll when open.
+   * - Leaves page scrolling enabled (no body scroll lock).
    * @param {boolean} open
    */
   function setMenuState(open) {
@@ -249,8 +249,7 @@ document.addEventListener("DOMContentLoaded", function () {
       icon.classList.toggle("fa-bars", !open);
       icon.classList.toggle("fa-xmark", open);
     }
-    // Prevent background scroll when open on mobile
-    document.body.classList.toggle("overflow-hidden", open);
+    // Keep body scroll enabled so users can scroll the page while menu is open
   }
 
   // Initialize correct state depending on viewport
@@ -271,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon.classList.add("fa-bars");
         icon.classList.remove("fa-xmark");
       }
-      document.body.classList.remove("overflow-hidden");
+      // No scroll lock on body; nothing to reset here
     } else {
       // mobile view: start hidden
       menu.classList.add("hidden");

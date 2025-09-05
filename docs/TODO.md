@@ -1,6 +1,14 @@
 ### week 01/09/25
 - [ ] UK english
-- [ ] Tradition part in About Acupuncture Mobile view
+- [ ] highlight the points on the timeline
+- [x] Night Mode
+- [ ] Night Mode Tailwind
+- [ ] SEO for website
+    - GMC Number
+- [ ] Logo of card
+- [ ] Business card
+- [ ] Citation that dad posted
+- [x] Tradition part in About Acupuncture Mobile view
 - [x] clean the code
     - [x] indenting
     - [x] removing duplicate
@@ -16,18 +24,11 @@
 - [ ] Mobile section: Landscape view
 - [ ] Understand the steps of deployment
 - [x] Colour Palette
-- [ ] Logo of card
-- [ ] Business card
-- [ ] SEO for website
-    - GMC Number
 - [ ] Form security
     - [ ] Research the security for form
 - [ ] Imaging the website
-- [ ] Logo for website tab
-- [ ] Night Mode
+- [x] Logo for website tab
 - [ ] FAQ section
-- [ ] Citation that dad posted
-- [ ] Cookies?
 
 ### week 25/08/25
 - [ ] clean code

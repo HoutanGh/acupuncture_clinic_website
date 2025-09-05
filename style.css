@@ -285,6 +285,22 @@ section {
   .timeline-item p { margin-top: 0.25rem !important; }
 }
 
+/* Allow timeline tooltips to overflow the card area */
+#about-panel { overflow: visible; }
+
+/* Mobile refinements: avoid clipping at edges and bring end items inward */
+@media (max-width: 767px) {
+  
+
+  /* Nudge edge tooltips outward slightly (still visible due to overflow) */
+  #about-acupuncture .timeline-item:first-child .timeline-tooltip {
+    transform: translateX(-32.5%);
+  }
+  #about-acupuncture .timeline-item:last-child .timeline-tooltip {
+    transform: translateX(-67.5%);
+  }
+}
+
 
 
 /* =====================================================================
@@ -404,4 +420,89 @@ section {
   background-color: rgba(247, 249, 245, 0.35) !important; /* sage-50/35 */
   box-shadow: 0 10px 22px rgba(0,0,0,0.15);
   transform: translateY(-2px);
+}
+
+/* =====================================================================
+   7.  Night mode (soft dark theme)
+   - Activated by adding class `night` to <html>
+   - Muted contrast; darker variants of sage/teal/orange
+===================================================================== */
+
+/* Base surfaces and text */
+.night body {
+  background: linear-gradient(#121613, #171d19) !important;
+  color: #d7ddd6;
+}
+
+/* Top bars and header overlays */
+.night header { background-color: #171c19 !important; }
+.night header .absolute.inset-0 { background: rgba(23,28,25,0.85) !important; }
+.night .bg-gray-100 { background-color: #171c19 !important; }
+
+/* Common surfaces */
+.night .bg-white { background-color: #1a1f1c !important; }
+.night .bg-white\/80 { background-color: rgba(26, 31, 28, 0.9) !important; }
+.night .bg-white\/95 { background-color: rgba(26, 31, 28, 0.92) !important; }
+.night .bg-gray-50 { background-color: #191e1b !important; }
+.night .bg-sage-50 { background-color: #0f1311 !important; }
+.night .bg-teal-50 { background-color: #101512 !important; }
+.night footer { background-color: #151a17 !important; }
+
+/* Card/drawer panels */
+.night #about-panel { background-color: #171c19 !important; border-color: #2a2f2b !important; }
+.night #about-acupuncture { background-color: #0f1311 !important; border-color: #29332b !important; }
+
+/* Borders */
+.night .border-gray-200 { border-color: #2a2f2b !important; }
+.night .border-gray-300 { border-color: #37423b !important; }
+.night .border-white\/20 { border-color: rgba(255,255,255,0.15) !important; }
+.night .border-amber-200 { border-color: #4a3e1f !important; }
+.night .border-orange-400 { border-color: #6b4525 !important; }
+.night .border-orange-500\/60 { border-color: #6b4525 !important; }
+.night .border-orange-500\/40 { border-color: #5a3a21 !important; }
+
+/* Subtle backgrounds and accents */
+.night .bg-gray-200 { background-color: #242a27 !important; }
+.night .bg-amber-50 { background-color: #2a2416 !important; }
+
+/* Text colours — keep contrast moderate, not stark */
+.night .text-gray-900 { color: #e7ece7 !important; }
+.night .text-gray-800 { color: #dbe2dc !important; }
+.night .text-gray-700 { color: #c7cfc8 !important; }
+.night .text-gray-600 { color: #b4beb6 !important; }
+.night .text-gray-500 { color: #a0a9a2 !important; }
+.night .text-gray-400 { color: #8d948e !important; }
+.night .text-sage-700 { color: #b4c2ad !important; }
+.night .text-amber-900 { color: #d6c492 !important; }
+.night .text-amber-700 { color: #c9b371 !important; }
+.night .text-teal-600 { color: #75c6bd !important; }
+.night .text-teal-700 { color: #8fd1c8 !important; }
+.night .hover\:text-teal-600:hover { color: #8ed2ca !important; }
+
+/* Ring colour tweaks for softer accents */
+.night .ring-orange-100 { --tw-ring-color: #5a3a21 !important; }
+
+/* Hero background darkening */
+.night #home {
+  background-image: linear-gradient(rgba(18,22,19,0.9), rgba(18,22,19,0.88), rgba(18,22,19,0.9)), url('images/jay-castor-7AcMUSYRZpU-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.night #home::before { background: rgba(0,0,0,0.18); }
+
+/* Gradients on cards: simplify to solid surface in night mode */
+.night .bg-gradient-to-br { background-image: none !important; }
+
+/* =====================================================================
+   7a. Section hero headers — ensure transparent text backgrounds
+   - Prevent any default background on header text wrappers
+   - Keeps hero text blending with the section background colour
+===================================================================== */
+
+#about-acupuncture header,
+#about-acupuncture header *,
+#conditions header,
+#conditions header * {
+  background-color: transparent !important;
 }

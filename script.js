@@ -222,6 +222,52 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Section: Theme Toggle — light ↔ night (soft dark mode)
+document.addEventListener("DOMContentLoaded", function () {
+  const toggles = Array.from(document.querySelectorAll('[data-theme-toggle]'));
+  if (!toggles.length) return;
+
+  const docEl = document.documentElement;
+
+  function isNight() {
+    return docEl.classList.contains('night');
+  }
+
+  function applyTheme(theme) {
+    const night = theme === 'night';
+    docEl.classList.toggle('night', night);
+    try { localStorage.setItem('theme', night ? 'night' : 'light'); } catch (e) {}
+    updateButtons(night);
+  }
+
+  function updateButtons(night) {
+    toggles.forEach(btn => {
+      btn.setAttribute('aria-pressed', night ? 'true' : 'false');
+      const moon = btn.querySelector('.fa-moon');
+      const sun = btn.querySelector('.fa-sun');
+      if (moon && sun) {
+        if (night) {
+          moon.classList.add('hidden');
+          sun.classList.remove('hidden');
+        } else {
+          sun.classList.add('hidden');
+          moon.classList.remove('hidden');
+        }
+      }
+    });
+  }
+
+  // Initialize from current state (set early in head)
+  updateButtons(isNight());
+
+  // Wire events
+  toggles.forEach(btn => {
+    btn.addEventListener('click', () => {
+      applyTheme(isNight() ? 'light' : 'night');
+    });
+  });
+});
+
 // Section: Mobile Navigation — Hamburger toggle + responsive state management
 document.addEventListener("DOMContentLoaded", function () {
   const toggle = document.getElementById("mobile-menu-toggle");

@@ -1,8 +1,8 @@
 ### week 01/09/25
+- [ ] Reorganise files for Render
 - [ ] UK english
 - [ ] highlight the points on the timeline
 - [x] Night Mode
-- [ ] Night Mode Tailwind
 - [ ] SEO for website
     - GMC Number
 - [ ] Logo of card

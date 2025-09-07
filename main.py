@@ -3,14 +3,25 @@ from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+import logging
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
 from dotenv import load_dotenv
 
+"""FastAPI app serving static site + contact form.
+
+Includes basic logging and a safe email-config debug endpoint.
+"""
+
 # Load environment variables
 load_dotenv()
+
+# Configure logging
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+logging.basicConfig(level=getattr(logging, LOG_LEVEL, logging.INFO), format="%(asctime)s %(levelname)s %(message)s")
+logger = logging.getLogger("app")
 
 app = FastAPI()
 
@@ -40,6 +51,31 @@ async def read_root():
     """Serve the main HTML page"""
     return FileResponse("index.html")
 
+@app.get("/debug/email-config")
+async def debug_email_config():
+    """Return non-sensitive email config flags to help debug deployment.
+
+    Does NOT expose secrets. Useful to confirm Render env vars are set.
+    """
+    try:
+        smtp_server = os.getenv('SMTP_SERVER')
+        smtp_port = os.getenv('SMTP_PORT')
+        email_user = os.getenv('EMAIL_USER')
+        recipient_email = os.getenv('RECIPIENT_EMAIL')
+
+        return JSONResponse(
+            status_code=200,
+            content={
+                "smtp_server_set": bool(smtp_server),
+                "smtp_port": int(smtp_port) if smtp_port and smtp_port.isdigit() else None,
+                "email_user_set": bool(email_user),
+                "recipient_email_set": bool(recipient_email),
+            },
+        )
+    except Exception as e:
+        logger.exception("/debug/email-config failed")
+        raise HTTPException(status_code=500, detail="Debug check failed")
+
 @app.post("/submit-form")
 async def submit_contact_form(
     first_name: str = Form(...),
@@ -51,25 +87,19 @@ async def submit_contact_form(
 ):
     """Handle contact form submission"""
     try:
-        # Print the form data for debugging
-        print("=== FORM SUBMISSION ===")
-        print(f"Name: {first_name} {last_name}")
-        print(f"Email: {email}")
-        print(f"Phone: {phone}")
-        print(f"Appointment Type: {appointment_type}")
-        print(f"Message: {message}")
-        print("=====================")
-        
+        # Minimal logging (avoid sensitive content)
+        logger.info("Form submission: name='%s %s', email='%s', appt_type='%s'", first_name, last_name, email, appointment_type)
+
         # Send email notification
         send_email(first_name, last_name, email, phone, message, appointment_type)
-        
+
         return JSONResponse(
             status_code=200,
             content={"status": "success", "message": "Thank you! Your message has been received."}
         )
     
     except Exception as e:
-        print(f"Error: {e}")
+        logger.exception("Form submission failed")
         raise HTTPException(status_code=500, detail="Failed to submit form")
 
 def send_email(first_name, last_name, email, phone, message, appointment_type):
@@ -77,11 +107,27 @@ def send_email(first_name, last_name, email, phone, message, appointment_type):
     try:
         # Get email settings from environment variables
         smtp_server = os.getenv('SMTP_SERVER')
-        smtp_port = int(os.getenv('SMTP_PORT'))
+        smtp_port = int(os.getenv('SMTP_PORT') or 587)
         email_user = os.getenv('EMAIL_USER')
         email_password = os.getenv('EMAIL_PASSWORD')
         recipient_email = os.getenv('RECIPIENT_EMAIL')
         clinic_name = os.getenv('CLINIC_NAME', 'HealthMaster Acupuncture Clinic')
+
+        # Validate config
+        missing = []
+        if not smtp_server:
+            missing.append('SMTP_SERVER')
+        if not smtp_port:
+            missing.append('SMTP_PORT')
+        if not email_user:
+            missing.append('EMAIL_USER')
+        if not email_password:
+            missing.append('EMAIL_PASSWORD')
+        if not recipient_email:
+            missing.append('RECIPIENT_EMAIL')
+        if missing:
+            logger.error("Email config missing: %s", ", ".join(missing))
+            return
         
         # Format appointment type for display
         appointment_types = {
@@ -121,18 +167,20 @@ Sent from {clinic_name} Website Contact Form
         # Attach body to email
         msg.attach(MIMEText(body, 'plain'))
         
-        # Connect to Gmail SMTP server and send email
-        server = smtplib.SMTP(smtp_server, smtp_port)
-        server.starttls()  # Enable encryption
+        # Connect to SMTP and send email
+        if smtp_port == 465:
+            server = smtplib.SMTP_SSL(smtp_server, smtp_port)
+        else:
+            server = smtplib.SMTP(smtp_server, smtp_port)
+            server.starttls()  # Enable encryption (STARTTLS)
         server.login(email_user, email_password)
         text = msg.as_string()
         server.sendmail(email_user, recipient_email, text)
         server.quit()
-        
-        print(f"✅ Email sent successfully to {recipient_email}")
+        logger.info("Email sent successfully to %s via %s:%s", recipient_email, smtp_server, smtp_port)
         
     except Exception as e:
-        print(f"❌ Email sending failed: {e}")
+        logger.exception("Email sending failed")
         # Don't raise the exception - we don't want to break the form submission
         # if email fails, the form should still show success to the user
 

@@ -53,3 +53,9 @@ This document explains how the FastAPI backend and static site are deployed usin
 - Paid plan keeps the app always running.
 
 See also: [`docs/FASTAPI_DEPLOYMENT_GUIDE.md`](FASTAPI_DEPLOYMENT_GUIDE.md)
+
+## Release Tags
+
+- v-logo5 (1206b12, 2025-09-07): Stable state using `images/logo5.png` for favicon and logos in `index.html`. Use this tag to quickly restore the logo5 version.
+  - Checkout: `git checkout v-logo5`
+  - Restore only HTML: `git restore --source v-logo5 -- index.html`

@@ -1,5 +1,6 @@
 ### week 01/09/25
-- [ ] Reorganise files for Render
+- [x] Reorganise files for Render
+- [x] Deploy website on Render
 - [ ] UK english
 - [ ] highlight the points on the timeline
 - [x] Night Mode
@@ -22,7 +23,7 @@
     - [x] About Acupuncture: Complete overhaul?
     - [x] Conditions Section: Points highlighted when clicked
 - [ ] Mobile section: Landscape view
-- [ ] Understand the steps of deployment
+- [x] Understand the steps of deployment
 - [x] Colour Palette
 - [ ] Form security
     - [ ] Research the security for form

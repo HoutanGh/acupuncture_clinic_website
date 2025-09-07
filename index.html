@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-GB" class="scroll-smooth scroll-pt-32 md:scroll-pt-40 lg:scroll-pt-48">
   <head>
-    <link rel="icon" type="image/png" href="images/logo.png">
+    <link rel="icon" type="image/png" href="images/logo5.png">
   </head>
   <head>
     <meta charset="UTF-8" />
@@ -136,7 +136,7 @@
           <!-- Logo -->
           <div class="hidden md:flex items-center space-x-4 mb-2 md:mb-0 md:mr-8">
             <img
-              src="images/logo3.png"
+              src="images/logo5.png"
               alt="HealthMaster Acupuncture Clinic Logo"
               class="h-16 md:h-24 lg:h-32 w-auto"
             />
@@ -150,24 +150,13 @@
             </div>
           </div>
 
-          <!-- Mobile brand + toggles (theme + menu) -->
+          <!-- Mobile brand + menu toggle -->
           <div class="w-full flex items-center justify-between md:hidden">
             <div class="flex items-center space-x-2">
-              <img src="images/logo3.png" alt="HM" class="h-16 w-auto" />
+              <img src="images/logo5.png" alt="HM" class="h-16 w-auto" />
               <span class="font-semibold text-gray-800">HealthMaster</span>
             </div>
             <div class="flex items-center gap-2">
-              <button
-                type="button"
-                data-theme-toggle
-                class="inline-flex items-center px-3 py-2 rounded-md text-gray-700 border border-gray-300 bg-white hover:text-teal-600"
-                aria-pressed="false"
-                aria-label="Toggle night mode"
-                title="Toggle night mode"
-              >
-                <i class="fas fa-moon"></i>
-                <i class="fas fa-sun hidden"></i>
-              </button>
               <button
                 id="mobile-menu-toggle"
                 aria-controls="mobile-menu"
@@ -235,19 +224,7 @@
                   ><span>Location</span></a
                 >
               </li>
-              <li>
-                <button
-                  type="button"
-                  data-theme-toggle
-                  class="inline-flex items-center px-2.5 py-1.5 rounded-md text-gray-700 border border-gray-300 bg-white hover:text-teal-600"
-                  aria-pressed="false"
-                  aria-label="Toggle night mode"
-                  title="Toggle night mode"
-                >
-                  <i class="fas fa-moon"></i>
-                  <i class="fas fa-sun hidden"></i>
-                </button>
-              </li>
+              
             </ul>
           </div>
         </div>
@@ -293,9 +270,7 @@
                 </h3>
                 <p class="text-gray-500 text-sm font-light">Start your journey to better health</p>
               </div>
-
-              <!-- <form id="contact-form" action="http://localhost:8001/submit-form" method="POST" class="space-y-6"> -->
-              <form id="contact-form" action="#" method="POST" class="space-y-6">
+              <form id="contact-form" action="/submit-form" method="POST" class="space-y-6">
                 <!-- Appointment Type Selection -->
                 <div class="form-group">
                   <select

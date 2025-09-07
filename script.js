@@ -28,6 +28,12 @@ document.addEventListener("DOMContentLoaded", function () {
   // Handle form submission
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+    // Ensure browser constraint validation runs before AJAX submit
+    if (!form.checkValidity()) {
+      // Trigger native validation UI and abort submit
+      try { form.reportValidity(); } catch (err) {}
+      return;
+    }
     handleFormSubmission(form, overlay, msgBox);
   });
 
@@ -90,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
       body: formData,
       headers: { Accept: "application/json" },
     })
-      .then((response) => {
+      .then(async (response) => {
         hideLoadingState(submitBtn);
 
         if (response.ok) {
@@ -98,7 +104,12 @@ document.addEventListener("DOMContentLoaded", function () {
           msgBox.textContent = "Thank you! Your message has been sent.";
           resetFormStyles();
         } else {
-          msgBox.textContent = "Oops! There was a problem submitting your form.";
+          // Try to surface validation errors (422) with a clearer message
+          if (response.status === 422) {
+            msgBox.textContent = "Please complete all required fields and try again.";
+          } else {
+            msgBox.textContent = "Oops! There was a problem submitting your form.";
+          }
         }
         showFeedback(overlay);
       })

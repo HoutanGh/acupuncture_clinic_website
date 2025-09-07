@@ -10,7 +10,7 @@
 // Section: Contact Form — Handles submission, validation, loading state, and feedback
 
 document.addEventListener("DOMContentLoaded", function () {
-  const form = document.querySelector("form");
+  const form = document.querySelector("#contact-form") || document.querySelector("form");
   if (!form) return;
 
   // Initialise enhanced form features
@@ -84,7 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const formData = new FormData(form);
-    fetch(form.action, {
+    const url = form.getAttribute("action") && form.getAttribute("action") !== "#" ? form.getAttribute("action") : "/submit-form";
+    fetch(url, {
       method: "POST",
       body: formData,
       headers: { Accept: "application/json" },

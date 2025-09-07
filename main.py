@@ -2,6 +2,7 @@ from fastapi import FastAPI, Form, HTTPException
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from fastapi.middleware.cors import CORSMiddleware
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -12,6 +13,15 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = FastAPI()
+
+# Optional CORS for local testing (file:// or different origin)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # tighten to your domain(s) in production
+    allow_credentials=False,
+    allow_methods=["POST", "GET", "OPTIONS"],
+    allow_headers=["*"]
+)
 
 # Serve static files (CSS, JS, images)
 app.mount("/images", StaticFiles(directory="images"), name="images")

@@ -20,11 +20,11 @@ This document explains how the FastAPI backend and static site are deployed usin
 ### 2. Set Up Render
 - Go to [Render.com](https://render.com/) and sign up/log in.
 - Click "New Web Service" and connect your GitHub repo.
-- Set the build and start commands:
-  - **Build Command:** (leave blank for Python)
-  - **Start Command:** `uvicorn main:app --host 0.0.0.0 --port $PORT`
+- This repo contains `render.yaml`, which preconfigures a Python Web Service:
+  - Installs `requirements.txt`
+  - Starts with Gunicorn + Uvicorn worker: `gunicorn -k uvicorn.workers.UvicornWorker -w 2 -b 0.0.0.0:$PORT main:app`
 - Choose a free or paid plan.
-- Set environment variables (from your `.env` file) in the Render dashboard.
+- Set environment variables (from your `.env` file) in the Render dashboard (use `.env.example` as a guide).
 - Deploy the service. Render will build and start your app.
 
 ### 3. Connect Your Domain (Cloudflare)

@@ -684,18 +684,38 @@ document.addEventListener("DOMContentLoaded", function () {
     const condition = panel.id.replace("condition-", "");
     // Hover effects for panels
     panel.addEventListener("mouseenter", () => {
-      const pointToHighlight = document.querySelector(`[data-condition="${condition}"]`);
-      if (pointToHighlight && !pointToHighlight.classList.contains("active")) {
-        pointToHighlight.style.transform = "translate(-50%, -50%) scale(1.15)";
-        pointToHighlight.style.boxShadow =
-          "0 0 0 6px rgba(201, 122, 83, 0.3), 0 0 0 12px rgba(201, 122, 83, 0.15), 0 4px 12px rgba(0, 0, 0, 0.25)";
+      if (condition === 'fibromyalgia') {
+        // Highlight all points for fibromyalgia (widespread pain)
+        points.forEach((pt) => {
+          if (!pt.classList.contains('active')) {
+            pt.style.transform = 'translate(-50%, -50%) scale(1.15)';
+            pt.style.boxShadow =
+              '0 0 0 6px rgba(201, 122, 83, 0.3), 0 0 0 12px rgba(201, 122, 83, 0.15), 0 4px 12px rgba(0, 0, 0, 0.25)';
+          }
+        });
+      } else {
+        const pointToHighlight = document.querySelector(`[data-condition="${condition}"]`);
+        if (pointToHighlight && !pointToHighlight.classList.contains("active")) {
+          pointToHighlight.style.transform = "translate(-50%, -50%) scale(1.15)";
+          pointToHighlight.style.boxShadow =
+            "0 0 0 6px rgba(201, 122, 83, 0.3), 0 0 0 12px rgba(201, 122, 83, 0.15), 0 4px 12px rgba(0, 0, 0, 0.25)";
+        }
       }
     });
     panel.addEventListener("mouseleave", () => {
-      const pointToHighlight = document.querySelector(`[data-condition="${condition}"]`);
-      if (pointToHighlight && !pointToHighlight.classList.contains("active")) {
-        pointToHighlight.style.transform = "";
-        pointToHighlight.style.boxShadow = "";
+      if (condition === 'fibromyalgia') {
+        points.forEach((pt) => {
+          if (!pt.classList.contains('active')) {
+            pt.style.transform = '';
+            pt.style.boxShadow = '';
+          }
+        });
+      } else {
+        const pointToHighlight = document.querySelector(`[data-condition="${condition}"]`);
+        if (pointToHighlight && !pointToHighlight.classList.contains("active")) {
+          pointToHighlight.style.transform = "";
+          pointToHighlight.style.boxShadow = "";
+        }
       }
     });
   });

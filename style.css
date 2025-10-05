@@ -506,3 +506,31 @@ section {
 #conditions header * {
   background-color: transparent !important;
 }
+
+/* =====================================================================
+   8.  Reference list (scientific style)
+   - Bracketed numeric markers and hanging indent
+===================================================================== */
+
+ol.ref-list {
+  counter-reset: ref;
+  margin: 0;
+  padding-left: 0; /* we'll handle indent per-item */
+}
+
+ol.ref-list li {
+  list-style: none;
+  counter-increment: ref;
+  padding-left: 1.75rem;   /* space for the [n] marker */
+  text-indent: -1.75rem;   /* create a hanging indent */
+}
+
+ol.ref-list li::before {
+  content: "[" counter(ref) "] ";
+  color: #6b7280; /* gray-500 */
+  font-variant-numeric: tabular-nums;
+}
+
+ol.ref-list em {
+  font-style: italic;
+}

@@ -1,3 +1,8 @@
+### 05/10/2025
+- [ ] Dad tweaks
+- [ ] my tweaks
+
+
 ### week 01/09/25
 - [x] Reorganise files for Render
 - [x] Deploy website on Render

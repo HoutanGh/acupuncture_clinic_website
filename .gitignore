@@ -5,7 +5,6 @@
 .env
 
 # Virtual environment (Python packages)
-clinic_env/
 .venv/
 
 # OS generated files

@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Ping during 06:00–24:00 Europe/London
         env:
-          URL: "https://acuhealthmaster.co.uk/"
+          URL: "https://acuhealthmaster.co.uk/health"
         run: |
           # Get current hour in London
           HOUR_LONDON=$(TZ=Europe/London date +%H)

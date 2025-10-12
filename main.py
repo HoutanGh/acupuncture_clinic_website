@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Form, HTTPException
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 import logging
 import smtplib
@@ -183,6 +182,11 @@ Sent from {clinic_name} Website Contact Form
         logger.exception("Email sending failed")
         # Don't raise the exception - we don't want to break the form submission
         # if email fails, the form should still show success to the user
+
+@app.get("/health", include_in_schema=False, response_class=PlainTextResponse)
+async def health():
+    # No DB, no SMTP, no auth—keep it instant.
+    return "OK"
 
 if __name__ == "__main__":
     import uvicorn

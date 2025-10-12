@@ -1,0 +1,33 @@
+name: Keep Render Awake
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # every 5 minutes (UTC)
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping during 06:00–24:00 Europe/London
+        env:
+          URL: "https://acuhealthmaster.co.uk/"
+        run: |
+          # Get current hour in London
+          HOUR_LONDON=$(TZ=Europe/London date +%H)
+
+          # Only between 06:00 and 23:59
+          if [ "$HOUR_LONDON" -ge 6 ] && [ "$HOUR_LONDON" -lt 24 ]; then
+            # Random jitter (0–240s)
+            JITTER=$((RANDOM % 241))
+            sleep $JITTER
+
+            TS=$(date +%s)
+            curl -fsS -m 10 --retry 2 --retry-connrefused \
+              -A "RenderKeepAwake-GitHubActions" \
+              "${URL}?ping=${TS}"
+
+            echo "Pinged ${URL} at $(TZ=Europe/London date)."
+          else
+            echo "Skipping (outside 06:00–24:00 London)."
+          fi

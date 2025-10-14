@@ -90,6 +90,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const formData = new FormData(form);
+    const apptText = form.querySelector('[name="appointment_type"]')?.selectedOptions?.[0]?.text?.trim() || 'Enquiry';
+    formData.set('_subject', apptText);
     const url = form.getAttribute("action") && form.getAttribute("action") !== "#" ? form.getAttribute("action") : "/submit-form";
     fetch(url, {
       method: "POST",

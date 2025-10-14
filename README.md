@@ -8,7 +8,7 @@ Modern, responsive website for an acupuncture clinic. Frontend is a single page 
 
 - Single-page site with sections: Welcome, About Me, About Acupuncture, Treated Conditions, Prices, Location, Contact.
 - Clean, accessible layout with mobile-first responsiveness and a night mode toggle.
-- Contact form for patient enquiries posts to a FastAPI endpoint; the backend sends an email to the clinic.
+- Contact form: in production, posts to Formspree (no backend required). The FastAPI endpoint remains available for local development/testing of the email flow.
 
 ## Architecture
 
@@ -23,6 +23,17 @@ Modern, responsive website for an acupuncture clinic. Frontend is a single page 
   - Client‑side validation, inline feedback, and AJAX submission with graceful fall‑back.
   - Displays success/error overlay; resets form on success.
 - Configuration via environment variables (`.env` locally; set in Render for production). See `.env.example` for required keys.
+
+### Form Handling
+
+Production
+- The contact form posts to Formspree (`https://formspree.io/f/xgvyeokn`).
+- The email subject is set from the selected contact type (Initial Consultation, Follow-up Treatment, General Inquiry).
+- Rationale: the original FastAPI plan required a paid subscription for always-on hosting/email deliverability; Formspree avoids that cost while keeping the UX the same.
+
+Local Development (FastAPI)
+- You can still run the FastAPI flow locally to test `/submit-form` and SMTP/SendGrid delivery.
+- See the original flow below for field names and endpoints.
 
 ### FastAPI Form Flow
 

@@ -9,6 +9,9 @@ from email.mime.multipart import MIMEMultipart
 import os
 import socket
 import ssl
+import json
+import urllib.request
+import urllib.error
 from dotenv import load_dotenv
 
 """FastAPI app serving static site + contact form.
@@ -63,6 +66,7 @@ async def debug_email_config():
         smtp_port = os.getenv('SMTP_PORT')
         email_user = os.getenv('EMAIL_USER')
         recipient_email = os.getenv('RECIPIENT_EMAIL')
+        sendgrid_api_key = os.getenv('SENDGRID_API_KEY')
 
         return JSONResponse(
             status_code=200,
@@ -71,6 +75,7 @@ async def debug_email_config():
                 "smtp_port": int(smtp_port) if smtp_port and smtp_port.isdigit() else None,
                 "email_user_set": bool(email_user),
                 "recipient_email_set": bool(recipient_email),
+                "sendgrid_set": bool(sendgrid_api_key),
             },
         )
     except Exception as e:
@@ -117,6 +122,10 @@ def send_email(first_name, last_name, email, phone, message, appointment_type):
             email_password = email_password.replace(" ", "")
         recipient_email = os.getenv('RECIPIENT_EMAIL')
         clinic_name = os.getenv('CLINIC_NAME', 'HealthMaster Acupuncture Clinic')
+        # SendGrid fallback configuration
+        sendgrid_api_key = os.getenv('SENDGRID_API_KEY')
+        sendgrid_from_email = os.getenv('SENDGRID_FROM_EMAIL') or email_user
+        sendgrid_from_name = os.getenv('SENDGRID_FROM_NAME') or clinic_name
 
         # Validate config
         missing = []
@@ -131,8 +140,7 @@ def send_email(first_name, last_name, email, phone, message, appointment_type):
         if not recipient_email:
             missing.append('RECIPIENT_EMAIL')
         if missing:
-            logger.error("Email config missing: %s", ", ".join(missing))
-            return
+            logger.warning("SMTP config missing: %s", ", ".join(missing))
         
         # Format appointment type for display
         appointment_types = {
@@ -172,35 +180,110 @@ Sent from {clinic_name} Website Contact Form
         # Attach body to email
         msg.attach(MIMEText(body, 'plain'))
         
-        # Connect to SMTP and send email with explicit timeouts and TLS
-        timeout = float(os.getenv('SMTP_TIMEOUT', '10'))
-        server = None
-        try:
-            if smtp_port == 465:
-                context = ssl.create_default_context()
-                server = smtplib.SMTP_SSL(smtp_server, smtp_port, timeout=timeout, context=context)
-                server.ehlo()
-            else:
-                server = smtplib.SMTP(smtp_server, smtp_port, timeout=timeout)
-                server.ehlo()
-                context = ssl.create_default_context()
-                server.starttls(context=context)  # Enable encryption (STARTTLS)
-                server.ehlo()
-            server.login(email_user, email_password)
-            text = msg.as_string()
-            server.sendmail(email_user, recipient_email, text)
-            logger.info("Email sent successfully to %s via %s:%s", recipient_email, smtp_server, smtp_port)
-        finally:
+        # Try SMTP first if configured
+        sent = False
+        if smtp_server and smtp_port and email_user and email_password and recipient_email:
+            timeout = float(os.getenv('SMTP_TIMEOUT', '10'))
+            server = None
             try:
-                if server is not None:
-                    server.quit()
+                try:
+                    if smtp_port == 465:
+                        context = ssl.create_default_context()
+                        server = smtplib.SMTP_SSL(smtp_server, smtp_port, timeout=timeout, context=context)
+                        server.ehlo()
+                    else:
+                        server = smtplib.SMTP(smtp_server, smtp_port, timeout=timeout)
+                        server.ehlo()
+                        context = ssl.create_default_context()
+                        server.starttls(context=context)  # Enable encryption (STARTTLS)
+                        server.ehlo()
+                    server.login(email_user, email_password)
+                    text = msg.as_string()
+                    server.sendmail(email_user, recipient_email, text)
+                    sent = True
+                    logger.info("Email sent successfully to %s via SMTP %s:%s", recipient_email, smtp_server, smtp_port)
+                finally:
+                    try:
+                        if server is not None:
+                            server.quit()
+                    except Exception:
+                        pass
             except Exception:
-                pass
+                logger.exception("SMTP send failed; will try SendGrid if configured")
+
+        # If SMTP was not successful, try SendGrid over HTTPS
+        if not sent and sendgrid_api_key and sendgrid_from_email and recipient_email:
+            try:
+                sg_ok = send_email_via_sendgrid(
+                    api_key=sendgrid_api_key,
+                    from_email=sendgrid_from_email,
+                    from_name=sendgrid_from_name,
+                    to_email=recipient_email,
+                    subject=msg['Subject'],
+                    body=body,
+                    reply_to=email,
+                )
+                if sg_ok:
+                    sent = True
+                    logger.info("Email sent successfully to %s via SendGrid", recipient_email)
+                else:
+                    logger.error("SendGrid send returned non-success status")
+            except Exception:
+                logger.exception("SendGrid send failed")
+
+        if not sent:
+            logger.error("All email methods failed; submission stored only in logs")
         
     except Exception as e:
         logger.exception("Email sending failed")
         # Don't raise the exception - we don't want to break the form submission
         # if email fails, the form should still show success to the user
+
+
+def send_email_via_sendgrid(api_key: str, from_email: str, from_name: str, to_email: str, subject: str, body: str, reply_to: str | None = None) -> bool:
+    """Send a plain-text e-mail using SendGrid HTTP API v3 via HTTPS (port 443).
+
+    Uses only the Python standard library (urllib) to avoid extra dependencies.
+    Returns True on 2xx, False otherwise.
+    """
+    url = "https://api.sendgrid.com/v3/mail/send"
+    payload = {
+        "personalizations": [
+            {
+                "to": [{"email": to_email}],
+            }
+        ],
+        "from": {"email": from_email, "name": from_name},
+        "subject": subject,
+        "content": [{"type": "text/plain", "value": body}],
+    }
+    if reply_to:
+        payload["reply_to"] = {"email": reply_to}
+
+    data = json.dumps(payload).encode("utf-8")
+    req = urllib.request.Request(
+        url,
+        data=data,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=float(os.getenv('SMTP_TIMEOUT', '10'))) as resp:
+            # SendGrid returns 202 Accepted on success
+            return 200 <= resp.status < 300
+    except urllib.error.HTTPError as e:
+        try:
+            err_body = e.read().decode("utf-8", errors="ignore")
+        except Exception:
+            err_body = ""
+        logger.error("SendGrid HTTPError %s: %s", getattr(e, 'code', '?'), err_body)
+        return False
+    except Exception as e:
+        logger.error("SendGrid request failed: %s", str(e))
+        return False
 
 @app.get("/debug/email-connect")
 async def debug_email_connect():

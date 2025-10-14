@@ -18,6 +18,7 @@ Modern, responsive website for an acupuncture clinic. Frontend is a single page 
   - Health check: `GET /health` returns `OK` for uptime/monitoring and keep-awake pings.
 - Safe diagnostics: `GET /debug/email-config` returns non‑sensitive flags to verify env is set (not included in OpenAPI schema).
 - Additional diagnostics: `GET /debug/email-connect` checks SMTP host:port reachability with a short timeout (no auth performed).
+- Delivery strategy: Tries SMTP first; if unreachable or misconfigured and `SENDGRID_API_KEY` is present, falls back to SendGrid HTTP API (port 443).
 - Frontend form (in `index.html`) is progressively enhanced by `script.js`:
   - Client‑side validation, inline feedback, and AJAX submission with graceful fall‑back.
   - Displays success/error overlay; resets form on success.
@@ -38,6 +39,7 @@ Modern, responsive website for an acupuncture clinic. Frontend is a single page 
 - `GET /health` → Plain text `OK` response for monitors and keep‑awake jobs.
 - `GET /debug/email-config` → Non-sensitive config flags for troubleshooting.
 - `GET /debug/email-connect` → TCP reachability check for SMTP host:port.
+  - `sendgrid_set` appears when SendGrid fallback is configured.
 
 ## Deployment
 
@@ -67,6 +69,10 @@ Environment variables (see `.env.example`):
 - `CLINIC_NAME` – Used in email subject/body branding.
 - Optional: `LOG_LEVEL`, `PORT`.
  - Optional: `SMTP_TIMEOUT` – Seconds for SMTP connect/operations timeout (default 10).
+ - Optional (HTTP fallback):
+   - `SENDGRID_API_KEY` – Enables SendGrid fallback when SMTP is unreachable.
+   - `SENDGRID_FROM_EMAIL` – Verified sender address in SendGrid (defaults to `EMAIL_USER`).
+   - `SENDGRID_FROM_NAME` – Display name (defaults to `CLINIC_NAME`).
 
 Security notes:
 - No secrets are exposed via endpoints; `/debug/email-config` only returns boolean flags/port.
@@ -97,6 +103,7 @@ Quick endpoint checks:
 - SMTP resilience: Added explicit timeouts and hardened TLS (STARTTLS with SSL context and proper EHLO); also supports SMTPS on port 465. Optional `SMTP_TIMEOUT` env var controls timeouts.
 - Credential normalization: Strips spaces from `EMAIL_PASSWORD` at runtime to avoid failures when using providers that display app passwords with spaces.
 - Diagnostics: New `GET /debug/email-connect` endpoint to quickly verify that the deployment can reach the configured SMTP host:port.
+ - HTTP fallback for delivery: If SMTP cannot be reached from the hosting provider, the app now falls back to SendGrid when `SENDGRID_API_KEY` is set (uses HTTPS on port 443). Configure `SENDGRID_FROM_EMAIL` with a verified sender in SendGrid.
 
 ## Project Structure
 

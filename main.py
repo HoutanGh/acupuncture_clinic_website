@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Form, HTTPException
+from fastapi import FastAPI, Form, HTTPException, BackgroundTasks
 from fastapi.responses import JSONResponse, FileResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
@@ -7,6 +7,8 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import os
+import socket
+import ssl
 from dotenv import load_dotenv
 
 """FastAPI app serving static site + contact form.
@@ -77,6 +79,7 @@ async def debug_email_config():
 
 @app.post("/submit-form")
 async def submit_contact_form(
+    background_tasks: BackgroundTasks,
     first_name: str = Form(...),
     last_name: str = Form(...),
     email: str = Form(...),
@@ -88,9 +91,8 @@ async def submit_contact_form(
     try:
         # Minimal logging (avoid sensitive content)
         logger.info("Form submission: name='%s %s', email='%s', appt_type='%s'", first_name, last_name, email, appointment_type)
-
-        # Send email notification
-        send_email(first_name, last_name, email, phone, message, appointment_type)
+        # Send email notification in background to avoid blocking user response
+        background_tasks.add_task(send_email, first_name, last_name, email, phone, message, appointment_type)
 
         return JSONResponse(
             status_code=200,
@@ -109,6 +111,10 @@ def send_email(first_name, last_name, email, phone, message, appointment_type):
         smtp_port = int(os.getenv('SMTP_PORT') or 587)
         email_user = os.getenv('EMAIL_USER')
         email_password = os.getenv('EMAIL_PASSWORD')
+        # Some providers (e.g., Google) display app passwords with spaces for readability.
+        # Remove spaces to avoid authentication failures if the value was pasted verbatim.
+        if email_password:
+            email_password = email_password.replace(" ", "")
         recipient_email = os.getenv('RECIPIENT_EMAIL')
         clinic_name = os.getenv('CLINIC_NAME', 'HealthMaster Acupuncture Clinic')
 
@@ -166,22 +172,72 @@ Sent from {clinic_name} Website Contact Form
         # Attach body to email
         msg.attach(MIMEText(body, 'plain'))
         
-        # Connect to SMTP and send email
-        if smtp_port == 465:
-            server = smtplib.SMTP_SSL(smtp_server, smtp_port)
-        else:
-            server = smtplib.SMTP(smtp_server, smtp_port)
-            server.starttls()  # Enable encryption (STARTTLS)
-        server.login(email_user, email_password)
-        text = msg.as_string()
-        server.sendmail(email_user, recipient_email, text)
-        server.quit()
-        logger.info("Email sent successfully to %s via %s:%s", recipient_email, smtp_server, smtp_port)
+        # Connect to SMTP and send email with explicit timeouts and TLS
+        timeout = float(os.getenv('SMTP_TIMEOUT', '10'))
+        server = None
+        try:
+            if smtp_port == 465:
+                context = ssl.create_default_context()
+                server = smtplib.SMTP_SSL(smtp_server, smtp_port, timeout=timeout, context=context)
+                server.ehlo()
+            else:
+                server = smtplib.SMTP(smtp_server, smtp_port, timeout=timeout)
+                server.ehlo()
+                context = ssl.create_default_context()
+                server.starttls(context=context)  # Enable encryption (STARTTLS)
+                server.ehlo()
+            server.login(email_user, email_password)
+            text = msg.as_string()
+            server.sendmail(email_user, recipient_email, text)
+            logger.info("Email sent successfully to %s via %s:%s", recipient_email, smtp_server, smtp_port)
+        finally:
+            try:
+                if server is not None:
+                    server.quit()
+            except Exception:
+                pass
         
     except Exception as e:
         logger.exception("Email sending failed")
         # Don't raise the exception - we don't want to break the form submission
         # if email fails, the form should still show success to the user
+
+@app.get("/debug/email-connect")
+async def debug_email_connect():
+    """Attempt a TCP connect to the configured SMTP host:port with a short timeout.
+
+    This does NOT authenticate or send data; it only checks basic reachability.
+    Safe to expose: returns booleans and error text without secrets.
+    """
+    host = os.getenv('SMTP_SERVER')
+    port_str = os.getenv('SMTP_PORT')
+    try:
+        port = int(port_str) if port_str and port_str.isdigit() else None
+    except Exception:
+        port = None
+
+    if not host or not port:
+        return JSONResponse(status_code=200, content={
+            "host_set": bool(host),
+            "port": port,
+            "reachable": False,
+            "error": "SMTP_SERVER/SMTP_PORT not properly configured"
+        })
+
+    err = None
+    reachable = False
+    try:
+        with socket.create_connection((host, port), timeout=float(os.getenv('SMTP_TIMEOUT', '5'))):
+            reachable = True
+    except Exception as ex:
+        err = str(ex)
+
+    return JSONResponse(status_code=200, content={
+        "host_set": True,
+        "port": port,
+        "reachable": reachable,
+        "error": err
+    })
 
 @app.get("/health", include_in_schema=False, response_class=PlainTextResponse)
 async def health():

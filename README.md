@@ -17,6 +17,7 @@ Modern, responsive website for an acupuncture clinic. Frontend is a single page 
   - Form handler: `POST /submit-form` accepts multipart form data and sends an SMTP email.
   - Health check: `GET /health` returns `OK` for uptime/monitoring and keep-awake pings.
 - Safe diagnostics: `GET /debug/email-config` returns non‑sensitive flags to verify env is set (not included in OpenAPI schema).
+- Additional diagnostics: `GET /debug/email-connect` checks SMTP host:port reachability with a short timeout (no auth performed).
 - Frontend form (in `index.html`) is progressively enhanced by `script.js`:
   - Client‑side validation, inline feedback, and AJAX submission with graceful fall‑back.
   - Displays success/error overlay; resets form on success.
@@ -36,6 +37,7 @@ Modern, responsive website for an acupuncture clinic. Frontend is a single page 
 - `POST /submit-form` → Form submission; emails details to clinic.
 - `GET /health` → Plain text `OK` response for monitors and keep‑awake jobs.
 - `GET /debug/email-config` → Non-sensitive config flags for troubleshooting.
+- `GET /debug/email-connect` → TCP reachability check for SMTP host:port.
 
 ## Deployment
 
@@ -64,6 +66,7 @@ Environment variables (see `.env.example`):
 - `RECIPIENT_EMAIL` – Destination inbox for form submissions.
 - `CLINIC_NAME` – Used in email subject/body branding.
 - Optional: `LOG_LEVEL`, `PORT`.
+ - Optional: `SMTP_TIMEOUT` – Seconds for SMTP connect/operations timeout (default 10).
 
 Security notes:
 - No secrets are exposed via endpoints; `/debug/email-config` only returns boolean flags/port.
@@ -85,6 +88,15 @@ Prerequisites: Python 3.11+, `pip`.
 Quick endpoint checks:
 - `curl -i http://localhost:8001/health`
 - `curl -i -X POST -F first_name=A -F last_name=B -F email=a@b.com -F appointment_type=initial_consultation http://localhost:8001/submit-form`
+ - `curl -i http://localhost:8001/debug/email-config`
+ - `curl -i http://localhost:8001/debug/email-connect`
+
+## Recent Changes
+
+- Background e‑mail sending: Form submissions now enqueue e‑mail delivery in a FastAPI `BackgroundTasks` worker so the user response returns immediately (prevents long “Send” button buffering).
+- SMTP resilience: Added explicit timeouts and hardened TLS (STARTTLS with SSL context and proper EHLO); also supports SMTPS on port 465. Optional `SMTP_TIMEOUT` env var controls timeouts.
+- Credential normalization: Strips spaces from `EMAIL_PASSWORD` at runtime to avoid failures when using providers that display app passwords with spaces.
+- Diagnostics: New `GET /debug/email-connect` endpoint to quickly verify that the deployment can reach the configured SMTP host:port.
 
 ## Project Structure
 
